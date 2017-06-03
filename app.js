@@ -5,6 +5,8 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var bluebird = require('bluebird');
 
+var user_controller = require('./controllers/user.controller');
+
 var db = 'mongodb://' + process.env.IP + '/ssq';
 mongoose.Promise = bluebird;
 mongoose.connect(db);
@@ -16,6 +18,7 @@ app.use(morgan('dev'));
 
 app.use(express.static(path.join(__dirname, 'views')));
 
+app.post('/', user_controller.register);
 
 var port = process.env.PORT;
 app.listen(port, function() {
