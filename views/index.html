@@ -22,7 +22,7 @@
     <![endif]-->
   </head>
 
-  <body>
+  <body ng-app='ssq'>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -51,6 +51,7 @@
         <p class="lead">A way to discover and keep track of all the things you need to learn to become a developer.</p>
       </div>
 
+      <div ng-view></div>
       
       <form method='post'>
         <input type="text" name="username" placeholder= "Username" />
