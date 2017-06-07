@@ -5,6 +5,9 @@ exports.register = function(req, res) {
   newUser.username = req.body.username;
   newUser.email = req.body.email;
   newUser.password = req.body.password;
+  if (req.body.isAdmin) {
+    newUser.admin = true;
+  }
   
   newUser.save(function(err, user) {
     if (err) {

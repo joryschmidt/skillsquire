@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var bluebird = require('bluebird');
 
 var routes = require('./routes/index');
+var admin = require('./routes/admin');
 
 var db = 'mongodb://' + process.env.IP + '/ssq';
 mongoose.Promise = bluebird;
@@ -17,9 +18,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(morgan('dev'));
 
-app.use(express.static(path.join(__dirname, 'views')));
+app.set('views', path.join(__dirname, '/views'));
 
 app.use('/', routes);
+app.use('/admin', admin);
+app.use(express.static(path.join(__dirname, 'views')));
 
 var port = process.env.PORT;
 app.listen(port, function() {
