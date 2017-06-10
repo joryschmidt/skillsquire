@@ -4,6 +4,7 @@ var morgan = require('morgan');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var bluebird = require('bluebird');
+var sass = require('node-sass-middleware');
 
 var routes = require('./routes/index');
 var admin = require('./routes/admin');
@@ -18,11 +19,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(morgan('dev'));
 
-app.set('views', path.join(__dirname, '/views'));
+app.use(sass({
+  src: path.join(__dirname, 'views'),
+  dest: path.join(__dirname, 'views/css'),
+  debug: false,
+  outputStyle: 'expanded',
+  prefix: '/css'
+}));
+app.use(express.static(path.join(__dirname, 'views')));
 
 app.use('/', routes);
 app.use('/admin', admin);
-app.use(express.static(path.join(__dirname, 'views')));
 
 var port = process.env.PORT;
 app.listen(port, function() {
