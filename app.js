@@ -6,8 +6,9 @@ var bodyParser = require('body-parser');
 var bluebird = require('bluebird');
 var sass = require('node-sass-middleware');
 
-var routes = require('./routes/index');
+var main = require('./routes/index');
 var admin = require('./routes/admin');
+var resource = require('./routes/resource');
 
 var db = 'mongodb://' + process.env.IP + '/ssq';
 mongoose.Promise = bluebird;
@@ -28,8 +29,9 @@ app.use(sass({
 }));
 app.use(express.static(path.join(__dirname, 'views')));
 
-app.use('/', routes);
 app.use('/admin', admin);
+app.use('/resource', resource);
+app.use('/', main);
 
 var port = process.env.PORT;
 app.listen(port, function() {
