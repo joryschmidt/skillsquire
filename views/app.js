@@ -10,6 +10,10 @@
         templateUrl: 'templates/signup.html',
         controller: 'signupCtrl'
       })
+      .when('/login', {
+        templateUrl: 'templates/login.html',
+        controller: 'loginCtrl'
+      })
       .otherwise({ redirectTo: '/signup' });
   }]);
 
