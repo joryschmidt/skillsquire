@@ -12,5 +12,7 @@ router.get('/logout', user_controller.logout);
 
 router.get('/resources', resource_controller.getAll);
 
+router.get('/user', user_controller.getUser);
+
 
 module.exports = router;

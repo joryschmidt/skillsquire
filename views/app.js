@@ -14,6 +14,10 @@
         templateUrl: 'templates/login.html',
         controller: 'loginCtrl'
       })
+      .when('/dashboard', {
+        templateUrl: 'templates/dashboard.html',
+        controller: 'dashboardCtrl'
+      })
       .otherwise({ redirectTo: '/signup' });
   }]);
 

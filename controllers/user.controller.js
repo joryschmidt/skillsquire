@@ -1,11 +1,14 @@
 var User = require('../models/User.model');
+var bcrypt = require('bcrypt');
 
-exports.register = function(req, res) {
+exports.register = function(req, res, next) {
+  
+  var hash = bcrypt.hashSync(req.body.password, 10);
   
   var newUser = new User();
   newUser.username = req.body.username;
   newUser.email = req.body.email;
-  newUser.password = req.body.password;
+  newUser.password = hash;
   if (req.body.isAdmin) {
     newUser.admin = true;
   }
@@ -17,22 +20,24 @@ exports.register = function(req, res) {
     }
     else {
       console.log(user);
-      res.send("You've signed up successfully");
+      res.end();
+      next();
     }
   });
 };
 
-exports.login = function(req, res) {
-  User.findOne({ email: req.body.email }, function(err, user) {
+exports.login = function(req, res, next) {
+  User.findOne({ username: req.body.username }, function(err, user) {
     if (err) console.log(err);
     if (!user) {
       console.log("That user doesn't seem to exist");
-    } else if (req.body.password === user.password){
+    } else if (bcrypt.compareSync(req.body.password, user.password)) {
       req.session.user = user;
       console.log('Login successful');
-      res.redirect('/');
+      res.end();
+      next();
     } else {
-      console.log('Wrong password') ;
+      console.log('Wrong password mate') ;
     }
   });
 };
@@ -41,4 +46,9 @@ exports.logout = function(req, res) {
   req.session.reset();
   console.log('Logged out');
   res.redirect('/');
+};
+
+exports.getUser = function(req, res) {
+  var user = req.session.user;
+  res.json(user);
 };

@@ -49,7 +49,6 @@ app.use(function(req, res, next){
         req.session.reset();
         res.redirect('/login');
       } else {
-        res.locals.user = user;
         next();
       }
     });
