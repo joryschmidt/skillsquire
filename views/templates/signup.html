@@ -1,6 +1,6 @@
-<form id='signup_form' method='post'>
-  <input type="text" name="username" placeholder= "Username" />
-  <input type="email" name="email" placeholder="Email" />
-  <input type="password" name="password" placeholder="Password" />
+<form id='signup_form' ng-submit='submit()'>
+  <input type="text" name="username" placeholder= "Username" ng-model='user.username'/>
+  <input type="email" name="email" placeholder="Email" ng-model='user.email' />
+  <input type="password" name="password" placeholder="Password" ng-model='user.password' />
   <input type="submit" value="Submit" class='btn' />
 </form>

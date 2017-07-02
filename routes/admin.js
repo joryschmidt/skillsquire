@@ -6,7 +6,7 @@ var user_controller = require('../controllers/user.controller');
 var resource_controller = require('../controllers/resource.controller');
 
 router.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, '../views/admin_views/admin.html'));
+  res.sendFile(path.join(__dirname, '../views/admin_views/index.html'));
 });
 
 router.post('/', user_controller.register);

@@ -27,6 +27,8 @@ app.use(sass({
   outputStyle: 'expanded',
   prefix: '/css'
 }));
+
+app.use('/admin', express.static(path.join(__dirname, 'views/admin_views')));
 app.use(express.static(path.join(__dirname, 'views')));
 
 app.use('/admin', admin);
