@@ -5,6 +5,6 @@ angular.module('admin')
   $scope.resource = {};
   
   $scope.submit = function() {
-    $http({method: 'POST', url: 'admin/resource', data: $scope.resource });
+    $http({method: 'POST', url: '/admin/resource', data: $scope.resource });
   };
 }]);
