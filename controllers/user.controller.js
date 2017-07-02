@@ -28,9 +28,17 @@ exports.login = function(req, res) {
     if (!user) {
       console.log("That user doesn't seem to exist");
     } else if (req.body.password === user.password){
+      req.session.user = user;
       console.log('Login successful');
+      res.redirect('/');
     } else {
       console.log('Wrong password') ;
     }
   });
+};
+
+exports.logout = function(req, res) {
+  req.session.reset();
+  console.log('Logged out');
+  res.redirect('/');
 };
