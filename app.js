@@ -44,6 +44,10 @@ app.use('/admin', requireAdmin, admin);
 app.use('/resource', resource);
 app.use('/', main);
 
+app.use(function(req, res) {
+  res.sendFile(path.join(__dirname, 'views/index.html'));
+});
+
 var port = process.env.PORT;
 app.listen(port, function() {
   console.log('App listening on port', port);
@@ -60,5 +64,5 @@ function requireAdmin(req, res, next) {
 
 function requireLogin(req, res, next) {
   if (req.session.user) next();
-  else res.redirect('/#!/login');
+  else res.redirect('/login');
 }
