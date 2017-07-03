@@ -5,6 +5,6 @@ angular.module('ssq')
   
   $scope.submit = function() {
     $http({ method: 'POST', url: '/login', data: $scope.user });
-    $location.path('/dashboard');
+    $location.path('/profile');
   };
 }]);

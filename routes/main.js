@@ -4,7 +4,7 @@ var router = express.Router();
 var user_controller = require('../controllers/user.controller');
 var resource_controller = require('../controllers/resource.controller');
 
-router.post('/', user_controller.register);
+router.post('/user', user_controller.register);
 
 router.post('/login', user_controller.login);
 

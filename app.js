@@ -7,9 +7,7 @@ var bluebird = require('bluebird');
 var sass = require('node-sass-middleware');
 var sessions = require('client-sessions');
 
-var User = require('./models/User.model');
-
-var main = require('./routes/index');
+var main = require('./routes/main');
 var admin = require('./routes/admin');
 var resource = require('./routes/resource');
 
@@ -19,10 +17,7 @@ mongoose.connect(db);
 
 var app = express();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:false}));
-app.use(morgan('dev'));
-
+// Middleware
 app.use(sass({
   src: path.join(__dirname, 'views'),
   dest: path.join(__dirname, 'views/css'),
@@ -38,29 +33,14 @@ app.use(sessions({
   activeDuration: 20 * 60 * 1000
 }));
 
-app.use(function(req, res, next){
-  if (req.session && req.session.user) {
-    User.findOne({ username: req.session.user.username }, function(err, user) {
-      if (err) {
-        console.log(err);
-        res.send('There was an error with your user credentials');
-        res.redirect('/');
-      } else if (!user) {
-        req.session.reset();
-        res.redirect('/login');
-      } else {
-        next();
-      }
-    });
-  } else {
-    next();
-  }
-});
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(morgan('dev'));
 
-app.use('/admin', express.static(path.join(__dirname, 'views/admin_views')));
 app.use(express.static(path.join(__dirname, 'views')));
+app.use('/admin', requireAdmin, express.static(path.join(__dirname, 'views/admin_views')));
 
-app.use('/admin', admin);
+app.use('/admin', requireAdmin, admin);
 app.use('/resource', resource);
 app.use('/', main);
 
@@ -68,3 +48,17 @@ var port = process.env.PORT;
 app.listen(port, function() {
   console.log('App listening on port', port);
 });
+
+// Custom middleware
+function requireAdmin(req, res, next) {
+  if (req.session.user && req.session.user.admin) {
+    next();
+  } else {
+    res.redirect('/');
+  }
+}
+
+function requireLogin(req, res, next) {
+  if (req.session.user) next();
+  else res.redirect('/#!/login');
+}

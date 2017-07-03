@@ -1,6 +1,6 @@
 (function() {
   var app = angular.module('ssq', ['ngRoute']);
-  app.config(['$routeProvider', function($routeProvider) {
+  app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'templates/home.html',
@@ -18,7 +18,13 @@
         templateUrl: 'templates/dashboard.html',
         controller: 'dashboardCtrl'
       })
-      .otherwise({ redirectTo: '/signup' });
+      .when('/profile', {
+        templateUrl: 'templates/profile.html',
+        controller: 'profileCtrl'
+      })
+      .otherwise({ redirectTo: '/' });
+      
+    // $locationProvider.html5Mode(true);
   }]);
-
+  
 })();
