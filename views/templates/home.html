@@ -5,7 +5,7 @@
 
 <div class='row'>
   <div class='col-md-4 resource' ng-repeat="resource in resources">
-    <div class='rs-name rs-{{ resource.name | lowercase }}'>{{ resource.name }}</div>
+    <div class='rs-name rs-{{ resource.className }} btn btn-default btn-block'>{{ resource.name }}</div>
     <div class='rs-description'>{{ resource.description }}</div>
   </div>
 </div>

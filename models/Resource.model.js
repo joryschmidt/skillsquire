@@ -10,6 +10,19 @@ var ResourceSchema = new Schema({
   description: {
     type: String,
     required: true
+  },
+  rating: {
+    type: Number,
+    min: 0,
+    max: 5
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  },
+  className: {
+    type: String,
+    lowercase: true
   }
 });
 

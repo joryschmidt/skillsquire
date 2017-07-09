@@ -5,12 +5,14 @@ var UserSchema = new Schema({
   username: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
+    trim: true
   },
   email: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
+    trim: true
   },
   password: {
     type: String,
@@ -19,6 +21,10 @@ var UserSchema = new Schema({
   admin: {
     type: Boolean,
     default: false
+  },
+  dateJoined: {
+    type: Date,
+    default: Date.now
   }
 });
 
