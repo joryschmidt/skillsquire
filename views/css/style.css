@@ -6,3 +6,9 @@ body {
   padding: 40px 15px;
   text-align: center;
 }
+
+.resource {
+  text-align: center;
+  padding: 2px;
+  margin-bottom: 10px;
+}

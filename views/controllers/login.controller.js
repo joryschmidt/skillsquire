@@ -4,10 +4,11 @@ angular.module('ssq')
   $scope.user = {};
   
   $scope.submit = function() {
-    $http({ method: 'POST', url: '/login', data: $scope.user }).then(function() {
+    $http({ method: 'POST', url: '/login', data: $scope.user }).then(
+    function() {
       window.location.href = '#!/profile';
-    }, function() {
-      $location.path('/login');
+    }, function(rspns) {
+      window.location.reload();
     });
   };
 }]);

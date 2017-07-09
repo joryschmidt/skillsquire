@@ -1,5 +1,11 @@
-<div ng-repeat="resource in resources">
-  {{ resource.name }}
-  <br />
-  {{ resource.description }}
+<div class="starter-template jumbotron">
+  <h1>SkillSquire</h1>
+  <p class="lead">A way to discover and keep track of all the things you need to learn to become a developer.</p>
+</div>
+
+<div class='row'>
+  <div class='col-md-4 resource' ng-repeat="resource in resources">
+    <div class='rs-name rs-{{ resource.name | lowercase }}'>{{ resource.name }}</div>
+    <div class='rs-description'>{{ resource.description }}</div>
+  </div>
 </div>

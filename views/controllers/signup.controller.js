@@ -4,7 +4,8 @@ angular.module('ssq')
   $scope.user = {};
   
   $scope.submit = function() {
-    $http({method: 'POST', url: '/user', data: $scope.user });
-    $location.path('/login');
+    $http({method: 'POST', url: '/user', data: $scope.user }).then(function() {
+      $location.path('/login');
+    });
   };
 }]);

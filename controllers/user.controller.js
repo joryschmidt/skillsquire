@@ -31,6 +31,8 @@ exports.login = function(req, res, next) {
     if (err) console.log(err);
     if (!user) {
       console.log("That user doesn't seem to exist");
+      res.status(401).end();
+      next();
     } else if (bcrypt.compareSync(req.body.password, user.password)) {
       delete user.password;
       req.session.user = user;
