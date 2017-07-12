@@ -54,5 +54,5 @@ exports.logout = function(req, res) {
 exports.getUser = function(req, res) {
   var user = req.session.user;
   if (user) res.json(req.session.user);
-  else res.send(null);
+  else res.status(404).send(null);
 };

@@ -38,11 +38,11 @@
           <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="#">Home</a></li>
             <li><a href='#!/about'>About</a></li>
-            <li><a href='#!/profile'>Profile</a></li>
-            <li><a href='#!/login'>Login</a></li>
-            <li><a href='logout'>Logout</a></li>
-            <li><a href='#!/signup'>Sign Up</a></li>
-            <li><a href='admin'>Admin Panel</a></li>
+            <li><a href='#!/profile' ng-show='userLoggedIn'>Profile</a></li>
+            <li><a href='#!/login' ng-hide='userLoggedIn'>Login</a></li>
+            <li><a href='/logout' ng-show='userLoggedIn'>Logout</a></li>
+            <li><a href='#!/signup' ng-hide='userLoggedIn'>Sign Up</a></li>
+            <li><a href='admin' ng-if='userIsAdmin'>Admin Panel</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -68,5 +68,11 @@
     <script type="text/javascript" src="controllers/dashboard.controller.js"></script>
     <script type="text/javascript" src="controllers/profile.controller.js"></script>
     
+    <script>
+    // This script is to prevent the DOM from being visible before Angular does its thing
+      $(document).ready(function() {
+        $('body').css('visibility', 'visible');
+      });
+    </script>
   </body>
 </html>

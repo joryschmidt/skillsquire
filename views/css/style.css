@@ -1,5 +1,6 @@
 body {
   padding-top: 50px;
+  visibility: hidden;
 }
 
 .starter-template {
@@ -11,4 +12,16 @@ body {
   text-align: center;
   padding: 2px;
   margin-bottom: 10px;
+}
+
+.rs-name {
+  width: 85%;
+}
+
+.rs-desc-button {
+  width: 15%;
+}
+
+.glyphicon {
+  pointer-events: none;
 }

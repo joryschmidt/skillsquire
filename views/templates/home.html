@@ -4,8 +4,14 @@
 </div>
 
 <div class='row'>
-  <div class='col-md-4 resource' ng-repeat="resource in resources">
-    <div class='rs-name rs-{{ resource.className }} btn btn-default btn-block'>{{ resource.name }}</div>
-    <div class='rs-description'>{{ resource.description }}</div>
+  <div class='col-md-4 resource' ng-repeat="rsc in resources">
+    <div class='btn-group btn-block'>
+      <div class='rs-name btn btn-default' id='{{ rsc.className }}'>{{ rsc.name }}</div>
+      <div class='rs-desc-button btn btn-default' id='{{ rsc.className }}Details' ng-click='showDetails($event)'><span class='glyphicon glyphicon-align-justify' aria-hidden='true'></span></div>
+    </div>
+    <div class='rs-details' ng-show='{{rsc.className}}Details'>
+      <div class='rs-description'>{{ rsc.description }}</div>
+      <div class='rs-rating'>{{ rsc.rating }}</div>
+    </div>
   </div>
 </div>

@@ -22,7 +22,7 @@ var UserSchema = new Schema({
     type: Boolean,
     default: false
   },
-  dateJoined: {
+  joined: {
     type: Date,
     default: Date.now
   }

@@ -27,4 +27,17 @@
     // $locationProvider.html5Mode(true);
   }]);
   
+  app.run(['$rootScope', '$http', function($rootScope, $http) {
+    $http({method: 'GET', url: '/user'}).then(
+    function(query) {
+      $rootScope.userLoggedIn = true;
+      var user = query.data;
+      if (user.admin) $rootScope.userIsAdmin = true;
+    }, 
+    function() {
+      $rootScope.userLoggedIn = false;
+      $rootScope.userIsAdmin = false;
+    });
+  }]);
+  
 })();

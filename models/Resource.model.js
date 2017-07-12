@@ -14,15 +14,19 @@ var ResourceSchema = new Schema({
   rating: {
     type: Number,
     min: 0,
-    max: 5
+    max: 5,
+    default: 0
   },
-  date: {
+  created: {
     type: Date,
     default: Date.now
   },
   className: {
     type: String,
     lowercase: true
+  },
+  category: {
+    type: String
   }
 });
 

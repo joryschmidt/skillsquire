@@ -7,7 +7,7 @@ exports.create = function(req, res) {
   var newResource = new Resource();
   newResource.name = req.body.name;
   newResource.description = req.body.description;
-  newResource.rating = Number(req.body.rating);
+  if (req.body.rating) newResource.rating = Number(req.body.rating);
   newResource.className = className;
   
   newResource.save(function(err, resource) {
