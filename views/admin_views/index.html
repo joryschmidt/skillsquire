@@ -58,5 +58,11 @@
     <script type="text/javascript" src="controllers/create.admin.controller.js"></script>
     <script type="text/javascript" src="controllers/resource.controller.js"></script>
     
+    <script>
+    // This script is to prevent the DOM from being visible before Angular does its thing
+      $(document).ready(function() {
+        $('body').css('visibility', 'visible');
+      });
+    </script>
   </body>
 </html>

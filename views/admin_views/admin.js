@@ -13,5 +13,9 @@ angular.module('admin', ['ngRoute'])
       templateUrl: 'templates/create_admin.html',
       controller: 'createAdminCtrl'
     })
+    .when('/delete_resource', {
+      templateUrl: 'templates/delete_resource.html',
+      controller: 'deleteResourceCtrl'
+    })
     .otherwise({ redirectTo: '/' });
 }]);

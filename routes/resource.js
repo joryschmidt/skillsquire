@@ -5,4 +5,6 @@ var resource_controller = require('../controllers/resource.controller');
 
 // router.get('/', resource_controller.getOne);
 
+router.delete('/:id', resource_controller.deleteResource);
+
 module.exports = router;
