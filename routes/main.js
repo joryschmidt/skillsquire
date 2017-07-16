@@ -3,6 +3,7 @@ var router = express.Router();
 
 var user_controller = require('../controllers/user.controller');
 var resource_controller = require('../controllers/resource.controller');
+var categories_controller = require('../contrllers/categories.controller');
 
 router.get('/user', user_controller.getUser);
 
@@ -20,6 +21,7 @@ router.get('/logout', user_controller.logout);
 
 router.get('/resources', resource_controller.getAll);
 
+router.get('/categories', categories_controller.getAll);
 
 
 module.exports = router;

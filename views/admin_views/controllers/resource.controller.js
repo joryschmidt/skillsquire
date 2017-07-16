@@ -10,9 +10,9 @@ angular.module('admin')
   };
   
   $http.get('/categories').then(function(q) {
-    
+    $scope.categories = q.data.categories;
   }, function() {
-    console.log('No categories :(');
+    console.log('No cats :(');
   });
 }])
 
