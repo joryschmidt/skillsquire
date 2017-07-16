@@ -61,19 +61,24 @@ exports.getUser = function(req, res) {
 exports.getProfile = function(req, res) {
   var user = req.session.user;
   if (user) {
-    var list = user.resourceList;
-    if (list) {
-      Resource.find({ _id: { $in: list }}, function(err, rscs) {
-        if (err) {
-          console.log(err);
-          res.status(404).end();
+    User.findOne({ username: user.username }, function(err, user) {
+      if (err) console.log('MongoDB could not find user');
+      else {
+        var list = user.resourceList;
+        if (list) {
+          Resource.find({ _id: { $in: list }}, function(err, rscs) {
+            if (err) {
+              console.log(err);
+              res.json({ user: user, resources: [] });
+            } else {
+              res.json({ user: user, resources: rscs });
+            }
+          });
         } else {
-          res.json({ user: user, list: rscs });
+          res.json({ user: user, resources: [] });
         }
-      });
-    } else {
-      res.json({ user: user, list: [] });
-    }
+      }
+    });
   }
   else res.status(404).send(null);
 };
@@ -81,6 +86,14 @@ exports.getProfile = function(req, res) {
 exports.addResource = function(req, res) {
   var id = req.body.id;
   User.update({ _id: req.session.user._id }, { $push: { resourceList: id }}, function(err, raw) {
+    if (err) console.log(err);
+    else console.log('MongoDB says:', raw);
+  });
+};
+
+exports.removeResource = function(req, res) {
+  var id = req.body.id;
+  User.update({ _id: req.session.user._id }, { $pull: { resourceList: id }}, function(err, raw) {
     if (err) console.log(err);
     else console.log('MongoDB says:', raw);
   });

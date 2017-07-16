@@ -7,7 +7,7 @@
 
 <h2>My Resources</h2>
 <div class='col-md-5'>
-  <div class='resource userRscList' ng-repeat="rsc in list">
+  <div class='resource userRscList' ng-repeat="rsc in resources">
     <div class='btn-group btn-block'>
       <div class='rs-name btn btn-default' id='{{ rsc.className }}'>{{ rsc.name }}</div>
       <div class='rs-desc btn btn-info'    id='{{ rsc.className }}Details' ng-click='showDetails($event)'><span class='glyphicon glyphicon-align-justify' aria-hidden='true'></span></div>

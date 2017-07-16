@@ -8,11 +8,12 @@ angular.module('ssq')
   };
   
   $scope.removeRsc = function(id) {
-    
+    $http({ method: 'PUT', url: '/user/remove_resource', data: { id: id }});
   };
   
   $http({method: 'GET', url: '/user/profile'}).then(function(query) {
+    console.log(query.data);
     $scope.user = query.data.user;
-    $scope.list = query.data.list;
+    $scope.resources = query.data.resources;
   });
 }]);

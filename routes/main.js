@@ -12,6 +12,8 @@ router.post('/user', user_controller.register);
 
 router.put('/user/add_resource', user_controller.addResource);
 
+router.put('/user/remove_resource', user_controller.removeResource);
+
 router.post('/login', user_controller.login);
 
 router.get('/logout', user_controller.logout);
