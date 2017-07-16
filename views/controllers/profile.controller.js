@@ -16,7 +16,6 @@ angular.module('ssq')
   };
   
   $http({method: 'GET', url: '/user/profile'}).then(function(query) {
-    console.log(query.data);
     $scope.user = query.data.user;
     $scope.resources = query.data.resources;
   });
