@@ -26,7 +26,7 @@ var UserSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  rscList: [{ type: Schema.ObjectId, ref: 'Resource' }]
+  resourceList: [{ type: Schema.ObjectId, ref: 'Resource' }]
 });
 
 module.exports = mongoose.model('User', UserSchema);

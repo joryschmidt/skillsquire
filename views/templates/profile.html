@@ -5,7 +5,18 @@
   <p>Admin: {{ user.admin }}</p>
 </div>
 
-<div class='userRscList'>
-  <h2>My Resources</h2>
-  {{ user.rscList }}
+<h2>My Resources</h2>
+<div class='col-md-5'>
+  <div class='resource userRscList' ng-repeat="rsc in list">
+    <div class='btn-group btn-block'>
+      <div class='rs-name btn btn-default' id='{{ rsc.className }}'>{{ rsc.name }}</div>
+      <div class='rs-desc btn btn-info'    id='{{ rsc.className }}Details' ng-click='showDetails($event)'><span class='glyphicon glyphicon-align-justify' aria-hidden='true'></span></div>
+      <div class='rs-add  btn btn-danger' id='{{ rsc.className }}Remove' ng-click='removeRsc(rsc._id)'><span class='glyphicon glyphicon-minus' aria-hidden='true'></span></div>
+      
+    </div>
+    <div class='rs-details' ng-show='{{rsc.className}}Details'>
+      <div class='rs-description'>{{ rsc.description }}</div>
+      <div class='rs-rating'>{{ rsc.rating }}</div>
+    </div>
+  </div>
 </div>

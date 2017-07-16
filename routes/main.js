@@ -6,7 +6,11 @@ var resource_controller = require('../controllers/resource.controller');
 
 router.get('/user', user_controller.getUser);
 
+router.get('/user/profile', user_controller.getProfile);
+
 router.post('/user', user_controller.register);
+
+router.put('/user/add_resource', user_controller.addResource);
 
 router.post('/login', user_controller.login);
 

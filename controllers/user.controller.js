@@ -1,4 +1,5 @@
 var User = require('../models/User.model');
+var Resource = require('../models/Resource.model');
 var bcrypt = require('bcrypt');
 
 exports.register = function(req, res, next) {
@@ -53,6 +54,34 @@ exports.logout = function(req, res) {
 
 exports.getUser = function(req, res) {
   var user = req.session.user;
-  if (user) res.json(req.session.user);
+  if (user) res.json(user);
+  else res.status(404).end();
+};
+
+exports.getProfile = function(req, res) {
+  var user = req.session.user;
+  if (user) {
+    var list = user.resourceList;
+    if (list) {
+      Resource.find({ _id: { $in: list }}, function(err, rscs) {
+        if (err) {
+          console.log(err);
+          res.status(404).end();
+        } else {
+          res.json({ user: user, list: rscs });
+        }
+      });
+    } else {
+      res.json({ user: user, list: [] });
+    }
+  }
   else res.status(404).send(null);
+};
+
+exports.addResource = function(req, res) {
+  var id = req.body.id;
+  User.update({ _id: req.session.user._id }, { $push: { resourceList: id }}, function(err, raw) {
+    if (err) console.log(err);
+    else console.log('MongoDB says:', raw);
+  });
 };

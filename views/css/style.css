@@ -12,17 +12,21 @@ body {
   text-align: center;
   padding: 2px;
   margin-bottom: 10px;
-  clear: none;
 }
 
 .rs-name {
-  width: 85%;
+  width: 70%;
 }
 
-.rs-desc-button {
+.rs-desc {
+  width: 15%;
+}
+
+.rs-add {
   width: 15%;
 }
 
 .glyphicon {
+  color: black;
   pointer-events: none;
 }

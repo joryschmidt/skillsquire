@@ -7,6 +7,10 @@ angular.module('ssq')
     $scope[prop] ? $scope[prop] = false : $scope[prop] = true;
   };
   
+  $scope.addRsc = function(id) {
+    $http({ method: 'PUT', url: '/user/add_resource', data: { id: id }});
+  };
+  
   $http({ method: 'GET', url: '/resources'}).then(function(query) {
     var resources = query.data;
     
