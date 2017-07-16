@@ -1,0 +1,3 @@
+Reorder profile resources by drag and drop
+CSRF security, implement with help from angular $http
+Display homepage resources by category

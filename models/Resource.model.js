@@ -25,8 +25,8 @@ var ResourceSchema = new Schema({
     type: String,
     lowercase: true
   },
-  category: {
-    type: String
+  categories: {
+    type: Array 
   }
 });
 

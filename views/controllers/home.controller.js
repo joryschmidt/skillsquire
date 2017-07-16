@@ -1,14 +1,16 @@
 angular.module('ssq')
 
 .controller('homeCtrl', ['$scope', '$http', function($scope, $http) {
-  $http({ method: 'GET', url: '/resources'}).then(function(query) {
+  $http.get('/resources').then(function(query) {
     var resources = query.data;
     
     $scope.resources = resources;
   });
   
-  $http({ method: 'GET', url: 'user/profile'}).then(function(query) {
+  $http.get('/user/profile').then(function(query) {
     $scope.user_resources = query.data.resources;
+  }, function() {
+    console.log('No user logged in');
   });
   
   $scope.showDetails = function(event) {
@@ -17,7 +19,7 @@ angular.module('ssq')
   };
   
   $scope.addRsc = function(id) {
-    $http({ method: 'PUT', url: '/user/add_resource', data: { id: id }});
+    $http.put('/user/add_resource', { id: id });
     var len = $scope.resources.length;
     var rs;
     for (var i=0; i<len; i++) {

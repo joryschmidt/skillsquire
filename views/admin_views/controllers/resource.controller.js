@@ -8,6 +8,12 @@ angular.module('admin')
     $http({method: 'POST', url: '/admin/resource', data: $scope.resource });
     $location.path('/');
   };
+  
+  $http.get('/categories').then(function(q) {
+    
+  }, function() {
+    console.log('No categories :(');
+  });
 }])
 
 .controller('deleteResourceCtrl', ['$http', '$scope', function($http, $scope) {
