@@ -94,7 +94,11 @@ exports.addResource = function(req, res) {
 exports.removeResource = function(req, res) {
   var id = req.body.id;
   User.update({ _id: req.session.user._id }, { $pull: { resourceList: id }}, function(err, raw) {
-    if (err) console.log(err);
+    if (err) {
+      console.log(err);
+      res.status(500).end();
+    }
     else console.log('MongoDB says:', raw);
+    res.status(200).end();
   });
 };
