@@ -3,14 +3,40 @@ angular.module('admin')
 .controller('resourceCtrl', ['$http', '$scope', '$location', function($http, $scope, $location) {
   
   $scope.resource = {};
+  $scope.resource.categories = [];
   
   $scope.submit = function() {
-    $http({method: 'POST', url: '/admin/resource', data: $scope.resource });
+    $http({method: 'POST', url: '/admin/resource', data: $scope.resource }).then(function(response) {
+      for (var cat in $scope.categories) {
+        if ($scope.categories[cat] == true) {
+          $http.put('/admin/resource/update_category/' + response.data._id, { cat: cat }).then(function() {
+            console.log('Updated category');
+          }, function(err) {
+            console.log(err);
+          });
+        }
+      }
+    });
     $location.path('/');
   };
   
+  $scope.addNewCategory = function() {
+    $http.put('/categories/add', { cat: $scope.newCat }).then(function(q) {
+      console.log('Added category');
+      $scope.categories[$scope.newCat] = false;
+      $scope.newCat = null;
+    }, function(err) {
+      console.log('Error: ', err);
+    });
+  };
+  
   $http.get('/categories').then(function(q) {
-    $scope.categories = q.data.categories;
+    var categories = q.data.categories;
+    var len = categories.length;
+    $scope.categories = {};
+    for (var i=0; i<len; i++) {
+      $scope.categories[categories[i]] = false;
+    }
   }, function() {
     console.log('No cats :(');
   });

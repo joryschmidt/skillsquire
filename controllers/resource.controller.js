@@ -16,7 +16,7 @@ exports.create = function(req, res) {
       res.send('Error creating resource');
     } else {
       console.log(resource);
-      res.send('Resource successfully created');
+      res.json(resource);
     }
   });
 };
@@ -30,7 +30,24 @@ exports.getAll = function(req, res) {
 
 exports.deleteResource = function(req, res) {
   Resource.findOneAndRemove({ _id: req.params.id }, function(err, resource) {
-    if (err) console.log(err);
-    console.log(resource.name, 'has been deleted.');
+    if (err) {
+      console.log(err);
+      res.status(500).end();
+    } else {
+      console.log(resource.name, 'has been deleted.');
+      res.status(200).end();
+    }
+  });
+};
+
+exports.updateCategory = function(req, res) {
+  Resource.update({ _id: req.params.id }, { $push: { categories: req.body.cat }}, function(err, raw) {
+    if (err) {
+      console.log(err);
+      res.status(500).end();
+    } else {
+      console.log(raw);
+      res.status(200).end();
+    }
   });
 };

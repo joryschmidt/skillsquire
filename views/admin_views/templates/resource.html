@@ -13,6 +13,15 @@
     <option value='5'>5</option>
   </select>
   <br /><br />
-  <input type='checkbox' ng-repeat='category in categories' ng-model='resource.categories' />
+  <div class='rsc-category' ng-repeat='(cat, selected) in categories'>
+    <label for='{{ cat }}'>
+      <input type='checkbox' value='cat' name='cat' ng-model='categories[cat]' /> {{ cat }} 
+    </label>
+  </div>
   <input type='submit' value='Create' />
+</form>
+
+<form ng-submit='addNewCategory()'>
+  <input type='text' id='new-category' name='new-category' placeholder='Add New Category' ng-model='newCat' />
+  <input type='submit' value='Add Category' />
 </form>

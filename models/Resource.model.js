@@ -25,9 +25,7 @@ var ResourceSchema = new Schema({
     type: String,
     lowercase: true
   },
-  categories: {
-    type: Array 
-  }
+  categories: [String]
 });
 
 module.exports = mongoose.model('Resource', ResourceSchema);

@@ -1,7 +1,7 @@
 var Categories = require('../models/Categories.model');
 
 exports.getAll = function(req, res) {
-  Categories.find({ _id: 'categories' }, function(err, cats) {
+  Categories.findOne({ _id: 'categories' }, function(err, cats) {
     if (err) res.status(404).end();
     else res.json(cats);
   });

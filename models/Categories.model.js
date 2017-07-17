@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var CategoriesSchema = new Schema({
   _id: String,
-  categories: Array
+  categories: [{ type: String }]
 });
 
 module.exports = mongoose.model('Categories', CategoriesSchema);
