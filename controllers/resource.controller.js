@@ -62,3 +62,4 @@ exports.addCategory = function(req, res) {
     }
   });
 };
+

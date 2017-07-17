@@ -48,10 +48,17 @@ angular.module('admin')
     $scope.resources = query.data;
   });
   
+  $scope.$watch($scope.resources, function() {
+    
+  });
+  
   $scope.goodbye = function(rscId, rscName) {
     if (window.confirm(`Are you sure you want to delete ${rscName}?`)) {
-      $http({ method: 'DELETE', url: '/resource/' + rscId });
-      window.location.reload();
+      $http({ method: 'DELETE', url: '/resource/' + rscId }).then(function() {
+        $scope.resources.forEach(function(rs, i) {
+          if(rs.name == rscName) $scope.resources.splice(i, 1);
+        });
+      });
     }
   };
 }]);
