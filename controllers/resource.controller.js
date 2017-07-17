@@ -40,7 +40,7 @@ exports.deleteResource = function(req, res) {
   });
 };
 
-exports.updateCategory = function(req, res) {
+exports.addCategory = function(req, res) {
   Resource.update({ _id: req.params.id }, { $push: { categories: req.body.cat }}, function(err, raw) {
     if (err) {
       console.log(err);

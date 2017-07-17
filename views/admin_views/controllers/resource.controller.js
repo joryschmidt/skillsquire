@@ -7,9 +7,10 @@ angular.module('admin')
   
   $scope.submit = function() {
     $http({method: 'POST', url: '/admin/resource', data: $scope.resource }).then(function(response) {
+      // Having serious problems trying to get Angular to send resource.categories anything but an empty array, so this will have to do for now
       for (var cat in $scope.categories) {
         if ($scope.categories[cat] == true) {
-          $http.put('/admin/resource/update_category/' + response.data._id, { cat: cat }).then(function() {
+          $http.put('/admin/resource/add_category/' + response.data._id, { cat: cat }).then(function() {
             console.log('Updated category');
           }, function(err) {
             console.log(err);
