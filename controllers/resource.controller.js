@@ -28,6 +28,17 @@ exports.getAll = function(req, res) {
   });
 };
 
+exports.getOne = function(req, res) {
+  Resource.findOne({ _id: req.params.id }, function(err, resource) {
+    if (err) {
+      console.log(err);
+      res.status(500).end();
+    } else {
+      res.json(resource);
+    }
+  });
+};
+
 exports.deleteResource = function(req, res) {
   Resource.findOneAndRemove({ _id: req.params.id }, function(err, resource) {
     if (err) {
