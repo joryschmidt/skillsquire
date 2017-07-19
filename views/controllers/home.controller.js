@@ -1,10 +1,23 @@
 angular.module('ssq')
 
 .controller('homeCtrl', ['$scope', '$http', function($scope, $http) {
+  
   $http.get('/resources').then(function(query) {
     var resources = query.data;
     
     $scope.resources = resources;
+    // Populate categories with resources
+    $http.get('/categories').then(function(query) {
+      var cats = query.data.categories;
+      $scope.categories = cats;
+      $scope.cat_rscs = {};
+      for (var i=0; i<cats.length; i++) {
+        $scope.cat_rscs[cats[i]] = [];
+        for (var j=0; j<resources.length; j++) {
+          if (resources[j].categories.indexOf(cats[i]) != -1) $scope.cat_rscs[cats[i]].push(resources[j]);
+        }
+      }
+    });
   });
   
   $http.get('/user/profile').then(function(query) {

@@ -40,4 +40,10 @@
     });
   }]);
   
+  app.filter('nospaces', function() {
+    return function(txt) {
+      return txt.replace(/\s/g, '');
+    };
+  });
+  
 })();
