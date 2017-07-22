@@ -9,6 +9,9 @@ var ResourceSchema = new Schema({
   },
   description: {
     type: String,
+  },
+  link: {
+    type: String,
     required: true
   },
   rating: {

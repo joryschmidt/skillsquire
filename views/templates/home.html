@@ -20,7 +20,7 @@
 <div class='row' ng-if='homeRadio == "all"'>
   <div class='col-md-4 resource' ng-repeat="rsc in resources">
     <div class='btn-group btn-block'>
-      <div class='rs-name btn btn-default' id='{{ rsc.className }}'>{{ rsc.name }}</div>
+      <a class='rs-name btn btn-default' id='{{ rsc.className }}' ng-href='{{ rsc.link }}' target='_blank'>{{ rsc.name }}</a>
       <div class='rs-desc btn btn-info'    id='{{ rsc.className }}Details' ng-click='showDetails($event)'><span class='glyphicon glyphicon-align-justify' aria-hidden='true'></span></div>
       <div class='rs-add  btn btn-warning' ng-if='userLoggedIn && !userHasResource(rsc)' id='{{ rsc.className }}Add' ng-click='addRsc(rsc._id)'><span class='glyphicon glyphicon-plus' aria-hidden='true'></span></div>
       <div class='rs-add  btn btn-success' ng-if='userLoggedIn && userHasResource(rsc)' id='{{ rsc.className }}Added'><span class='glyphicon glyphicon-ok' aria-hidden='true'></span></div>
@@ -41,7 +41,7 @@
     <hr />
     <div class='col-md-4 resource' ng-repeat="rsc in cat_rscs[category]">
       <div class='btn-group btn-block'>
-        <div class='rs-name btn btn-default' id='{{ rsc.className }}'>{{ rsc.name }}</div>
+        <a class='rs-name btn btn-default'  id='{{ rsc.className }}' ng-href='{{ rsc.link }}' target='_blank'>{{ rsc.name }}</a>
         <div class='rs-desc btn btn-info'    id='{{ rsc.className }}{{ category | nospaces }}Details' ng-click='showDetails($event)'><span class='glyphicon glyphicon-align-justify' aria-hidden='true'></span></div>
         <div class='rs-add  btn btn-warning' ng-if='userLoggedIn && !userHasResource(rsc)' id='{{ rsc.className }}Add' ng-click='addRsc(rsc._id)'><span class='glyphicon glyphicon-plus' aria-hidden='true'></span></div>
         <div class='rs-add  btn btn-success' ng-if='userLoggedIn && userHasResource(rsc)' id='{{ rsc.className }}Added'><span class='glyphicon glyphicon-ok' aria-hidden='true'></span></div>

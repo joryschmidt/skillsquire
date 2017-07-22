@@ -17,6 +17,8 @@ angular.module('admin')
           });
         }
       }
+    }, function(response) {
+      console.log(response.data);
     });
     $location.path('/');
   };

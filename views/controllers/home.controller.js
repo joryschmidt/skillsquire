@@ -27,7 +27,9 @@ angular.module('ssq')
   });
   
   $scope.showDetails = function(event) {
+    var resc = angular.element(event.target.parentNode.parentNode.children[1]);
     var prop = event.target.id;
+    $scope[prop] ? resc.removeClass('resource-expanded') : resc.addClass('resource-expanded');
     $scope[prop] ? $scope[prop] = false : $scope[prop] = true;
   };
   

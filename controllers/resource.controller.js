@@ -7,13 +7,14 @@ exports.create = function(req, res) {
   var newResource = new Resource();
   newResource.name = req.body.name;
   newResource.description = req.body.description;
+  newResource.link = req.body.link;
   if (req.body.rating) newResource.rating = Number(req.body.rating);
   newResource.className = className;
   
   newResource.save(function(err, resource) {
     if (err) {
       console.log(err);
-      res.send('Error creating resource');
+      res.status(500).send("Error creating resource. Perhaps try making sure your fields are valid.");
     } else {
       console.log(resource);
       res.json(resource);
