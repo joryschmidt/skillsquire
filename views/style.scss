@@ -1,5 +1,5 @@
 $rsc-border: 1px solid lightgrey;
-$rsc-border-radius: 3px;
+$rsc-border-radius: 5px;
 
 body {
   padding-top: 50px;
@@ -17,23 +17,24 @@ body {
   margin-bottom: 10px;
 }
 
-.resource-expanded {
-  border-bottom: $rsc-border;
-  border-left: $rsc-border;
-  border-right: $rsc-border;
-  border-bottom-left-radius: $rsc-border-radius;
-  border-bottom-right-radius: $rsc-border-radius;
-}
-
 .rs-name {
   width: 70%;
 }
 
 .rs-details {
-  padding-top: 3px;
+  padding-top: 6px;
   padding-bottom: 3px;
   margin-top: -3px;
   width: 99.5%;
+  border-bottom: $rsc-border;
+  border-left: $rsc-border;
+  border-right: $rsc-border;
+  border-bottom-left-radius: $rsc-border-radius;
+  border-bottom-right-radius: $rsc-border-radius;
+  
+  div {
+    display: inline;
+  }
 }
 
 .rs-desc {

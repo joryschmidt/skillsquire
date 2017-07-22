@@ -1,5 +1,5 @@
 (function() {
-  var app = angular.module('ssq', ['ngRoute']);
+  var app = angular.module('ssq', ['ngRoute', 'ngAnimate']);
   app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
@@ -45,5 +45,21 @@
       return txt.replace(/\s/g, '');
     };
   });
+  
+  app.animation('.slide', function() {
+	var NG_HIDE_CLASS = 'ng-hide';
+	return {
+		beforeAddClass: function(element, className, done) {
+			if(className === NG_HIDE_CLASS) {
+				element.slideUp(100, done);
+			}
+		},
+		removeClass: function(element, className, done) {
+			if(className === NG_HIDE_CLASS) {
+				element.hide().slideDown(100, done);
+			}
+		}
+	};
+});
   
 })();
