@@ -47,19 +47,25 @@
   });
   
   app.animation('.slide', function() {
-	var NG_HIDE_CLASS = 'ng-hide';
-	return {
-		beforeAddClass: function(element, className, done) {
-			if(className === NG_HIDE_CLASS) {
-				element.slideUp(100, done);
-			}
-		},
-		removeClass: function(element, className, done) {
-			if(className === NG_HIDE_CLASS) {
-				element.hide().slideDown(100, done);
-			}
-		}
-	};
-});
-  
+  	var NG_HIDE_CLASS = 'ng-hide';
+  	return {
+  		beforeAddClass: function(element, className, done) {
+  			if(className === NG_HIDE_CLASS) {
+  				element.slideUp(100, done);
+  			}
+  		},
+  		removeClass: function(element, className, done) {
+  			if(className === NG_HIDE_CLASS) {
+  				element.hide().slideDown(100, done);
+  			}
+  		}
+  	};
+  });
+	
+	app.directive('resourceTemplate', function() {
+	  return {
+	    restrict: 'E',
+	    templateUrl: 'templates/resource-template.html'
+	  };
+  });
 })();
