@@ -8,6 +8,7 @@ exports.create = function(req, res) {
   newResource.name = req.body.name;
   newResource.description = req.body.description;
   newResource.link = req.body.link;
+  newResource.color = req.body.color;
   if (req.body.rating) newResource.rating = Number(req.body.rating);
   newResource.className = className;
   
