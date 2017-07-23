@@ -6,7 +6,8 @@
 </div>
 <div class='rs-details slide' ng-show='expand'>
   <div class='rs-rating'>
-    <span><span ng-repeat='i in [].constructor(rsc.rating) track by $index' class='glyphicon glyphicon-star' aria-hidden='true'></span> &ndash; </span>
+    <span ng-if='rsc.rating'><span ng-repeat='i in [].constructor(rsc.rating) track by $index' class='glyphicon glyphicon-star' aria-hidden='true'></span> &ndash; </span>
+    <span ng-if='!rsc.rating'>Not yet rated &ndash; </span>
   </div>
   <div class='rs-description'>{{ rsc.description }}</div>
   <div class='rs-categories'>{{ rsc.categories }}</div>

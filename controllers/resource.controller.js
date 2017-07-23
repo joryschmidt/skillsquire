@@ -23,7 +23,7 @@ exports.create = function(req, res) {
 };
 
 exports.getAll = function(req, res) {
-  Resource.find(function(err, resources) {
+  Resource.find().sort({ rating: -1 }).exec(function(err, resources) {
     if (err) console.log(err);
     else res.json(resources);
   });
