@@ -22,6 +22,10 @@
         templateUrl: 'templates/profile.html',
         controller: 'profileCtrl'
       })
+      .when('/detail/:id', {
+        templateUrl: 'templates/detail.html',
+        controller: 'detailCtrl'
+      })
       .otherwise({ redirectTo: '/' });
       
     // $locationProvider.html5Mode(true);

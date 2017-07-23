@@ -3,3 +3,4 @@ Add subtle jQuery animation to refresh
 CSRF security, implement with help from angular $http
 Auto scroll if description goes off screen
 Allow users to rate resources
+Add resource detail view, including logos

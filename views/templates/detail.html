@@ -1,0 +1,13 @@
+<div class='banner' style='background-color: {{ resource.color }};'></div>
+<br />
+<h1 class='detailName'>{{ resource.name }}</h1>
+<h3>Leave a Rating!</h3>
+<form ng-submit='submit()'>
+  <select name='rating' id='rating' ng-model='user.rating'>
+    <option value='1'>1</option>
+    <option value='2'>2</option>
+    <option value='3'>3</option>
+    <option value='4'>4</option>
+    <option value='5'>5</option>
+  </select>
+</form>
