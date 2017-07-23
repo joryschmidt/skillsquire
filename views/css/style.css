@@ -1,6 +1,33 @@
+@font-face {
+  font-family: 'fatboy';
+  src: url("fbsbltc2.ttf");
+}
+
 body {
   padding-top: 50px;
   visibility: hidden;
+}
+
+.home-heading {
+  font-family: 'fatboy';
+  font-size: 80px;
+  font-weight: bold;
+  display: inline;
+}
+
+a, a:hover, a:visited, a:active {
+  color: black;
+  text-decoration: none;
+}
+
+.displaySelector {
+  display: inline;
+  float: right;
+  margin: 15px;
+}
+
+.row {
+  margin-top: 40px;
 }
 
 .starter-template {
@@ -16,6 +43,7 @@ body {
 
 .rs-name {
   width: 70%;
+  font-weight: bold;
 }
 
 .rs-details {
