@@ -2,6 +2,8 @@
 <form ng-submit='submit()'>
   <input type='text' name='name' placeholder='Name' ng-model='resource.name' />
   <br /><br />
+  <input type='text' name='link' placeholder='Link' ng-model='resource.link' />
+  <br /><br />
   <textarea name='description' id='resource-description' placeholder='Description' rows='10' cols='50' ng-model='resource.description'></textarea>
   <br /><br />
   <label for='rating'>Rating: </label>
@@ -13,5 +15,15 @@
     <option value='5'>5</option>
   </select>
   <br /><br />
+  <div class='rsc-category' ng-repeat='(cat, selected) in categories'>
+    <label for='{{ cat }}'>
+      <input type='checkbox' value='cat' name='cat' ng-model='categories[cat]' /> {{ cat }} 
+    </label>
+  </div>
   <input type='submit' value='Create' />
+</form>
+
+<form ng-submit='addNewCategory()'>
+  <input type='text' id='new-category' name='new-category' placeholder='Add New Category' ng-model='newCat' />
+  <input type='submit' value='Add Category' />
 </form>

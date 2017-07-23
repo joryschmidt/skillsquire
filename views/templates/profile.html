@@ -8,14 +8,16 @@
 <div class='col-md-5'>
   <div class='resource userRscList' ng-repeat="rsc in resources">
     <div class='btn-group btn-block'>
-      <div class='rs-name btn btn-default' id='{{ rsc.className }}'>{{ rsc.name }}</div>
-      <div class='rs-desc btn btn-info'    id='{{ rsc.className }}Details' ng-click='showDetails($event)'><span class='glyphicon glyphicon-align-justify' aria-hidden='true'></span></div>
+      <a class='rs-name btn btn-default' id='{{ rsc.className }}' ng-href='{{ rsc.link }}' target='_blank'>{{ rsc.name }}</a>
+      <div class='rs-desc btn btn-info'   id='{{ rsc.className }}Details' ng-click='expand = !expand'><span class='glyphicon glyphicon-align-justify' aria-hidden='true'></span></div>
       <div class='rs-add  btn btn-danger' id='{{ rsc.className }}Remove' ng-click='removeRsc(rsc._id)'><span class='glyphicon glyphicon-minus' aria-hidden='true'></span></div>
       
     </div>
-    <div class='rs-details' ng-show='{{rsc.className}}Details'>
-      <div class='rs-description'>{{ rsc.description }}</div>
-      <div class='rs-rating'>{{ rsc.rating }}</div>
+    <div class='rs-details slide' ng-show='expand'>
+      <div class='rs-rating'>
+        <span><span ng-repeat='i in [].constructor(rsc.rating) track by $index' class='glyphicon glyphicon-star'></span> &ndash;</span>
+      </div>
+      <div class='rs-decription'>{{ rsc.description }}</div>
     </div>
   </div>
 </div>

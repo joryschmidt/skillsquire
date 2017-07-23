@@ -7,16 +7,17 @@ exports.create = function(req, res) {
   var newResource = new Resource();
   newResource.name = req.body.name;
   newResource.description = req.body.description;
+  newResource.link = req.body.link;
   if (req.body.rating) newResource.rating = Number(req.body.rating);
   newResource.className = className;
   
   newResource.save(function(err, resource) {
     if (err) {
       console.log(err);
-      res.send('Error creating resource');
+      res.status(500).send("Error creating resource. Perhaps try making sure your fields are valid.");
     } else {
       console.log(resource);
-      res.send('Resource successfully created');
+      res.json(resource);
     }
   });
 };
@@ -28,9 +29,38 @@ exports.getAll = function(req, res) {
   });
 };
 
-exports.deleteResource = function(req, res) {
-  Resource.findOneAndRemove({ _id: req.params.id }, function(err, resource) {
-    if (err) console.log(err);
-    console.log(resource.name, 'has been deleted.');
+exports.getOne = function(req, res) {
+  Resource.findOne({ _id: req.params.id }, function(err, resource) {
+    if (err) {
+      console.log(err);
+      res.status(500).end();
+    } else {
+      res.json(resource);
+    }
   });
 };
+
+exports.deleteResource = function(req, res) {
+  Resource.findOneAndRemove({ _id: req.params.id }, function(err, resource) {
+    if (err) {
+      console.log(err);
+      res.status(500).end();
+    } else {
+      console.log(resource.name, 'has been deleted.');
+      res.status(200).end();
+    }
+  });
+};
+
+exports.addCategory = function(req, res) {
+  Resource.update({ _id: req.params.id }, { $push: { categories: req.body.cat }}, function(err, raw) {
+    if (err) {
+      console.log(err);
+      res.status(500).end();
+    } else {
+      console.log(raw);
+      res.status(200).end();
+    }
+  });
+};
+

@@ -13,4 +13,6 @@ router.get('/resource', function(req, res) {
 
 router.post('/resource', resource_controller.create);
 
+router.put('/resource/add_category/:id', resource_controller.addCategory);
+
 module.exports = router;

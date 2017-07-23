@@ -2,19 +2,47 @@ angular.module('ssq')
 
 .controller('homeCtrl', ['$scope', '$http', function($scope, $http) {
   
-  $scope.showDetails = function(event) {
-    var prop = event.target.id;
-    $scope[prop] ? $scope[prop] = false : $scope[prop] = true;
-  };
-  
-  $scope.addRsc = function(id) {
-    $http({ method: 'PUT', url: '/user/add_resource', data: { id: id }});
-  };
-  
-  $http({ method: 'GET', url: '/resources'}).then(function(query) {
+  $http.get('/resources').then(function(query) {
     var resources = query.data;
     
-    
     $scope.resources = resources;
+    // Populate categories with resources
+    $http.get('/categories').then(function(query) {
+      var cats = query.data.categories;
+      $scope.categories = cats;
+      $scope.cat_rscs = {};
+      for (var i=0; i<cats.length; i++) {
+        $scope.cat_rscs[cats[i]] = [];
+        for (var j=0; j<resources.length; j++) {
+          if (resources[j].categories.indexOf(cats[i]) != -1) $scope.cat_rscs[cats[i]].push(resources[j]);
+        }
+      }
+    });
   });
+  
+  $http.get('/user/profile').then(function(query) {
+    $scope.user_resources = query.data.resources;
+  }, function() {
+    console.log('No user logged in');
+  });
+  
+  $scope.addRsc = function(id) {
+    $http.put('/user/add_resource', { id: id });
+    var len = $scope.resources.length;
+    var rs;
+    for (var i=0; i<len; i++) {
+      if ($scope.resources[i]._id == id) rs = $scope.resources[i];
+    }
+    $scope.user_resources.push(rs);
+  };
+  
+  $scope.user_resources = [];
+  $scope.userHasResource = function(rs) {
+    var len = $scope.user_resources.length;
+    for (var i=0; i<len; i++) {
+      if (rs._id == $scope.user_resources[i]._id) return true;
+    }
+    return false;
+  };
+  
 }]);

@@ -10,6 +10,7 @@ var sessions = require('client-sessions');
 var main = require('./routes/main');
 var admin = require('./routes/admin');
 var resource = require('./routes/resource');
+var user = require('./routes/user');
 
 var db = 'mongodb://' + process.env.IP + '/ssq';
 mongoose.Promise = bluebird;
@@ -42,6 +43,7 @@ app.use('/admin', requireAdmin, express.static(path.join(__dirname, 'views/admin
 
 app.use('/admin', requireAdmin, admin);
 app.use('/resource', resource);
+app.use('/user', user);
 app.use('/', main);
 
 // app.use(function(req, res) {

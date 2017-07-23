@@ -9,6 +9,9 @@ var ResourceSchema = new Schema({
   },
   description: {
     type: String,
+  },
+  link: {
+    type: String,
     required: true
   },
   rating: {
@@ -25,9 +28,7 @@ var ResourceSchema = new Schema({
     type: String,
     lowercase: true
   },
-  category: {
-    type: String
-  }
+  categories: [String]
 });
 
 module.exports = mongoose.model('Resource', ResourceSchema);
