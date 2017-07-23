@@ -16,6 +16,7 @@ body {
   font-size: 80px;
   font-weight: bold;
   display: inline;
+  margin-left: 40px;
 }
 
 a, a:hover, a:visited, a:active {
@@ -30,7 +31,7 @@ a, a:hover, a:visited, a:active {
 }
 
 .row {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .starter-template {
@@ -42,11 +43,6 @@ a, a:hover, a:visited, a:active {
   text-align: center;
   padding: 2px;
   margin-bottom: 10px;
-}
-
-.rs-name {
-  width: 70%;
-  font-weight: bold;
 }
 
 .rs-details {
@@ -63,6 +59,15 @@ a, a:hover, a:visited, a:active {
   div {
     display: inline;
   }
+}
+
+.rs-link {
+  width: 10%;
+}
+
+.rs-name {
+  width: 60%;
+  font-weight: bold;
 }
 
 .rs-desc {

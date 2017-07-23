@@ -5,10 +5,11 @@
 </div>
 
 <h2>My Resources</h2>
-<div class='col-md-5'>
+<div class='col-md-4 col-md-offset-1'>
   <div class='resource userRscList' ng-repeat="rsc in resources">
     <div class='btn-group btn-block'>
-      <a class='rs-name btn btn-default' id='{{ rsc.className }}' ng-href='{{ rsc.link }}' target='_blank'>{{ rsc.name }}</a>
+      <a class='rs-link btn btn-default' id='{{ rsc.className }}Color' ng-href='{{ rsc.link }}' style="background-color: {{ rsc.color }};" target='_blank'> &nbsp; </a>
+      <a class='rs-name btn btn-default' id='{{ rsc.className }}'>{{ rsc.name }}</a>
       <div class='rs-desc btn btn-info'   id='{{ rsc.className }}Details' ng-click='expand = !expand'><span class='glyphicon glyphicon-align-justify' aria-hidden='true'></span></div>
       <div class='rs-add  btn btn-danger' id='{{ rsc.className }}Remove' ng-click='removeRsc(rsc._id)'><span class='glyphicon glyphicon-minus' aria-hidden='true'></span></div>
       

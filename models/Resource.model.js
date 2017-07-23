@@ -14,10 +14,18 @@ var ResourceSchema = new Schema({
     type: String,
     required: true
   },
+  color: {
+    type: String,
+    default: '#cccccc'
+  },
   rating: {
     type: Number,
     min: 0,
     max: 5,
+    default: 0
+  },
+  numRatings: {
+    type: Number,
     default: 0
   },
   created: {
