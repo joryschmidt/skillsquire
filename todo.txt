@@ -1,4 +1,5 @@
 Reorder profile resources by drag and drop
 Add subtle jQuery animation to refresh
 CSRF security, implement with help from angular $http
-Display homepage resources by category
+Auto scroll if description goes off screen
+Allow users to rate resources

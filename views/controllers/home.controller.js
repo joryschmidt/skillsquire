@@ -26,13 +26,6 @@ angular.module('ssq')
     console.log('No user logged in');
   });
   
-  $scope.showDetails = function(event) {
-    // var resc = angular.element(event.target.parentNode.parentNode.children[1]);
-    var prop = event.target.id;
-    // $scope[prop] ? resc.slideUp() : resc.slideDown();
-    $scope[prop] ? $scope[prop] = false : $scope[prop] = true;
-  };
-  
   $scope.addRsc = function(id) {
     $http.put('/user/add_resource', { id: id });
     var len = $scope.resources.length;
