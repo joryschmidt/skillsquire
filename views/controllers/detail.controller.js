@@ -4,13 +4,16 @@ angular.module('ssq')
   
   var id = $routeParams.id;
   $http.get('/resource/' + id).then(function(query) {
-    console.log(query.data);
     $scope.resource = query.data;
+    $scope.rating = {
+      name: query.data.className
+    };
   });
   
-  var user = {};
   
   $scope.submit = function() {
-    
+    $http.post('/user/rate', $scope.rating).then(function(response) {
+      console.log(response.status);
+    });
   };
 }]);

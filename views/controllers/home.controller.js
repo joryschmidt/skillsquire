@@ -45,4 +45,8 @@ angular.module('ssq')
     return false;
   };
   
+  $scope.roundRating = function(rating) {
+    return Math.round(rating);
+  };
+  
 }]);

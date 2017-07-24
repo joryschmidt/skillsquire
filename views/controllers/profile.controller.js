@@ -15,6 +15,10 @@ angular.module('ssq')
     });
   };
   
+  $scope.roundRating = function(rating) {
+    return Math.round(rating);
+  };
+  
   $http({method: 'GET', url: '/user/profile'}).then(function(query) {
     $scope.user = query.data.user;
     $scope.resources = query.data.resources;
