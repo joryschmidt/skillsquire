@@ -18,6 +18,9 @@ var ResourceSchema = new Schema({
     type: String,
     default: '#cccccc'
   },
+  logo: {
+    type: String
+  },
   rating: {
     type: Number,
     min: 0,

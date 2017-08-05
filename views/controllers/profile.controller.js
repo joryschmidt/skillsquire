@@ -19,6 +19,10 @@ angular.module('ssq')
     return Math.round(rating);
   };
   
+  $scope.submit = function() {
+    
+  };
+  
   $http({method: 'GET', url: '/user/profile'}).then(function(query) {
     $scope.user = query.data.user;
     $scope.resources = query.data.resources;

@@ -9,6 +9,7 @@ exports.create = function(req, res) {
   newResource.description = req.body.description;
   newResource.link = req.body.link;
   newResource.color = req.body.color;
+  newResource.logo = req.body.logo;
   if (req.body.rating) newResource.rating = Number(req.body.rating);
   newResource.className = className;
   
