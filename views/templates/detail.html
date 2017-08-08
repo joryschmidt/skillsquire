@@ -8,14 +8,14 @@
 <div class='col-md-7 rs-detail-view-details'>
   <h3>Leave a Rating!</h3>
   <form ng-submit='submit()'>
-    <select name='rating' id='rating' ng-model='rating.rating'>
+    <select name='rating' id='rating' ng-model='data.rating'>
       <option value='1'>1</option>
       <option value='2'>2</option>
       <option value='3'>3</option>
       <option value='4'>4</option>
       <option value='5'>5</option>
     </select>
-    <span>Your Rating: {{ rating.rating }}</span>
+    <span>Your Rating: {{ data.rating }}</span>
     <input type='submit' value='Submit Rating' />
   </form>
 </div>

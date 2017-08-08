@@ -118,6 +118,7 @@ exports.rate = function(req, res) {
       res.status(500).send('User could not be found');
     } else {
       var ratings = user.ratings || {};
+      console.log(name);
       if (!ratings[name]) {
         updateRating(name, rating, false);
       } else {
