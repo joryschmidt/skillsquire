@@ -1,4 +1,5 @@
 var Resource = require('../models/Resource.model');
+var Queue = require('../models/Queue.model');
 
 exports.create = function(req, res) {
   
@@ -20,6 +21,25 @@ exports.create = function(req, res) {
     } else {
       console.log(resource);
       res.json(resource);
+    }
+  });
+};
+
+exports.queue = function(req, res) {
+  var newQueue = new Queue();
+  newQueue.name = req.body.name;
+  newQueue.link = req.body.link;
+  newQueue.user = req.body.user;
+  
+  console.log(req.body);
+  
+  newQueue.save(function(err, q) {
+    if (err) { 
+      console.log(err);
+      res.status(500);
+    } else {
+      console.log(q);
+      res.json(q);
     }
   });
 };

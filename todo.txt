@@ -4,4 +4,3 @@ CSRF security, implement with help from angular $http
 Auto scroll if description goes off screen
 Add pagination, probably with Angular
 Add ability for users to submit resources, template done, work on mailer first
-Add password confirmation on signup

@@ -7,4 +7,6 @@ router.get('/:id', resource_controller.getOne);
 
 router.delete('/:id', resource_controller.deleteResource);
 
+router.post('/queue', resource_controller.queue);
+
 module.exports = router;
