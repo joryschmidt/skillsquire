@@ -108,3 +108,54 @@ exports.removeResource = function(req, res) {
     res.status(200).end();
   });
 };
+
+exports.rate = function(req, res) {
+  var name = req.body.name;
+  var rating = Number(req.body.rating);
+  User.findOne({ _id: req.session.user._id }, function(err, user) {
+    if (err) {
+      console.log(err);
+      res.status(500).send('User could not be found');
+    } else {
+      var ratings = user.ratings || {};
+      console.log(name);
+      if (!ratings[name]) {
+        updateRating(name, rating, false);
+      } else {
+        updateRating(name, rating, true, ratings[name]);
+      }
+      ratings[name] = rating;
+      User.update({ _id: req.session.user._id }, { $set: { ratings: ratings }}, function(err, raw) {
+        if (err) {
+          console.log(err);
+          res.status(500).send('New rating could not be saved');
+        } else {
+          console.log('MongoDB says:', raw);
+          res.status(200).end();
+        }
+      });    
+    }
+  });
+};
+
+function updateRating(rscName, rating, rerate, old_rating) {
+  var newRating;
+  Resource.findOne({ className: rscName }, function(err, resource) {
+    if (err) console.log(err);
+    else {
+      if (rerate) {
+        newRating = (resource.rating * resource.numRatings - old_rating + rating)/ resource.numRatings;
+        Resource.update({ className: rscName }, { $set: { rating: newRating }}, function(err, raw) {
+          if (err) console.log(err);
+          else console.log('Rerate successful');
+        });
+      } else {
+        newRating = (resource.rating * resource.numRatings + rating)/(resource.numRatings + 1);
+        Resource.update({ className: rscName }, { $set: { rating: newRating }, $inc: {numRatings : 1}}, function(err, raw) {
+          if (err) console.log(err);
+          else console.log('Rating updated and numRatings incremented');
+        });
+      }
+    }
+  });
+}

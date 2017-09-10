@@ -2,4 +2,6 @@ Reorder profile resources by drag and drop
 Add subtle jQuery animation to refresh
 CSRF security, implement with help from angular $http
 Auto scroll if description goes off screen
-Allow users to rate resources
+Add pagination, probably with Angular
+Add ability for admins to approve resources
+Work on mailer 

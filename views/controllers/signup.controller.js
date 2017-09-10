@@ -4,8 +4,12 @@ angular.module('ssq')
   $scope.user = {};
   
   $scope.submit = function() {
-    $http({method: 'POST', url: '/user', data: $scope.user }).then(function() {
-      $location.path('/login');
-    });
+    if ($scope.user.password == $scope.user.confirmation) {
+      $http({method: 'POST', url: '/user', data: $scope.user }).then(function() {
+        $location.path('/login');
+      });
+    } else {
+      alert('Password fields do not match');
+    }
   };
 }]);

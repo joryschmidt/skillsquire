@@ -10,6 +10,7 @@ angular.module('ssq')
     $http.get('/categories').then(function(query) {
       var cats = query.data.categories;
       $scope.categories = cats;
+      // Populate cat_rscs object with category keys and arrays of resources having that category as values
       $scope.cat_rscs = {};
       for (var i=0; i<cats.length; i++) {
         $scope.cat_rscs[cats[i]] = [];
@@ -43,6 +44,10 @@ angular.module('ssq')
       if (rs._id == $scope.user_resources[i]._id) return true;
     }
     return false;
+  };
+  
+  $scope.roundRating = function(rating) {
+    return Math.round(rating);
   };
   
 }]);

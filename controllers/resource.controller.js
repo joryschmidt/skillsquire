@@ -1,4 +1,5 @@
 var Resource = require('../models/Resource.model');
+var Queue = require('../models/Queue.model');
 
 exports.create = function(req, res) {
   
@@ -8,6 +9,8 @@ exports.create = function(req, res) {
   newResource.name = req.body.name;
   newResource.description = req.body.description;
   newResource.link = req.body.link;
+  newResource.color = req.body.color;
+  newResource.logo = req.body.logo;
   if (req.body.rating) newResource.rating = Number(req.body.rating);
   newResource.className = className;
   
@@ -22,8 +25,27 @@ exports.create = function(req, res) {
   });
 };
 
+exports.queue = function(req, res) {
+  var newQueue = new Queue();
+  newQueue.name = req.body.name;
+  newQueue.link = req.body.link;
+  newQueue.user = req.body.user;
+  
+  console.log(req.body);
+  
+  newQueue.save(function(err, q) {
+    if (err) { 
+      console.log(err);
+      res.status(500);
+    } else {
+      console.log(q);
+      res.json(q);
+    }
+  });
+};
+
 exports.getAll = function(req, res) {
-  Resource.find(function(err, resources) {
+  Resource.find().sort({ rating: -1 }).exec(function(err, resources) {
     if (err) console.log(err);
     else res.json(resources);
   });
@@ -63,4 +85,3 @@ exports.addCategory = function(req, res) {
     }
   });
 };
-

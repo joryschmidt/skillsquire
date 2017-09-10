@@ -1,13 +1,15 @@
 <div class='btn-group btn-block'>
-  <a class='rs-name btn btn-default'  id='{{ rsc.className }}' ng-href='{{ rsc.link }}' target='_blank'>{{ rsc.name }}</a>
+  <a class='rs-link btn btn-default' id='{{ rsc.className }}Color' ng-href='{{ rsc.link }}' style="background-color: {{ rsc.color }};" target='_blank'> &nbsp; </a>
+  <a class='rs-name btn btn-default'  id='{{ rsc.className }}' ng-href='#!/detail/{{ rsc._id }}'>{{ rsc.name }}</a>
   <div class='rs-desc btn btn-info'    ng-click='expand = !expand'><span class='glyphicon glyphicon-align-justify' aria-hidden='true'></span></div>
   <div class='rs-add  btn btn-warning' ng-if='userLoggedIn && !userHasResource(rsc)' id='{{ rsc.className }}Add' ng-click='addRsc(rsc._id)'><span class='glyphicon glyphicon-plus' aria-hidden='true'></span></div>
   <div class='rs-add  btn btn-success' ng-if='userLoggedIn && userHasResource(rsc)' id='{{ rsc.className }}Added'><span class='glyphicon glyphicon-ok' aria-hidden='true'></span></div>
+  <a   class='rs-add  btn btn-warning' ng-if='!userLoggedIn' id='{{ rsc.className }}Add' href='#!/login'><span class='glyphicon glyphicon-plus' aria-hidden='true'></span></a>
 </div>
 <div class='rs-details slide' ng-show='expand'>
   <div class='rs-rating'>
-    <span><span ng-repeat='i in [].constructor(rsc.rating) track by $index' class='glyphicon glyphicon-star' aria-hidden='true'></span> &ndash; </span>
+    <span ng-if='rsc.rating'><span ng-repeat='i in [].constructor(roundRating(rsc.rating)) track by $index' class='glyphicon glyphicon-star' aria-hidden='true'></span> &ndash; </span>
+    <span ng-if='!rsc.rating'>Not yet rated &ndash; </span>
   </div>
   <div class='rs-description'>{{ rsc.description }}</div>
-  <div class='rs-categories'>{{ rsc.categories }}</div>
 </div>
