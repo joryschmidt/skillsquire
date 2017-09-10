@@ -3,4 +3,5 @@ Add subtle jQuery animation to refresh
 CSRF security, implement with help from angular $http
 Auto scroll if description goes off screen
 Add pagination, probably with Angular
-Add ability for users to submit resources, template done, work on mailer first
+Add ability for admins to approve resources
+Work on mailer 
