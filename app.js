@@ -13,8 +13,9 @@ var resource = require('./routes/resource');
 var user = require('./routes/user');
 
 var db = 'mongodb://' + process.env.IP + '/ssq';
+
 mongoose.Promise = bluebird;
-mongoose.connect(db);
+mongoose.connect(process.env.MONGODB_URI || db);
 
 var app = express();
 
