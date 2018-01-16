@@ -33,6 +33,17 @@ angular.module('admin')
     });
   };
   
+  $scope.removeQItem = function(id) {
+    $http.delete('/admin/resource/queue/' + id).then(function(response) {
+      console.log(response);
+      $scope.queue.forEach(function(que, i) {
+        if (que._id == id) $scope.queue.splice(i, 1);
+      });
+    }, function() {
+      console.log('The deletion did not work as expected');
+    });
+  };
+  
   $http.get('/categories').then(function(q) {
     var categories = q.data.categories;
     var len = categories.length;
