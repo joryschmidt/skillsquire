@@ -24,6 +24,8 @@ angular.module('ssq')
   $scope.submit = function() {
     $http({method: 'POST', url: '/resource/queue', data: $scope.newResource}).then(function(response) {
       console.log(response.data);
+      $scope.newResource.name = 'THANK YOU';
+      $scope.newResource.link = 'THANK YOU';
     }, function() {
       console.log('sorry, no bueno');
     });

@@ -44,6 +44,25 @@ exports.queue = function(req, res) {
   });
 };
 
+exports.getQueue = function(req, res) {
+  Queue.find().exec(function(err, q) {
+    if (err) console.log(err);
+    else res.json(q);
+  });
+};
+
+exports.removeQueueItem = function(req, res) {
+  Queue.findOneAndRemove({ _id: req.params.id }, function(err, q) {
+    if (err) {
+      console.log(err);
+      res.status(500).end();
+    } else {
+      console.log(q.name, 'deleted');
+      res.status(200).end();
+    }
+  });
+};
+
 exports.getAll = function(req, res) {
   Resource.find().sort({ rating: -1 }).exec(function(err, resources) {
     if (err) console.log(err);

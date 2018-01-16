@@ -13,6 +13,10 @@ router.get('/resource', function(req, res) {
 
 router.post('/resource', resource_controller.create);
 
+router.get('/resource/queue', resource_controller.getQueue);
+
+router.delete('/resource/queue/:id', resource_controller.removeQueueItem);
+
 router.put('/resource/add_category/:id', resource_controller.addCategory);
 
 module.exports = router;

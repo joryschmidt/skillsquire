@@ -43,6 +43,10 @@ angular.module('admin')
   }, function() {
     console.log('No cats :(');
   });
+  
+  $http.get('/admin/resource/queue').then(function(queue) {
+    $scope.queue = queue.data;
+  });
 }])
 
 .controller('deleteResourceCtrl', ['$http', '$scope', function($http, $scope) {

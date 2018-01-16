@@ -22,6 +22,10 @@
         templateUrl: 'templates/profile.html',
         controller: 'profileCtrl'
       })
+      .when('/about', {
+        templateUrl: 'templates/about.html',
+        controller: 'aboutCtrl'
+      })
       .when('/detail/:id', {
         templateUrl: 'templates/detail.html',
         controller: 'detailCtrl'

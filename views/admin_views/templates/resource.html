@@ -8,7 +8,8 @@
   <br /><br />
   <input type='text' name='logo' placeholder='Logo Link' ng-model='resource.logo' />
   <br /><br />
-  <textarea name='description' id='resource-description' placeholder='Description' rows='10' cols='50' ng-model='resource.description'></textarea>
+  <textarea name='description' id='resource-description' placeholder='Description' rows='7' cols='50' ng-model='resource.description'></textarea>
+  <textarea name='long_description' id='long-resource-description' placeholder='Detailed Description' rows='15' cols='50' ng-model='resource.long_description'></textarea>
   <br /><br />
   <div class='rsc-category' ng-repeat='(cat, selected) in categories'>
     <label for='{{ cat }}'>
@@ -22,3 +23,9 @@
   <input type='text' id='new-category' name='new-category' placeholder='Add New Category' ng-model='newCat' />
   <input type='submit' value='Add Category' />
 </form>
+
+<h2>User requested resource queue</h2>
+
+<div class='adminQueue' ng-repeat="q in queue"> 
+  <div class='queueRsc'>{{ q.name }}&nbsp <a class='queueLink' href='{{ q.link }}'>{{ q.link }}</a> &nbsp{{ q.user }}&nbsp <button class='queueButton'>OK</button></div>
+</div>

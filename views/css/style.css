@@ -5,6 +5,7 @@
 
 body {
   padding-top: 50px;
+  padding-bottom: 20px;
   visibility: hidden;
   background-color: #f3f3f3;
 }
@@ -86,6 +87,10 @@ a, a:hover, a:visited, a:active {
   margin-top: 50px;
 }
 
+.rating-form {
+  margin-left: 70px;
+}
+
 .rsc-category {
   display: inline;
 }
@@ -106,4 +111,8 @@ a, a:hover, a:visited, a:active {
 
 .detailName {
   margin: 20px;
+}
+
+a.queueLink {
+  color: #2c6dd6;
 }

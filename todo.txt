@@ -5,3 +5,4 @@ Auto scroll if description goes off screen
 Add pagination, probably with Angular
 Add ability for admins to approve resources
 Work on mailer 
+Make resource detail view viewable
