@@ -4,6 +4,7 @@ angular.module('admin')
   
   $scope.resource = {};
   $scope.resource.categories = [];
+  $scope.categories = {};
   
   $scope.submit = function() {
     $http({method: 'POST', url: '/admin/resource', data: $scope.resource }).then(function(response) {
@@ -47,7 +48,6 @@ angular.module('admin')
   $http.get('/categories').then(function(q) {
     var categories = q.data.categories;
     var len = categories.length;
-    $scope.categories = {};
     for (var i=0; i<len; i++) {
       $scope.categories[categories[i]] = false;
     }
