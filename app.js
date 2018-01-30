@@ -41,6 +41,7 @@ app.use(morgan('dev'));
 
 app.use(express.static(path.join(__dirname, 'views')));
 app.use('/admin', requireAdmin, express.static(path.join(__dirname, 'views/admin_views')));
+app.use('/syntax', express.static(path.join(__dirname, 'views/syntax')));
 
 app.use('/admin', requireAdmin, admin);
 app.use('/resource', resource);
