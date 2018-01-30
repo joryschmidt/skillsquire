@@ -3,21 +3,35 @@
   
   app.config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', {
-      templateUrl: 'templates/home',
+      templateUrl: 'templates/home.html',
       controller: 'homeCtrl'
     })
     .when('/javascript', {
-      templateUrl: 'templates/javascript/javascript',
+      templateUrl: 'templates/javascript.html',
       controller: 'javascriptCtrl'
     })
-    // redirect to javascript syntax page for now
-    .otherwise({ redirectTo: '/javascript' });
+    .otherwise({ redirectTo: '/' });
   }]);
   
-  app.directive('jsHelloWorld', function() {
+  app.directive('javascript', function() {
     return {
       restrict: 'E',
-      templateUrl: 'templates/javascript/hello-world'
+      templateUrl: 'templates/javascript.html'
     };
   });
+  
+  app.directive('python', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'templates/python.html'
+    };
+  });
+  
+  app.directive('ruby', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'templates/ruby.html'
+    };
+  });
+  
 })();
