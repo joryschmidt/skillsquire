@@ -1,5 +1,5 @@
 angular.module('syntax')
 
-.controller('homeCtrl', ['$http', '$scope', function($http, $scope) {
+.controller('homeCtrl', ['$scope', function($scope) {
   
 }]);

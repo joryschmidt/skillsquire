@@ -1,14 +1,11 @@
 (function() {
   var app = angular.module('syntax', ['ngRoute']);
   
+  // Seems weird to include ngRoute with only one route to serve, but I like the seperation of concerns that ng-view provides
   app.config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', {
       templateUrl: 'templates/home.html',
       controller: 'homeCtrl'
-    })
-    .when('/javascript', {
-      templateUrl: 'templates/javascript.html',
-      controller: 'javascriptCtrl'
     })
     .otherwise({ redirectTo: '/' });
   }]);
