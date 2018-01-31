@@ -13,6 +13,21 @@
     .otherwise({ redirectTo: '/' });
   }]);
   
+  app.run(['$rootScope', '$http', function($rootScope, $http) {
+    $http({method: 'GET', url: '/user'}).then(
+    function(query) {
+      $rootScope.userLoggedIn = true;
+      var user = query.data;
+      delete user.password;
+      $rootScope.rootUser = user;
+      if (user.admin) $rootScope.userIsAdmin = true;
+    }, 
+    function() {
+      $rootScope.userLoggedIn = false;
+      $rootScope.userIsAdmin = false;
+    });
+  }]);
+  
   app.directive('javascript', function() {
     return {
       restrict: 'E',
