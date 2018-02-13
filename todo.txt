@@ -3,6 +3,9 @@ Add subtle jQuery animation to refresh
 CSRF security, implement with help from angular $http
 Auto scroll if description goes off screen
 Add pagination, probably with Angular
-Add ability for admins to approve resources
 Work on mailer 
 Make resource detail view viewable
+Remove points from profiles
+Add long description to resource model
+
+Routes are a little haphazard. Make them more organized and figure out middleware permissions scheme
