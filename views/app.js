@@ -36,11 +36,12 @@
   }]);
   
   app.run(['$rootScope', '$http', function($rootScope, $http) {
-    $http({method: 'GET', url: '/user'}).then(
+    $http({method: 'GET', url: '/the_user'}).then(
     function(query) {
       $rootScope.userLoggedIn = true;
       var user = query.data;
       delete user.password;
+      console.log(user);
       $rootScope.rootUser = user;
       if (user.admin) $rootScope.userIsAdmin = true;
     }, 

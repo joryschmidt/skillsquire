@@ -3,9 +3,7 @@ var router = express.Router();
 
 var user_controller = require('../controllers/user.controller');
 
-router.get('/', user_controller.getUser);
-
-router.post('/', user_controller.register);
+// These routes require the a user to be logged in
 
 router.get('/profile', user_controller.getProfile);
 

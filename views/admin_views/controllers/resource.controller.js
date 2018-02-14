@@ -71,7 +71,7 @@ angular.module('admin')
   
   $scope.goodbye = function(rscId, rscName) {
     if (window.confirm(`Are you sure you want to delete ${rscName}?`)) {
-      $http({ method: 'DELETE', url: '/resource/' + rscId }).then(function() {
+      $http({ method: 'DELETE', url: '/admin/resource/' + rscId }).then(function() {
         $scope.resources.forEach(function(rs, i) {
           if(rs.name == rscName) $scope.resources.splice(i, 1);
         });

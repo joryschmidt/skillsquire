@@ -13,6 +13,8 @@ router.get('/resource', function(req, res) {
 
 router.post('/resource', resource_controller.create);
 
+router.delete('/resource/:id', resource_controller.deleteResource);
+
 router.get('/resource/queue', resource_controller.getQueue);
 
 router.delete('/resource/queue/:id', resource_controller.removeQueueItem);

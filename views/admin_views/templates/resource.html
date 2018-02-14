@@ -1,28 +1,39 @@
 <h2>Create New Resource</h2>
 <form ng-submit='submit()'>
-  <input type='text' name='name' placeholder='Name' ng-model='resource.name' />
-  <br /><br />
-  <input type='text' name='link' placeholder='Link' ng-model='resource.link' />
-  <br /><br />
-  <input type='text' name='color' placeholder='Brand Color' ng-model='resource.color' />
-  <br /><br />
-  <input type='text' name='logo' placeholder='Logo Link' ng-model='resource.logo' />
-  <br /><br />
-  <textarea name='description' id='resource-description' placeholder='Description' rows='7' cols='50' ng-model='resource.description'></textarea>
-  <textarea name='long_description' id='long-resource-description' placeholder='Detailed Description' rows='15' cols='50' ng-model='resource.long_description'></textarea>
-  <br /><br />
-  <div class='rsc-category' ng-repeat='(cat, selected) in categories'>
-    <label for='{{ cat }}'>
-      <input type='checkbox' value='cat' name='cat' ng-model='categories[cat]' /> {{ cat }} 
-    </label>
+  <div class='row'>
+    <div class='col-md-4'>
+      <input type='text' name='name' placeholder='Name' ng-model='resource.name' class='form-control' />
+      <br />
+      <input type='text' name='link' placeholder='Link' ng-model='resource.link' class='form-control' />
+      <br />
+      <input type='text' name='color' placeholder='Brand Color' ng-model='resource.color' class='form-control' />
+      <br />
+      <input type='text' name='logo' placeholder='Logo Link' ng-model='resource.logo' class='form-control' />
+      <br />
+    </div>
+    <div class='col-md-4'>
+      <textarea name='description' id='resource-description' placeholder='Description' rows='5' cols='50' ng-model='resource.description'></textarea>
+      <textarea name='long_description' id='long-resource-description' placeholder='Detailed Description' rows='10' cols='50' ng-model='resource.long_description'></textarea>
+    </div>
+    <div class='col-md-4'>
+      <div class='rsc-category form-group' ng-repeat='(cat, selected) in categories'>
+        <label for='{{ cat }}'>
+          <input type='checkbox' value='cat' name='cat' ng-model='categories[cat]' /> {{ cat }} 
+        </label>
+      </div>
+    </div>
   </div>
-  <input type='submit' value='Create' />
+  <input type='submit' value='Create' class='btn btn-success' />
 </form>
+<br /><br />
 
-<form ng-submit='addNewCategory()'>
-  <input type='text' id='new-category' name='new-category' placeholder='Add New Category' ng-model='newCat' />
-  <input type='submit' value='Add Category' />
-</form>
+<div class='col-md-4 col-md-offset-8'>
+  <form ng-submit='addNewCategory()'>
+    <input type='text' id='new-category' name='new-category' placeholder='Add New Category' ng-model='newCat' class='form-control' />
+    <br />
+    <input type='submit' value='Add Category' class='btn btn-primary' />
+  </form>
+</div>
 
 <h2>User requested resource queue</h2>
 

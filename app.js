@@ -19,7 +19,7 @@ mongoose.connect(process.env.MONGODB_URI || db);
 
 var app = express();
 
-// Middleware
+// Middleware for Sass, session functionality, and req.body
 app.use(sass({
   src: path.join(__dirname, 'views'),
   dest: path.join(__dirname, 'views/css'),
@@ -45,7 +45,7 @@ app.use('/syntax', express.static(path.join(__dirname, 'views/syntax')));
 
 app.use('/admin', requireAdmin, admin);
 app.use('/resource', resource);
-app.use('/user', user);
+app.use('/user', requireLogin, user);
 app.use('/', main);
 
 // app.use(function(req, res) {
@@ -68,5 +68,5 @@ function requireAdmin(req, res, next) {
 
 function requireLogin(req, res, next) {
   if (req.session.user) next();
-  else res.redirect('/login');
+  else res.redirect('/#!/login');
 }

@@ -5,9 +5,13 @@ var user_controller = require('../controllers/user.controller');
 var resource_controller = require('../controllers/resource.controller');
 var categories_controller = require('../controllers/categories.controller');
 
+router.get('/the_user', user_controller.getUser);
+
 router.post('/login', user_controller.login);
 
 router.get('/logout', user_controller.logout);
+
+router.post('/register', user_controller.register);
 
 router.get('/resources', resource_controller.getAll);
 

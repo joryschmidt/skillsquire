@@ -5,7 +5,7 @@ angular.module('ssq')
   
   $scope.submit = function() {
     if ($scope.user.password == $scope.user.confirmation) {
-      $http({method: 'POST', url: '/user', data: $scope.user }).then(function() {
+      $http({method: 'POST', url: '/register', data: $scope.user }).then(function() {
         $location.path('/login');
       });
     } else {

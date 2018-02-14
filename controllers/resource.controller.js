@@ -1,6 +1,7 @@
 var Resource = require('../models/Resource.model');
 var Queue = require('../models/Queue.model');
 
+// Create a new resource -- Admin function
 exports.create = function(req, res) {
   
   var className = req.body.name.replace(/[ .]/g, '');
@@ -25,6 +26,7 @@ exports.create = function(req, res) {
   });
 };
 
+// Add a resource to the queue 
 exports.queue = function(req, res) {
   var newQueue = new Queue();
   newQueue.name = req.body.name;
@@ -44,6 +46,7 @@ exports.queue = function(req, res) {
   });
 };
 
+// Get the queue of proposed resources -- Admin function
 exports.getQueue = function(req, res) {
   Queue.find().exec(function(err, q) {
     if (err) console.log(err);
@@ -51,6 +54,7 @@ exports.getQueue = function(req, res) {
   });
 };
 
+// Remove resource from queue -- Admin function
 exports.removeQueueItem = function(req, res) {
   Queue.findOneAndRemove({ _id: req.params.id }, function(err, q) {
     if (err) {
@@ -63,6 +67,7 @@ exports.removeQueueItem = function(req, res) {
   });
 };
 
+// Get all resources
 exports.getAll = function(req, res) {
   Resource.find().sort({ rating: -1 }).exec(function(err, resources) {
     if (err) console.log(err);
@@ -70,6 +75,7 @@ exports.getAll = function(req, res) {
   });
 };
 
+// Get one resource
 exports.getOne = function(req, res) {
   Resource.findOne({ _id: req.params.id }, function(err, resource) {
     if (err) {
@@ -81,6 +87,7 @@ exports.getOne = function(req, res) {
   });
 };
 
+// Delete a resource -- Admin function
 exports.deleteResource = function(req, res) {
   Resource.findOneAndRemove({ _id: req.params.id }, function(err, resource) {
     if (err) {
@@ -93,6 +100,7 @@ exports.deleteResource = function(req, res) {
   });
 };
 
+// Add a new category -- Admin function
 exports.addCategory = function(req, res) {
   Resource.update({ _id: req.params.id }, { $push: { categories: req.body.cat }}, function(err, raw) {
     if (err) {

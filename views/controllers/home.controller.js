@@ -2,6 +2,7 @@ angular.module('ssq')
 
 .controller('homeCtrl', ['$scope', '$http', function($scope, $http) {
   
+  // Get all resources from database to display in the home view
   $http.get('/resources').then(function(query) {
     var resources = query.data;
     
@@ -21,6 +22,7 @@ angular.module('ssq')
     });
   });
   
+  // Get saved resources from the users profile for the home view
   $http.get('/user/profile').then(function(query) {
     $scope.user_resources = query.data.resources;
   }, function() {

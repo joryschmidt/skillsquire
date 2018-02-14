@@ -2,6 +2,7 @@ var User = require('../models/User.model');
 var Resource = require('../models/Resource.model');
 var bcrypt = require('bcrypt');
 
+// Register a new user
 exports.register = function(req, res, next) {
   
   var hash = bcrypt.hashSync(req.body.password, 10);
@@ -27,6 +28,7 @@ exports.register = function(req, res, next) {
   });
 };
 
+// Login a user
 exports.login = function(req, res, next) {
   User.findOne({ username: req.body.username }, function(err, user) {
     if (err) console.log(err);
@@ -46,18 +48,21 @@ exports.login = function(req, res, next) {
   });
 };
 
+// Logout the logged in user
 exports.logout = function(req, res) {
   req.session.reset();
   console.log('Logged out');
   res.redirect('/');
 };
 
+// Get a JSON object representing the logged in user
 exports.getUser = function(req, res) {
   var user = req.session.user;
   if (user) res.json(user);
   else res.status(404).end();
 };
 
+// Get a logged in user and the associated resources -- User function
 exports.getProfile = function(req, res) {
   var user = req.session.user;
   if (user) {
@@ -83,6 +88,7 @@ exports.getProfile = function(req, res) {
   else res.status(404).send(null);
 };
 
+// Add a resource to a user profile -- User function
 exports.addResource = function(req, res) {
   var id = req.body.id;
   User.update({ _id: req.session.user._id }, { $push: { resourceList: id }}, function(err, raw) {
@@ -97,6 +103,7 @@ exports.addResource = function(req, res) {
   });
 };
 
+// Remove a resource from a user profile -- User function
 exports.removeResource = function(req, res) {
   var id = req.body.id;
   User.update({ _id: req.session.user._id }, { $pull: { resourceList: id }}, function(err, raw) {
@@ -109,6 +116,7 @@ exports.removeResource = function(req, res) {
   });
 };
 
+// Rate a resource -- User function
 exports.rate = function(req, res) {
   var name = req.body.name;
   var rating = Number(req.body.rating);
@@ -138,6 +146,7 @@ exports.rate = function(req, res) {
   });
 };
 
+// Update or add new resource rating in database
 function updateRating(rscName, rating, rerate, old_rating) {
   var newRating;
   Resource.findOne({ className: rscName }, function(err, resource) {

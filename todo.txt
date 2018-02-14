@@ -7,5 +7,5 @@ Work on mailer
 Make resource detail view viewable
 Remove points from profiles
 Add long description to resource model
-
-Routes are a little haphazard. Make them more organized and figure out middleware permissions scheme
+Add remove category functionality and resource updating to admin panel
+Add review model and associate to resources
