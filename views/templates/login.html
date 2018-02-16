@@ -1,5 +1,10 @@
-<form id='login_form' ng-submit="submit()">
-  <input type='text' name='username' placeholder='Username' ng-model='user.username' autofocus />
-  <input type="password" name="password" placeholder="Password" ng-model="user.password" />
-  <input type="submit" value="Login" class='btn btn-success' />
-</form>
+<div class='row'>
+  <div class='col-md-4 col-md-offset-4'>
+    <h2>Login</h2>
+    <form id='login_form' ng-submit="submit()">
+      <input type='text' name='username' placeholder='Username' ng-model='user.username' autofocus />
+      <input type="password" name="password" placeholder="Password" ng-model="user.password" />
+      <input type="submit" value="Login" class='btn btn-success' />
+    </form>
+  </div>
+</div>

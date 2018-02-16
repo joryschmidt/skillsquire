@@ -9,6 +9,7 @@ exports.create = function(req, res) {
   var newResource = new Resource();
   newResource.name = req.body.name;
   newResource.description = req.body.description;
+  newResource.long_description = req.body.long_description;
   newResource.link = req.body.link;
   newResource.color = req.body.color;
   newResource.logo = req.body.logo;
@@ -100,7 +101,7 @@ exports.deleteResource = function(req, res) {
   });
 };
 
-// Add a new category -- Admin function
+// Add a category to a resource -- Admin function
 exports.addCategory = function(req, res) {
   Resource.update({ _id: req.params.id }, { $push: { categories: req.body.cat }}, function(err, raw) {
     if (err) {

@@ -10,6 +10,9 @@ var ResourceSchema = new Schema({
   description: {
     type: String,
   },
+  long_description: {
+    type: String
+  },
   link: {
     type: String,
     required: true
@@ -37,7 +40,8 @@ var ResourceSchema = new Schema({
   },
   className: {
     type: String,
-    lowercase: true
+    lowercase: true, 
+    unique: true
   },
   categories: [String]
 });

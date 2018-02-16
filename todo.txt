@@ -1,11 +1,14 @@
 Reorder profile resources by drag and drop
-Add subtle jQuery animation to refresh
 CSRF security, implement with help from angular $http
 Auto scroll if description goes off screen
 Add pagination, probably with Angular
 Work on mailer 
-Make resource detail view viewable
+
+!!!Make resource detail view viewable
+
+Clean up signup and login forms
 Remove points from profiles
 Add long description to resource model
 Add remove category functionality and resource updating to admin panel
 Add review model and associate to resources
+Remove category from resource
