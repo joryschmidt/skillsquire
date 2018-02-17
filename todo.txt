@@ -6,9 +6,6 @@ Work on mailer
 
 !!!Make resource detail view viewable
 
-Clean up signup and login forms
-Remove points from profiles
-Add long description to resource model
 Add remove category functionality and resource updating to admin panel
 Add review model and associate to resources
 Remove category from resource

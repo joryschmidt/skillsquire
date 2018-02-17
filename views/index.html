@@ -75,7 +75,10 @@
     <script>
     // This script is to prevent the DOM from being visible before Angular does its thing
       $(document).ready(function() {
-        $('body').css('visibility', 'visible');
+        setTimeout(function() {
+          $('body').css('visibility', 'visible');
+          $('body').fadeTo(200, 1, function(){});
+        }, 200);
       });
     </script>
   </body>

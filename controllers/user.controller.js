@@ -17,8 +17,13 @@ exports.register = function(req, res, next) {
   
   newUser.save(function(err, user) {
     if (err) {
-      console.log(err);
-      res.send("There was an error registering user");
+      if (err.code == 11000) {
+        console.log(err);
+        res.status(500).send("That username or email has already been used");
+      } else {
+        console.log(err);
+        res.send("There was an error registering user");
+      }
     }
     else {
       console.log(user);
