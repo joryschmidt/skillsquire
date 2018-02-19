@@ -9,6 +9,7 @@ Work on mailer
 Add remove category and remove category from resource functionality and resource updating to admin panel
 Add review model and associate to resources
 Let people delete their accounts
+Add login link to signup form
 
 Just in case the production server encounters difficulty keeping the queue unique 
 db.queues.createIndex({className: 1}, {unique: true})
