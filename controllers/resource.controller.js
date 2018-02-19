@@ -1,5 +1,6 @@
 var Resource = require('../models/Resource.model');
 var Queue = require('../models/Queue.model');
+var User = require('../models/User.model');
 
 // Create a new resource -- Admin function
 exports.create = function(req, res) {
@@ -27,24 +28,47 @@ exports.create = function(req, res) {
   });
 };
 
-// Add a resource to the queue 
+// Add a resource to the queue
 exports.queue = function(req, res) {
   var newQueue = new Queue();
   newQueue.name = req.body.name;
   newQueue.link = req.body.link;
+  newQueue.color = req.body.color;
+  newQueue.description = req.body.description;
   newQueue.user = req.body.user;
+  newQueue.className = req.body.name.replace(/[ .]/g, '');
   
-  console.log(req.body);
-  
-  newQueue.save(function(err, q) {
-    if (err) { 
+  // Update the users custom resource list and save it to the queue
+  User.update({ username: req.body.user }, { $push: { customResourceList: { $each: [newQueue], $position: 0 }}}, function(err, response) {
+    if (err) {
       console.log(err);
-      res.status(500);
+      res.status(500).send('There was an error saving your resource');
     } else {
-      console.log(q);
-      res.json(q);
+      console.log(newQueue);
+      newQueue.save(function(err, q) {
+        if (err) {
+          console.log(err.message);
+          res.json(newQueue);
+        }
+        else {
+          console.log(q);
+          res.json(q);
+        }
+      });
     }
   });
+  
+  // OLD queue method
+  
+  // newQueue.save(function(err, q) {
+  //   if (err) { 
+  //     console.log(err);
+  //     res.status(500);
+  //   } else {
+  //     console.log(q);
+  //     res.json(q);
+  //   }
+  // });
 };
 
 // Get the queue of proposed resources -- Admin function
@@ -63,7 +87,7 @@ exports.removeQueueItem = function(req, res) {
       res.status(500).end();
     } else {
       console.log(q.name, 'deleted');
-      res.status(200).end();
+      res.status(200).send(q);
     }
   });
 };
@@ -109,6 +133,23 @@ exports.addCategory = function(req, res) {
       res.status(500).end();
     } else {
       console.log(raw);
+      res.status(200).end();
+    }
+  });
+};
+
+exports.editResource = function(req, res) {
+  Resource.update({ _id: req.params.id }, { $set: {
+    description: req.body.description,
+    long_description: req.body.long_description,
+    categories: req.body.categories,
+    color: req.body.color
+  }}, function(err, response) {
+    if (err) {
+      console.log(err);
+      res.status(500).end();
+    } else {
+      console.log(response);
       res.status(200).end();
     }
   });

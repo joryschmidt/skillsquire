@@ -1,22 +1,21 @@
 <div class='row'>
-  <div class='col-md-6'>
+  <div class='col-md-2'>
     <div class='profile-info'>
       <h2>{{ user.username }}</h2>
       <h3>{{ user.email }}</h3>
     </div>
   </div>
   
-  <div class='col-md-6'>
-  <h2 style='text-align: center;'>My Resources</h2>
-  <br />
-  <div class='col-md-8 col-md-offset-2'>
+  <div class='col-md-5'>
+    <h2 style='text-align: center;'>Resources</h2>
+    <br />
+    <div class='col-md-10 col-md-offset-1'>
       <div class='resource userRscList' ng-repeat="rsc in resources">
         <div class='btn-group btn-block'>
           <a class='rs-link btn btn-default' id='{{ rsc.className }}Color' ng-href='{{ rsc.link }}' style="background-color: {{ rsc.color }};" target='_blank'> &nbsp; </a>
           <a class='rs-name btn btn-default'  id='{{ rsc.className }}' ng-href='#!/detail/{{ rsc._id }}'>{{ rsc.name }}</a>
           <div class='rs-desc btn btn-info'   id='{{ rsc.className }}Details' ng-click='expand = !expand'><span class='glyphicon glyphicon-align-justify' aria-hidden='true'></span></div>
           <div class='rs-add  btn btn-danger' id='{{ rsc.className }}Remove' ng-click='removeRsc(rsc._id)'><span class='glyphicon glyphicon-minus' aria-hidden='true'></span></div>
-          
         </div>
         <div class='rs-details slide' ng-show='expand'>
           <div class='rs-rating'>
@@ -26,6 +25,36 @@
           <div class='rs-decription'>{{ rsc.description }}</div>
         </div>
       </div>
+    </div>
+  </div>
+    
+  <div class='col-md-5'>
+    <h2 style='text-align: center;'>My Resources</h2>
+    <br />
+    <div class='col-md-10 col-md-offset-1'>
+      <div class='resource userRscList' ng-repeat="rsc in custom_resources">
+        <div class='btn-group btn-block'>
+          <a class='rs-link btn btn-default' id='{{ rsc.className }}Color' ng-href='{{ rsc.link }}' style="background-color: {{ rsc.color }};" target='_blank'> &nbsp; </a>
+          <a class='rs-name btn btn-default'  id='{{ rsc.className }}' ng-href='{{ rsc.link }}'>{{ rsc.name }}</a>
+          <div class='rs-desc btn btn-info'   id='{{ rsc.className }}Details' ng-click='expand = !expand'><span class='glyphicon glyphicon-align-justify' aria-hidden='true'></span></div>
+          <div class='rs-add  btn btn-danger' id='{{ rsc.className }}Remove' ng-click='removeCustomRsc(rsc._id)'><span class='glyphicon glyphicon-minus' aria-hidden='true'></span></div>
+          
+        </div>
+        <div class='rs-details slide' ng-show='expand'>
+          <div class='rs-decription'>{{ rsc.description }}</div>
+        </div>
+      </div>
+    </div>
+    <div class='col-md-10 col-md-offset-1'>
+      <h4>Favorite resource not here? Add it to your own profile!</h4>
+      <p>Note: We can see you do this and may add your resource to the main site at our discretion</p>
+      <form id='custom_rsc_form' ng-submit='submit()'>
+        <input type='text' ng-model='customResource.name' name='name' placeholder='Name' class='form-control' /><br />
+        <input type='text' ng-model='customResource.link' name='link' placeholder='Link' class='form-control' /><br />
+        <input type='text' ng-model='customResource.color' name='color' placeholder='Color (rgb or hex)' class='form-control' /><br />
+        <input type='text' ng-model='customResource.description' name='decription' placeholder='Description' class='form-control' /><br />
+        <input type='submit' value='Create' class='btn btn-primary' />
+      </form>
     </div>
   </div>
 </div>

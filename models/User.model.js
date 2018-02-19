@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var Queue = require('./Queue.model');
+var QueueSchema = Queue.schema;
 
 var UserSchema = new Schema({
   username: {
@@ -31,6 +33,7 @@ var UserSchema = new Schema({
     default: Date.now
   },
   resourceList: [{ type: Schema.ObjectId, ref: 'Resource' }],
+  customResourceList: [QueueSchema],
   ratings: {}
 });
 

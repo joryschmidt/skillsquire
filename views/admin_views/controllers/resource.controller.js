@@ -36,10 +36,14 @@ angular.module('admin')
   
   $scope.removeQItem = function(id) {
     $http.delete('/admin/resource/queue/' + id).then(function(response) {
-      console.log(response);
       $scope.queue.forEach(function(que, i) {
         if (que._id == id) $scope.queue.splice(i, 1);
       });
+      var data = response.data;
+      $scope.resource.name = data.name;
+      $scope.resource.link = data.link;
+      $scope.resource.color = data.color;
+      $scope.resource.description = data.description;
     }, function() {
       console.log('The deletion did not work as expected');
     });
