@@ -7,7 +7,7 @@ angular.module('ssq')
   $http.get('/resource/' + id).then(function(query) {
     $scope.resource = query.data;
     $scope.data.name = query.data.className;
-    $scope.data.rating = $rootScope.rootUser.ratings[$scope.resource.className];
+    if ($rootScope.rootUser) $scope.data.rating = $rootScope.rootUser.ratings[$scope.resource.className];
   });
   
   

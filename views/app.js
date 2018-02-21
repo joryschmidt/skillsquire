@@ -41,7 +41,6 @@
       $rootScope.userLoggedIn = true;
       var user = query.data;
       delete user.password;
-      console.log(user);
       $rootScope.rootUser = user;
       if (user.admin) $rootScope.userIsAdmin = true;
     }, 

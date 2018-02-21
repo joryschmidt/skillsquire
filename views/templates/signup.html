@@ -2,13 +2,14 @@
   <div class='col-md-4 col-md-offset-4'>
     <h2>Sign Up</h2>
     <br />
-    <form id='signup_form' ng-submit='submit()'>
+    <form id='signup_form' ng-submit='submit()' class='form-group'>
       <div id='err_message'></div>
-      <input type="text" name="username" placeholder= "Username" ng-model='user.username' class='form-control' autofocus /><br>
+      <input type="text" name="username" placeholder= "Username" ng-model='user.username' class='form-control' autofocus /><br />
       <input type="email" name="email" placeholder="Email" ng-model='user.email' class='form-control' /><br>
       <input type="password" name="password" placeholder="Password" ng-model='user.password' class='form-control' /><br>
       <input type="password" name="confirmation" placeholder="Confirm Password" ng-model='user.confirmation' class='form-control' /><br>
       <input type="submit" value="Submit" class='btn btn-success' />
     </form>
+    <a href='#!/login'><h3 style='text-align: center;' class='text-primary'>Already have an account?</h3></a>
   </div>
 </div>

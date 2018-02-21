@@ -5,8 +5,12 @@ angular.module('ssq')
   
   $scope.submit = function() {
     $http({ method: 'POST', url: '/login', data: $scope.user }).then(
-    function() {
+    function(query) {
+      var user = query.data;
       $rootScope.userLoggedIn = true;
+      delete user.password;
+      $rootScope.rootUser = query.data;
+      if (user.admin) $rootScope.userIsAdmin = true;
       window.location.href = '#!/profile';
     }, function() {
       window.location.reload();

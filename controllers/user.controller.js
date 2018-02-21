@@ -45,7 +45,7 @@ exports.login = function(req, res, next) {
       delete user.password;
       req.session.user = user;
       console.log('Login successful');
-      res.end();
+      res.status(200).json(user);
       next();
     } else {
       console.log('Wrong password mate');
@@ -64,7 +64,7 @@ exports.logout = function(req, res) {
 exports.getUser = function(req, res) {
   var user = req.session.user;
   if (user) res.json(user);
-  else res.status(404).end();
+  else res.status(404).json(null);
 };
 
 // Get a logged in user and the associated resources -- User function

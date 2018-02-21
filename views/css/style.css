@@ -138,14 +138,6 @@ a.queueLink {
   font-family: monospace;
 }
 
-#login_form input {
-  padding: 3px;
-}
-
-#login_form .btn {
-  padding: 5px;
-}
-
 .profile-info {
   text-align: center;
 }
