@@ -27,7 +27,7 @@ exports.register = function(req, res, next) {
     }
     else {
       console.log(user);
-      res.end();
+      res.json(null);
       next();
     }
   });
@@ -39,7 +39,7 @@ exports.login = function(req, res, next) {
     if (err) console.log(err);
     if (!user) {
       console.log("That user doesn't seem to exist");
-      res.status(401).end();
+      res.status(401).json({ "message": "That user doesn't seem to exist." });
       next();
     } else if (bcrypt.compareSync(req.body.password, user.password)) {
       delete user.password;
@@ -49,6 +49,7 @@ exports.login = function(req, res, next) {
       next();
     } else {
       console.log('Wrong password mate');
+      res.status(401).json({ "message": "Wrong password" });
     }
   });
 };
@@ -65,6 +66,18 @@ exports.getUser = function(req, res) {
   var user = req.session.user;
   if (user) res.json(user);
   else res.status(404).json(null);
+};
+
+exports.delete_user = function(req, res) {
+  User.findOneAndRemove({ _id: req.params.id }, function(err, user) {
+    if (err) {
+      console.log(err);
+      res.status(500).end();
+    } else {
+      console.log(user.username, 'has been deleted');
+      res.json(user);
+    }
+  });
 };
 
 // Get a logged in user and the associated resources -- User function
@@ -90,7 +103,7 @@ exports.getProfile = function(req, res) {
       }
     });
   }
-  else res.status(404).send(null);
+  else res.status(404).json(null);
 };
 
 // Add a resource to a user profile -- User function

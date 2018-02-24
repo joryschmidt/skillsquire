@@ -5,6 +5,8 @@ var user_controller = require('../controllers/user.controller');
 
 // These routes require the a user to be logged in
 
+router.delete('/:id', user_controller.delete_user);
+
 router.get('/profile', user_controller.getProfile);
 
 router.put('/add_resource', user_controller.addResource);

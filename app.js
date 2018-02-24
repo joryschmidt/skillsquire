@@ -68,5 +68,5 @@ function requireAdmin(req, res, next) {
 
 function requireLogin(req, res, next) {
   if (req.session.user) next();
-  else res.redirect('/#!/login');
+  else res.status(404).json(null);
 }

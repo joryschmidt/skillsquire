@@ -9,10 +9,12 @@ angular.module('ssq')
       var user = query.data;
       $rootScope.userLoggedIn = true;
       delete user.password;
-      $rootScope.rootUser = query.data;
+      $rootScope.rootUser = user;
+      console.log($rootScope.rootUser);
       if (user.admin) $rootScope.userIsAdmin = true;
       window.location.href = '#!/profile';
-    }, function() {
+    }, function(response) {
+      console.log(response.data.message);
       window.location.reload();
     });
   };

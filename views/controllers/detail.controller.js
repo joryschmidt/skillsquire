@@ -12,9 +12,13 @@ angular.module('ssq')
   
   
   $scope.submit = function() {
-    $http.post('/user/rate', $scope.data).then(function(response) {
-      console.log(response.status);
-      $location.path('/');
-    });
+    if ($rootScope.rootUser) {
+      $http.post('/user/rate', $scope.data).then(function(response) {
+        console.log(response.status);
+      });
+    }
+    else {
+      window.location.href = '/#!/login';
+    }
   };
 }]);

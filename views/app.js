@@ -1,6 +1,6 @@
 (function() {
   var app = angular.module('ssq', ['ngRoute', 'ngAnimate']);
-  app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+  app.config(['$routeProvider', '$locationProvider', '$rootScopeProvider', function($routeProvider, $locationProvider, $rootScopeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'templates/home.html',
@@ -20,7 +20,14 @@
       })
       .when('/profile', {
         templateUrl: 'templates/profile.html',
-        controller: 'profileCtrl'
+        controller: 'profileCtrl',
+        resolve: {
+          check: function(hasRootUser) {
+            if (!hasRootUser.check) {
+              window.location.href = '/';
+            }
+          }
+        }
       })
       .when('/about', {
         templateUrl: 'templates/about.html',
@@ -33,6 +40,10 @@
       .otherwise({ redirectTo: '/' });
       
     // $locationProvider.html5Mode(true);
+  }]);
+  
+  app.factory('hasRootUser', ['$rootScope', function($rootScope) {
+    return { check: !!$rootScope.rootUser };
   }]);
   
   app.run(['$rootScope', '$http', function($rootScope, $http) {

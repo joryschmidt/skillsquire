@@ -24,6 +24,17 @@ angular.module('ssq')
     return Math.round(rating);
   };
   
+  $scope.deleteAccount = function() {
+    if(confirm("Are you sure you want to do this? It cannot be undone.")) {
+      $http({ method: 'DELETE', url: '/user/' + $scope.user._id }).then(function(response) {
+        console.log(response);
+        $http.get('/logout').then(function() {
+          window.location.href = '/';
+        });
+      });
+    }
+  };
+  
   $scope.submit = function() {
     $http({method: 'POST', url: '/resource/queue', data: $scope.customResource }).then(function(response) {
       
@@ -39,6 +50,7 @@ angular.module('ssq')
   };
   
   $http({method: 'GET', url: '/user/profile'}).then(function(query) {
+    delete query.data.user.password;
     $scope.user = query.data.user;
     $scope.resources = query.data.resources;
     $scope.customResource.user = query.data.user.username;
