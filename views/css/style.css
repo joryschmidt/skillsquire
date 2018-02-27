@@ -51,6 +51,10 @@ a, a:hover, a:visited, a:active {
   text-align: center;
 }
 
+.about-copy {
+  text-align: center;
+}
+
 .resource {
   text-align: center;
   padding: 2px;
