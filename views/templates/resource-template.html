@@ -1,5 +1,5 @@
 <div class='btn-group btn-block'>
-  <a class='rs-link btn btn-default' id='{{ rsc.className }}Color' ng-href='{{ rsc.link }}' style="background-color: {{ rsc.color }};" target='_blank'> &nbsp; </a>
+  <a class='rs-link btn btn-default' id='{{ rsc.className }}Color' ng-href='{{ rsc.link }}' style="background-color: {{ rsc.color }};" target='_blank' rel='noopener'> &nbsp; </a>
   <a class='rs-name btn btn-default'  id='{{ rsc.className }}' ng-href='#!/detail/{{ rsc._id }}'>{{ rsc.name }}</a>
   <div class='rs-desc btn btn-info'    ng-click='expand = !expand'><span class='glyphicon glyphicon-align-justify' aria-hidden='true'></span></div>
   <div class='rs-add  btn btn-warning' ng-if='userLoggedIn && !userHasResource(rsc)' id='{{ rsc.className }}Add' ng-click='addRsc(rsc._id)'><span class='glyphicon glyphicon-plus' aria-hidden='true'></span></div>

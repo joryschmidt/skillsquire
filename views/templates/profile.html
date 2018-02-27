@@ -13,7 +13,7 @@
     <div class='col-md-10 col-md-offset-1'>
       <div class='resource userRscList' ng-repeat="rsc in resources">
         <div class='btn-group btn-block'>
-          <a class='rs-link btn btn-default' id='{{ rsc.className }}Color' ng-href='{{ rsc.link }}' style="background-color: {{ rsc.color }};" target='_blank'> &nbsp; </a>
+          <a class='rs-link btn btn-default' id='{{ rsc.className }}Color' ng-href='{{ rsc.link }}' style="background-color: {{ rsc.color }};" target='_blank' rel='noopener'> &nbsp; </a>
           <a class='rs-name btn btn-default'  id='{{ rsc.className }}' ng-href='#!/detail/{{ rsc._id }}'>{{ rsc.name }}</a>
           <div class='rs-desc btn btn-info'   id='{{ rsc.className }}Details' ng-click='expand = !expand'><span class='glyphicon glyphicon-align-justify' aria-hidden='true'></span></div>
           <div class='rs-add  btn btn-danger' id='{{ rsc.className }}Remove' ng-click='removeRsc(rsc._id)'><span class='glyphicon glyphicon-minus' aria-hidden='true'></span></div>
@@ -35,7 +35,7 @@
     <div class='col-md-10 col-md-offset-1'>
       <div class='resource userRscList' ng-repeat="rsc in custom_resources">
         <div class='btn-group btn-block'>
-          <a class='rs-link btn btn-default' id='{{ rsc.className }}Color' ng-href='{{ rsc.link }}' style="background-color: {{ rsc.color }};" target='_blank'> &nbsp; </a>
+          <a class='rs-link btn btn-default' id='{{ rsc.className }}Color' ng-href='{{ rsc.link }}' style="background-color: {{ rsc.color }};" target='_blank' rel='noopener'> &nbsp; </a>
           <a class='rs-name btn btn-default'  id='{{ rsc.className }}' ng-href='{{ rsc.link }}'>{{ rsc.name }}</a>
           <div class='rs-desc btn btn-info'   id='{{ rsc.className }}Details' ng-click='expand = !expand'><span class='glyphicon glyphicon-align-justify' aria-hidden='true'></span></div>
           <div class='rs-add  btn btn-danger' id='{{ rsc.className }}Remove' ng-click='removeCustomRsc(rsc._id)'><span class='glyphicon glyphicon-minus' aria-hidden='true'></span></div>
