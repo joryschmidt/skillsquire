@@ -109,7 +109,7 @@ exports.getProfile = function(req, res) {
 // Add a resource to a user profile -- User function
 exports.addResource = function(req, res) {
   var id = req.body.id;
-  User.update({ _id: req.session.user._id }, { $push: { resourceList: id }}, function(err, raw) {
+  User.update({ _id: req.session.user._id }, { $addToSet: { resourceList: id }}, function(err, raw) {
     if (err) {
       console.log(err);
       res.status(500).end();
