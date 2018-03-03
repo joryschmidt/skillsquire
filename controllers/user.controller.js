@@ -121,10 +121,24 @@ exports.addResource = function(req, res) {
   });
 };
 
-// Remove a resource from a user profile -- User function
-exports.removeResource = function(req, res, next) {
+// Remove a custom resource from a user profile -- User function
+exports.removeCustomResource = function(req, res, next) {
   var id = req.body.id;
   User.update({ _id: req.session.user._id }, { $pull: { customResourceList: {_id: id }}}, function(err, raw) {
+    if (err) {
+      console.log(err);
+      res.status(500).send(raw);
+      next();
+    }
+    else console.log('MongoDB says:', raw);
+    res.status(200).end();
+    next();
+  });
+};
+
+exports.removeResource = function(req, res, next) {
+  var id = req.body.id;
+  User.update({ _id: req.session.user._id }, { $pull: { resourceList: id }}, function(err, raw) {
     if (err) {
       console.log(err);
       res.status(500).send(raw);

@@ -10,10 +10,21 @@ angular.module('ssq')
   };
   
   $scope.removeCustomRsc = function(id) {
-    $http({ method: 'PUT', url: '/user/remove_resource', data: { id: id }}).then(function() {
+    $http({ method: 'PUT', url: '/user/remove_custom_resource', data: { id: id }}).then(function() {
       $scope.custom_resources.forEach(function(rs, i) {
         console.log(rs);
         if (rs._id == id) $scope.custom_resources.splice(i, 1);
+      });
+    }, function(response) {
+      console.log(response);
+    });
+  };
+  
+  $scope.removeRsc = function(id) {
+    $http({ method: 'PUT', url: '/user/remove_resource', data: { id: id }}).then(function() {
+      $scope.resources.forEach(function(rs, i) {
+        console.log(rs);
+        if (rs._id == id) $scope.resources.splice(i, 1);
       });
     }, function(response) {
       console.log(response);
