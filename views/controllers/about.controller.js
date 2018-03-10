@@ -6,7 +6,6 @@ angular.module('ssq')
     className: 'resourcename',
     link: '#!/about',
     description: "Here is the quick resource description and average user rating",
-    long_description: 'This is a longer description of the resource',
     color: 'aqua',
     rating: 3
   }; 

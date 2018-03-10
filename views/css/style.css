@@ -53,6 +53,21 @@ a, a:hover, a:visited, a:active {
 
 .about-copy {
   text-align: center;
+  font-size: 17px;
+  padding: 5px;
+}
+
+.about .row {
+  margin: 20px;
+}
+
+.about .row h1 {
+  margin: 20px;
+  text-align: center;
+}
+
+.about .rs-details {
+  text-align: center;
 }
 
 .resource {

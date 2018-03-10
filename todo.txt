@@ -11,3 +11,4 @@ Add review model and associate to resources
 Make detail view add button symbolic, circular, and works to add and remove resource
 Make home view checkmark button remove resource
 Move the profile view to the dashboard and use the profile view to edit personal details
+Update rootUser element on details view page after adding resource to profile
