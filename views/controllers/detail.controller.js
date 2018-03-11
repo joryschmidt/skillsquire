@@ -13,7 +13,10 @@ angular.module('ssq')
   
   $http.get('/resource/' + id).then(function(query) {
     $scope.resource = query.data;
+    console.log(query.data);
     $scope.data.name = query.data.className;
+    $scope.data.title = query.data.name;
+    $scope.data.database_rating = Math.round(query.data.rating);
     if (user) {
       $scope.data.rating = $rootScope.rootUser.ratings[$scope.resource.className];
       user.resourceList.forEach(function(res_id, index) {

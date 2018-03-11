@@ -173,7 +173,7 @@ exports.rate = function(req, res) {
           res.status(500).send('New rating could not be saved');
         } else {
           console.log('MongoDB says:', raw);
-          res.status(200).end();
+          res.status(200).json();
         }
       });    
     }
