@@ -14,13 +14,14 @@ angular.module('ssq')
   $http.get('/resource/' + id).then(function(query) {
     $scope.resource = query.data;
     $scope.data.name = query.data.className;
-    if (user) $scope.data.rating = $rootScope.rootUser.ratings[$scope.resource.className];
-    user.resourceList.forEach(function(res_id, index) {
-      if (res_id == id) {
-        console.log(res_id, id);
-        document.getElementById('add_button').remove();
-      }
-    });
+    if (user) {
+      $scope.data.rating = $rootScope.rootUser.ratings[$scope.resource.className];
+      user.resourceList.forEach(function(res_id, index) {
+        if (res_id == id) {
+          document.getElementById('add_button').remove();
+        }
+      });
+    }
   });
   
   
@@ -37,9 +38,10 @@ angular.module('ssq')
   
   
   $scope.submit = function() {
-    if ($rootScope.rootUser) {
+    if (user) {
       $http.post('/user/rate', $scope.data).then(function(response) {
-        console.log(response.status);
+        document.getElementById('rateAlert').innerText = 'Rating successful';
+        $rootScope.rootUser.ratings[$scope.data.name] = $scope.data.rating;
       });
     }
     else {

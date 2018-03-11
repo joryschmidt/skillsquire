@@ -1,33 +1,35 @@
 <div class='banner' style='background-color: {{ resource.color }};'></div>
-<br />
 
-<div class='row'>
-  <div class='col-md-4'>
-    <a href='{{ resource.link }}'><img class='rs-logo' ng-src='{{ resource.logo }}' /></a>
-    <div class='rating-form text-center'>
-      <h3>Leave a Rating!</h3>
-      <div class='row'>
-        <form ng-submit='submit()'>
-          <div class='col-md-4 col-md-offset-2'>
-            <select class='form-control' name='rating' id='rating' ng-model='data.rating'>
-              <option value='1'>1 Star</option>
-              <option value='2'>2 Stars</option>
-              <option value='3'>3 Stars</option>
-              <option value='4'>4 Stars</option>
-              <option value='5'>5 Stars</option>
-            </select>
-          </div>
-          <div class='col-md-4'>
-            <input type='submit' value='Submit Rating' class='btn btn-primary' />
-          </div>
-        </form>
+<div class='detail-view'>
+  <div class='row'>
+    <div class='col-md-4'>
+      <a href='{{ resource.link }}'><img class='rs-logo' ng-src='{{ resource.logo }}' /></a>
+      <div class='rating-form text-center'>
+        <h3>Leave a Rating!</h3>
+        <div class='row'>
+          <form ng-submit='submit()'>
+            <div class='col-md-4 col-md-offset-2'>
+              <select class='form-control' name='rating' id='rating' ng-model='data.rating'>
+                <option value='1'>1 Star</option>
+                <option value='2'>2 Stars</option>
+                <option value='3'>3 Stars</option>
+                <option value='4'>4 Stars</option>
+                <option value='5'>5 Stars</option>
+              </select>
+            </div>
+            <div class='col-md-4'>
+              <input type='submit' value='Submit Rating' class='btn btn-primary' />
+            </div>
+          </form>
+        </div>
+        <div>Your rating is {{ data.rating }}</div><br />
+        <div id='rateAlert'></div>
+        <span id='add_button' class='btn btn-success' ng-click='addToProfile()'>Add to my profile</span>
       </div>
-      <div>Your rating is {{ data.rating }}</div><br />
-      <span id='add_button' class='btn btn-success' ng-click='addToProfile()'>Add to my profile</span>
     </div>
-  </div>
-  
-  <div class='col-md-7 rs-detail-view-details'>
-    {{ resource.long_description }}
+    
+    <div class='col-md-7 rs-detail-view-details'>
+      {{ resource.long_description }}
+    </div>
   </div>
 </div>

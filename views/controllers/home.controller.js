@@ -26,7 +26,7 @@ angular.module('ssq')
   $http.get('/user/profile').then(function(query) {
     $scope.user_resources = query.data.resources;
   }, function() {
-    console.log('No user logged in');
+    
   });
   
   $scope.addRsc = function(id) {
