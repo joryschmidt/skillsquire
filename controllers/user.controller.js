@@ -116,7 +116,7 @@ exports.addResource = function(req, res) {
     }
     else {
       console.log('MongoDB says:', raw);
-      res.status(200).end();
+      res.status(200).json();
     }
   });
 };
@@ -145,7 +145,7 @@ exports.removeResource = function(req, res, next) {
       next();
     }
     else console.log('MongoDB says:', raw);
-    res.status(200).end();
+    res.status(200).json();
     next();
   });
 };

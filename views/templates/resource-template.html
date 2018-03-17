@@ -3,7 +3,7 @@
   <a class='rs-name btn btn-default'  id='{{ rsc.className }}' ng-href='#!/detail/{{ rsc._id }}'>{{ rsc.name }}</a>
   <div class='rs-desc btn btn-info'    ng-click='expand = !expand'><span class='glyphicon glyphicon-align-justify' aria-hidden='true'></span></div>
   <div class='rs-add  btn btn-warning' ng-if='userLoggedIn && !userHasResource(rsc)' id='{{ rsc.className }}Add' ng-click='addRsc(rsc._id)'><span class='glyphicon glyphicon-plus' aria-hidden='true'></span></div>
-  <div class='rs-add  btn btn-success' ng-if='userLoggedIn && userHasResource(rsc)' id='{{ rsc.className }}Added'><span class='glyphicon glyphicon-ok' aria-hidden='true'></span></div>
+  <div class='rs-add  btn btn-success' ng-if='userLoggedIn && userHasResource(rsc)' id='{{ rsc.className }}Added' ng-click='removeRsc(rsc._id)'><span class='glyphicon glyphicon-ok' aria-hidden='true'></span></div>
   <a   class='rs-add  btn btn-warning' ng-if='!userLoggedIn' id='{{ rsc.className }}Add' href='#!/login'><span class='glyphicon glyphicon-plus' aria-hidden='true'></span></a>
 </div>
 <div class='rs-details slide' ng-show='expand'>

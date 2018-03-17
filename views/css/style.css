@@ -168,3 +168,8 @@ a.queueLink {
 #login_form input {
   margin: 3px;
 }
+
+pre {
+  border: none;
+  padding: 5px;
+}

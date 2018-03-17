@@ -46,4 +46,11 @@
     };
   });
   
+  app.directive('cs', function() {
+    return {
+      restrict: 'E', 
+      templateUrl: 'templates/cs.html'
+    };
+  });
+  
 })();

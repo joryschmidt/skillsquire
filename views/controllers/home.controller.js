@@ -38,6 +38,11 @@ angular.module('ssq')
     }
     $scope.user_resources.push(rs);
   };
+
+  // $scope.removeRsc = function(id) {
+		// $http.put('/user/remove_resource', { id: id });
+		
+  // };
   
   $scope.user_resources = [];
   $scope.userHasResource = function(rs) {
