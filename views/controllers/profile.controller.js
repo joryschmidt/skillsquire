@@ -36,7 +36,7 @@ angular.module('ssq')
   $scope.deleteAccount = function() {
     if(confirm("Are you sure you want to do this? It cannot be undone.")) {
       $http({ method: 'DELETE', url: '/user/' + $scope.user._id }).then(function(response) {
-        console.log(response);
+        
         $http.get('/logout').then(function() {
           window.location.href = '/';
         });

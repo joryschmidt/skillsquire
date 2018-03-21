@@ -47,4 +47,50 @@ namespace Inheritance
     System.Console.WriteLine(Square is Polygon); // prints True
 }
 </code></pre>
+<h4>Classes</h4>
+<pre><code>
+class Person
+{
+    // Fields
+    public readonly string FirstName;
+    public readonly string LastName;
+    private string _phonenumber;
+    
+    // Constructor
+    Person(string first, string last, int phone)
+    {
+        FirstName = first;
+        LastName = last;
+        _phoneNumber = phone;
+    }
+    
+    // Properties
+    public string FullName => FirstName + " " + LastName;
+    
+    public int PhoneNumber
+    {
+        get
+        {
+            return _phoneNumber;
+        }
+        set
+        {
+            _phoneNumber = value;
+        }
+    }
+    
+    OR EQUIVALENTLY
+    
+    public int PhoneNumber { get; set;}
+    
+    // Methods
+    
+    public string Greet(string friend) => "Hello, " + friend;
+    
+    public string SayNo()
+    {
+        return "I don't think so.";
+    }
+}
+</code></pre>
 </div>

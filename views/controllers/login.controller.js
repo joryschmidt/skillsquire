@@ -10,7 +10,6 @@ angular.module('ssq')
       $rootScope.userLoggedIn = true;
       delete user.password;
       $rootScope.rootUser = user;
-      console.log($rootScope.rootUser);
       if (user.admin) $rootScope.userIsAdmin = true;
       window.location.href = '#!/profile';
     }, function(response) {

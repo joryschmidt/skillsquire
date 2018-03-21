@@ -29,7 +29,7 @@
     </div>
     
     <div class='col-md-7 rs-detail-view-details'>
-      <h2>{{ data.title }}</h2>
+      <h2><a href="{{ resource.link }}">{{ resource.name }}</a></h2>
       <div id='database_rating'><span ng-repeat="i in [].constructor(data.database_rating) track by $index" class='glyphicon glyphicon-star'></span></div>
       {{ resource.long_description }}
     </div>
