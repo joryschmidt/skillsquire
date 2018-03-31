@@ -1,82 +1,69 @@
 <div class='javascript syntax'>
-  <h2>Javascript</h2>
-  <br />
-  <h4>Hello World</h4>
-  <div class='code'>
-    <p>console.log("hello world");</p>
-  </div>
-  <br />
-  <h4>Function Definition</h4>
-  <div class='code'>
-    <p>function helloWorld() {</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;console.log("hello world");</p>
-    <p>}</p>
-  </div>
-  <h5>OR</h5>
-  <div class='code'>
-    <p>var helloWorld = function() {</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;console.log("hello world");</p>
-    <p>}</p>
-  </div>
-  <br />
-  <h4>For Loop</h4>
-  <div class='code'>
-    <p>for (var i = 0; i &lt; 10; i++) { </p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;console.log(i);</p>
-    <p>}</p>
-  </div>
-  <br />
-  <h4>While Loop</h4>
-  <div class='code'>
-    <p>var count = 0;</p>
-    <p>while (count &lt; 10) {</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;console.log(count);</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;count++;</p>
-    <p>}</p>
-  </div>
-  <h5>OR</h5>
-  <div class='code'>
-    <p>do {</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;<em>code</em></p>
-    <p>} while (count < 10);</p>
-  </div>
-  <br />
-  <h4>Conditionals</h4>
-  <div class='code'>
-    <p>if (<em>conditional</em>) {</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;// Do something</p>
-    <p>} else if (<em>conditional</em>) {</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;// Do something else</p>
-    <p>} else {</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;// Do default</p>
-    <p>}</p>
-  </div>
-  <br />
-  <h4>Switch Statement</h4>
-  <div class='code'>
-    <p>var food = 'Veggies'</p>
-    <p>switch (food) {</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;case 'Fruit':</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>code</em></p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;case 'Veggies':</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>code</em></p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;default:</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>code</em></p>
-    <p>}</p>
-  </div>
-  <br />
-  <h4>And, Or, Not Operators</h4>
-  <div class='code'>
-    <p>&& || !</p>
-  </div>
-  <br />
-  <h4>Strings</h4>
-  <div class='code'>
-    <p>"" OR ''</p>
-    <p>var name = 'world';</p>
-    <p>console.log("hello " + name);</p>
-    <p>console.log(`hello ${name}`);</p>
-  </div>
-</div>
+<h2>Javascript</h2>
+<h4>Hello World</h4>
+<pre><code>
+console.log("hello world");
+</code></pre>
+<h4>Function Definition</h4>
+<pre><code>
+function helloWorld() {
+    console.log("hello world");
+}
+
+var helloWorld = function() {
+    console.log("hello world");
+}
+</code></pre>
+<h4>For Loop</h4>
+<pre><code>
+for (var i=0; i < 10; i++) {
+    console.log(i);
+}
+</code></pre>
+<h4>While Loop</h4>
+<pre><code>
+var count = 0;
+while (count < 10) {
+    console.log(count);
+    count++;
+}
+
+do {
+    < code >
+} while (count < 10);
+</code></pre>
+<h4>Conditionals</h4>
+<pre><code>
+if (< conditional >) {
+    // Do something
+} else if (< conditional>) {
+    // Do something else
+} else {
+    // Do default
+}
+</code></pre>
+<h4>Switch Statement</h4>
+<pre><code>
+var food = 'veggies';
+switch (food) {
+    case 'fruit':
+        < code >
+        break;
+    case 'veggies':
+        < code ran >
+        break;
+    default:
+        < code >
+}
+</code></pre>
+<h4>And, Or, Not Operators</h4>
+<pre><code>
+&& || !
+</code></pre>
+<h4>Strings</h4>
+<pre><code>
+"" OR '' OR ``
+var name = 'world';
+console.log("hello " + name);
+console.log(`hello ${name}`);
+</code></pre>

@@ -8,8 +8,10 @@ Work on mailer
 
 Add remove category and remove category from resource functionality and resource updating to admin panel
 Add review model and associate to resources
-Make detail view add button symbolic, circular, and works to add and remove resource
-Make home view checkmark button remove resource
 Move the profile view to the dashboard and use the profile view to edit personal details
-Update rootUser element on details view page after adding resource to profile
-Change syntax cheatsheet to use <pre><code> elements
+
+
+Maybes
+
+Make home view checkmark button remove resource
+Make detail view add button symbolic, circular, and works to add and remove resource

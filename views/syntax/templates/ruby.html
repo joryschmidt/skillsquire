@@ -1,102 +1,82 @@
 <div class='ruby syntax'>
-  <h2>Ruby</h2>
-  <br />
-  <h4>Hello World</h4>
-  <div class='code'>
-    <p>puts 'hello world'</p>
-    <h4>OR</h4>
-    <p>print "hello world\n"</p>
-  </div>
-  <br />
-  <h4>Function Definition</h4>
-  <div class='code'>
-    <p>def hello_world</p>
-    <p>&nbsp;&nbsp;puts "hello world"</p>
-    <p>end</p>
-  </div>
-  <br />
-  <h4>For Loop</h4>
-  <div class='code'>
-    <p>for n in 0..9</p> 
-    <p>&nbsp;&nbsp;puts n</p>
-    <p>end</p>
-  </div>
-  <h5>OR</h5>
-  <div class='code'>
-    <p>10.times do |n|</p>
-    <p>&nbsp;&nbsp;puts n</p>
-    <p>end</p>
-  </div>
-  <br />
-  <h4>While Loop</h4>
-  <div class='code'>
-    <p>count = 0</p>
-    <p>while count < 10 do</p> 
-    <p>&nbsp;&nbsp;puts count</p>
-    <p>&nbsp;&nbsp;count += 1</p>
-    <p>end</p>
-  </div>
-  <h5>OR</h5>
-  <div class='code'>
-    <p>begin</p>
-    <p>&nbsp;&nbsp;<em>code</em></p>
-    <p>end while <em>conditional</em></p>
-  </div>
-  <h5>OR</h5>
-  <div class='code'>
-    <p><em>code</em> while <em>conditional</em></p>
-  </div>
-  <br />
-  <h4>Conditionals</h4>
-  <div class='code'>
-    <p>if <em>conditional</em></p>
-    <p>&nbsp;&nbsp;# Do something</p>
-    <p>elsif <em>conditional</em></p>
-    <p>&nbsp;&nbsp;# Do something else</p>
-    <p>else</p>
-    <p>&nbsp;&nbsp;# Do default</p>
-    <p>end</p>
-  </div>
-  <h5>OR</h5>
-  <div class='code'>
-    <p><em>code</em> if <em>conditional</em></p>
-    <br />
-    <p># Don't forget about unless and until<p>
-  </div>
-  <br />
-  <h4>Case Statement</h4>
-  <div class='code'>
-    <p>food = 'Veggies'</p>
-    <p>case</p>
-    <p>when food == 'Fruit'</p>
-    <p>&nbsp;&nbsp;<em>code</em></p>
-    <p>when food == 'Veggies'</p>
-    <p>&nbsp;&nbsp;<em>code</em></p>
-    <p>else</p>
-    <p>&nbsp;&nbsp;<em>code</em></p>
-    <p>end</p>
-  </div>
-  <h5>OR</h5>
-  <div class='code'>
-    <p>g = case year</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;when 1950..1969 then 'Classic'</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;when 1970..1989 then 'Retro'</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;else 'Modern'</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;end</p>
-  </div>
-  <br />
-  <h4>And, Or, Not Operators</h4>
-  <div class='code'>
-    <h5>high precedence</h5>
-    <p>&& || !</p>
-    <h5>low precedence</h5>
-    <p>and or not</p>
-  </div>
-  <br />
-  <h4>Strings</h4>
-  <div class='code'>
-    <p>"" OR ''</p>
-    <p>name = 'world'</p>
-    <p>print "hello #{name}\n"</p>
-    </div>
-</div>
+<h2>Ruby</h2>
+<h4>Hello World</h4>
+<pre><code>
+puts 'hello world'
+
+print "hello world\n"
+</code></pre>
+<h4>Function Definition</h4>
+<pre><code>
+def hello_world
+  puts "hello world"
+end
+</code></pre>
+<h4>For Loop</h4>
+<pre><code>
+for n in 0..9
+  puts n
+end
+
+10.times do |n|
+  puts n
+end
+</code></pre>
+<h4>While Loop</h4>
+<pre><code>
+count = 0
+while count < 10 do
+  puts count
+  count += 1
+end
+
+begin
+  < code >
+end while < conditional >
+
+< code > while < conditional >
+</code></pre>
+<h4>Conditionals</h4>
+<pre><code>
+if < conditional >
+  # Do something
+elsif < conditional >
+  # Do something else
+else
+  # Do default
+end
+
+< code > if < conditional >
+# unless and until are also keywords
+</code></pre>
+<h4>Case Statement</h4>
+<pre><code>
+food = 'veggies'
+case
+when food == 'fruit'
+  < code >
+when food == 'veggies'
+  < code ran >
+else
+  < code >
+end
+
+g = case year
+    when 1950..1969 then 'Classic'
+    when 1970..1989 then 'Retro'
+    else 'Modern'
+    end
+</code></pre>
+<h4>And, Or, Not Operators</h4>
+<pre><code>
+high precedence
+  && || !
+low precedence
+  and or not
+</code></pre>
+<h4>Strings</h4>
+<pre><code>
+"" OR ''
+name = 'world'
+print "hello #{name}\n"
+</code></pre>

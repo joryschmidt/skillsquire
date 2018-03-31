@@ -16,7 +16,7 @@ angular.module('ssq')
     $scope.data.name = query.data.className;
     $scope.data.database_rating = Math.round(query.data.rating);
     if (user) {
-      $scope.data.rating = $rootScope.rootUser.ratings[$scope.resource.className];
+      if ($rootScope.rootUser.ratings) $scope.data.rating = $rootScope.rootUser.ratings[$scope.resource.className];
       user.resourceList.forEach(function(res_id, index) {
         if (res_id == id) {
           document.getElementById('add_button').remove();

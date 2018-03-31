@@ -172,4 +172,11 @@ a.queueLink {
 pre {
   border: none;
   padding: 5px;
+  margin-top: -20px;
+}
+
+@media screen and (max-device-width: 850px) {
+  .home-heading {
+    font-size: 45px;
+  }
 }
