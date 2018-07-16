@@ -11,7 +11,7 @@ angular.module('ssq')
       delete user.password;
       $rootScope.rootUser = user;
       if (user.admin) $rootScope.userIsAdmin = true;
-      window.location.href = '#!/profile';
+      window.location.href = '#!/dashboard';
     }, function(response) {
       console.log(response.data.message);
       window.location.reload();

@@ -48,10 +48,6 @@ app.use('/resource', resource);
 app.use('/user', requireLogin, user);
 app.use('/', main);
 
-// app.use(function(req, res) {
-//   res.sendFile(path.join(__dirname, 'views/index.html'));
-// });
-
 var port = process.env.PORT;
 app.listen(port, function() {
   console.log('App listening on port', port);

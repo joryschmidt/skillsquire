@@ -136,6 +136,7 @@ exports.removeCustomResource = function(req, res, next) {
   });
 };
 
+// Remove an ordinary resource from user profile
 exports.removeResource = function(req, res, next) {
   var id = req.body.id;
   User.update({ _id: req.session.user._id }, { $pull: { resourceList: id }}, function(err, raw) {

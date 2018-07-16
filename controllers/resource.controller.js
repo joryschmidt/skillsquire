@@ -38,6 +38,7 @@ exports.queue = function(req, res) {
   newQueue.user = req.body.user;
   newQueue.className = req.body.name.replace(/[ .]/g, '');
   
+  // This function exists in the resource controller instead of the user controller because of its interaction with the queue
   // Update the users custom resource list and save it to the queue
   User.update({ username: req.body.user }, { $push: { customResourceList: { $each: [newQueue], $position: 0 }}}, function(err, response) {
     if (err) {

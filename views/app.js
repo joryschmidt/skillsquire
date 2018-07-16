@@ -16,7 +16,14 @@
       })
       .when('/dashboard', {
         templateUrl: 'templates/dashboard.html',
-        controller: 'dashboardCtrl'
+        controller: 'dashboardCtrl',
+        resolve: {
+          check: function(hasRootUser) {
+            if (!hasRootUser.check) {
+              window.location.href = '/';
+            }
+          }
+        }
       })
       .when('/profile', {
         templateUrl: 'templates/profile.html',
