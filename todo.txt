@@ -4,13 +4,12 @@ Auto scroll if description goes off screen
 Add pagination, probably with Angular maybe with Bootstrap?
 Work on mailer 
 
-!!! Make resource detail view viewable
+Make resource detail view viewable
 
-Add remove category and remove category from resource functionality and resource updating to admin panel
 Add review model and associate to resources
 Make profile view to edit personal details
 
-
+Add testing. 
 
 Maybes
 
