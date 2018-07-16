@@ -144,7 +144,10 @@ exports.editResource = function(req, res) {
     description: req.body.description,
     long_description: req.body.long_description,
     categories: req.body.categories,
-    color: req.body.color
+    color: req.body.color,
+    name: req.body.name,
+    link: req.body.link,
+    logo: req.body.logo
   }}, function(err, response) {
     if (err) {
       console.log(err);

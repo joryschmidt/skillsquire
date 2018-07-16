@@ -10,7 +10,7 @@ angular.module('admin', ['ngRoute'])
       controller: 'resourceCtrl'
     })
     .when('/resource/edit/:id', {
-      templateUrl: 'templates/resource.html',
+      templateUrl: 'templates/edit_resource.html',
       controller: 'resourceEditCtrl'
     })
     .when('/create_admin', {
