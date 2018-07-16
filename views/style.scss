@@ -191,3 +191,14 @@ pre {
     font-size: 45px; 
   }
 }
+
+.rsDelete {
+  height: 80vh;
+  width: 100%;
+  margin-top: 40px;
+  
+  &__resource {
+    width: 30vw;
+    display: inline-block;
+  }
+}
