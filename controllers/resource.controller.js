@@ -128,7 +128,7 @@ exports.deleteResource = function(req, res) {
 
 // Add a category to a resource -- Admin function
 exports.addCategory = function(req, res) {
-  Resource.update({ _id: req.params.id }, { $push: { categories: req.body.cat }}, function(err, raw) {
+  Resource.update({ _id: req.params.id }, { $addToSet: { categories: req.body.cat }}, function(err, raw) {
     if (err) {
       console.log(err);
       res.status(500).end();
@@ -139,6 +139,20 @@ exports.addCategory = function(req, res) {
   });
 };
 
+// Remove a category from a resource -- Admin function
+exports.removeCategory = function(req, res) {
+  Resource.update({ _id: req.params.id }, { $pull: { categories: req.body.cat }}, function(err, raw) {
+    if (err) {
+      console.log(err);
+      res.status(500).end();
+    } else {
+      console.log(raw);
+      res.status(200).end();
+    }
+  });
+};
+
+// Edit a resource -- Admin function
 exports.editResource = function(req, res) {
   Resource.update({ _id: req.params.id }, { $set: {
     description: req.body.description,

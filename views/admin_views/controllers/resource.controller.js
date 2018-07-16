@@ -24,6 +24,7 @@ angular.module('admin')
     $location.path('/');
   };
   
+  // Adds new categories to the database
   $scope.addNewCategory = function() {
     $http.put('/categories/add', { cat: $scope.newCat }).then(function(q) {
       console.log('Added category');

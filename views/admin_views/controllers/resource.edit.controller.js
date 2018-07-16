@@ -7,12 +7,19 @@ angular.module('admin')
     $scope.resource = res.data;
     
     $scope.submit = function() {
-      $http({method: 'POST', url: '/admin/resource', data: $scope.resource }).then(function(response) {
+      $http({method: 'PUT', url: '/admin/resource/edit/' + $routeParams.id, data: $scope.resource }).then(function(response) {
         // Having serious problems trying to get Angular to send resource.categories anything but an empty array, so this will have to do for now
+        console.log('sent to mongo');
         for (var cat in $scope.categories) {
           if ($scope.categories[cat] == true) {
-            $http.put('/admin/resource/add_category/' + response.data._id, { cat: cat }).then(function() {
+            $http.put('/admin/resource/add_category/' + $routeParams.id, { cat: cat }).then(function() {
               console.log('Updated category');
+            }, function(err) {
+              console.log(err);
+            });
+          } else {
+            $http.put('/admin/resource/remove_category/' + $routeParams.id, { cat: cat }).then(function() {
+              console.log('Removed category');
             }, function(err) {
               console.log(err);
             });
@@ -24,6 +31,7 @@ angular.module('admin')
       $location.path('/');
     };
     
+    // This will add new categories to the database
     $scope.addNewCategory = function() {
       $http.put('/categories/add', { cat: $scope.newCat }).then(function(q) {
         console.log('Added category');
