@@ -21,6 +21,8 @@ router.delete('/resource/queue/:id', resource_controller.removeQueueItem);
 
 router.put('/resource/add_category/:id', resource_controller.addCategory);
 
+router.get('/resource/:id', resource_controller.getOne);
+
 router.put('/resource/edit/:id', resource_controller.editResource);
 
 module.exports = router;

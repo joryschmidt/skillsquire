@@ -37,6 +37,10 @@ angular.module('ssq')
     }
   };
   
+  $scope.editResource = function() {
+    window.location.href='/admin/#!/resource/edit/' + id;
+  }
+  
   
   $scope.submit = function() {
     if (user) {
