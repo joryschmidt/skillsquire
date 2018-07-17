@@ -68,7 +68,8 @@ exports.getUser = function(req, res) {
   else res.status(404).json(null);
 };
 
-exports.delete_user = function(req, res) {
+// Delete a user from the database
+exports.deleteUser = function(req, res) {
   User.findOneAndRemove({ _id: req.params.id }, function(err, user) {
     if (err) {
       console.log(err);
@@ -180,6 +181,8 @@ exports.rate = function(req, res) {
     }
   });
 };
+
+// Private methods
 
 // Update or add new resource rating in database
 function updateRating(rscName, rating, rerate, old_rating) {

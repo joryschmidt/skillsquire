@@ -113,6 +113,27 @@ exports.getOne = function(req, res) {
   });
 };
 
+// Edit a resource -- Admin function
+exports.editResource = function(req, res) {
+  Resource.update({ _id: req.params.id }, { $set: {
+    description: req.body.description,
+    long_description: req.body.long_description,
+    categories: req.body.categories,
+    color: req.body.color,
+    name: req.body.name,
+    link: req.body.link,
+    logo: req.body.logo
+  }}, function(err, response) {
+    if (err) {
+      console.log(err);
+      res.status(500).end();
+    } else {
+      console.log(response);
+      res.status(200).end();
+    }
+  });
+};
+
 // Delete a resource -- Admin function
 exports.deleteResource = function(req, res) {
   Resource.findOneAndRemove({ _id: req.params.id }, function(err, resource) {
@@ -152,23 +173,3 @@ exports.removeCategory = function(req, res) {
   });
 };
 
-// Edit a resource -- Admin function
-exports.editResource = function(req, res) {
-  Resource.update({ _id: req.params.id }, { $set: {
-    description: req.body.description,
-    long_description: req.body.long_description,
-    categories: req.body.categories,
-    color: req.body.color,
-    name: req.body.name,
-    link: req.body.link,
-    logo: req.body.logo
-  }}, function(err, response) {
-    if (err) {
-      console.log(err);
-      res.status(500).end();
-    } else {
-      console.log(response);
-      res.status(200).end();
-    }
-  });
-};
