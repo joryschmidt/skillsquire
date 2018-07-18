@@ -1,18 +1,22 @@
-<a class='home-heading' href='/'>SkillSquire</a>
-
-<div class='displaySelector' ng-init='homeRadio="all"'>
-  <label class="custom-control custom-radio">
-    <input id="homeRadio" name="homeRadio" ng-model='homeRadio' type="radio" value='all' class="custom-control-input">
-    <span class="custom-control-indicator"></span>
-    <span class="custom-control-description">All Resources</span>
-  </label>
+<div class="banner">
+  <a href='/'><span class="heading-home">SkillSquire</span></a>
   
-  <label class="custom-control custom-radio">
-    <input id="homeRadioCat" name="homeRadio" ng-model='homeRadio' type="radio" value='cat' class="custom-control-input">
-    <span class="custom-control-indicator"></span>
-    <span class="custom-control-description">By Category</span>
-  </label>
+  <div class='radio-group' ng-init='homeRadio="all"'>
+    <label class="custom-control custom-radio">
+      <input id="homeRadio" name="homeRadio" ng-model='homeRadio' type="radio" value='all' class="custom-control-input">
+      <span class="custom-control-indicator"></span>
+      <span class="custom-control-description">All Resources</span>
+    </label>
+    
+    <label class="custom-control custom-radio">
+      <input id="homeRadioCat" name="homeRadio" ng-model='homeRadio' type="radio" value='cat' class="custom-control-input">
+      <span class="custom-control-indicator"></span>
+      <span class="custom-control-description">By Category</span>
+    </label>
+  </div>
 </div>
+
+
 
 <div class='row' ng-if='homeRadio == "all"'>
   <div class='col-md-4'> 

@@ -21,7 +21,7 @@ var app = express();
 
 // Middleware for Sass, session functionality, and req.body
 app.use(sass({
-  src: path.join(__dirname, 'views'),
+  src: path.join(__dirname, 'views/css/sass'),
   dest: path.join(__dirname, 'views/css'),
   debug: false,
   outputStyle: 'expanded',
