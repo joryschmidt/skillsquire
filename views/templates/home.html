@@ -1,18 +1,22 @@
 <div class="banner">
   <a href='/'><span class="heading-home">SkillSquire</span></a>
   
-  <div class='radio-group' ng-init='homeRadio="all"'>
-    <label class="custom-control custom-radio">
-      <input id="homeRadio" name="homeRadio" ng-model='homeRadio' type="radio" value='all' class="custom-control-input">
-      <span class="custom-control-indicator"></span>
-      <span class="custom-control-description">All Resources</span>
-    </label>
+  <div class='organization' ng-init='homeRadio="all"'>
+    <div class="radio-group">
+      <input id="homeRadio" name="homeRadio" ng-model='homeRadio' type="radio" value='all' class="radio-input">
+      <label class="radio-label">
+        <span class="radio-btn"></span>
+        <span class="radio-description">All Resources</span>
+      </label>
+    </div>
     
-    <label class="custom-control custom-radio">
-      <input id="homeRadioCat" name="homeRadio" ng-model='homeRadio' type="radio" value='cat' class="custom-control-input">
-      <span class="custom-control-indicator"></span>
-      <span class="custom-control-description">By Category</span>
-    </label>
+    <div class="radio-group">
+      <input id="homeRadioCat" name="homeRadio" ng-model='homeRadio' type="radio" value='cat' class="radio-input" />
+      <label class="radio-label">
+        <span class="radio-btn"></span>
+        <span class="radio-description">By Category</span>
+      </label>
+    </div>
   </div>
 </div>
 
