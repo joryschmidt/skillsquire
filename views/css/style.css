@@ -40,6 +40,7 @@ a:link, a:hover, a:visited, a:active {
 .container {
   width: 120rem;
   margin: 0 auto;
+  background-color: #f2f2f2;
 }
 
 .nav {
@@ -77,6 +78,8 @@ a:link, a:hover, a:visited, a:active {
 .banner {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: .5rem 2rem;
 }
 
 .radio-label {
@@ -129,7 +132,7 @@ a:link, a:hover, a:visited, a:active {
 
 .resource__btn-group {
   width: 100%;
-  border: 1px solid black;
+  border: 1px solid #c9c9c9;
   border-radius: 4px;
   overflow: hidden;
   display: flex;
@@ -142,29 +145,34 @@ a:link, a:hover, a:visited, a:active {
   cursor: pointer;
 }
 
-.resource__btn-group > *:not(:last-child) {
-  border-right: 1px solid black;
+.resource__btn-group > *:not(:first-child) {
+  border-left: 1px solid #c9c9c9;
 }
 
 .resource__link {
   width: 12%;
   height: 100%;
-  display: inline-block;
 }
 
 .resource__name {
   width: 65%;
-  display: inline-block;
   text-align: center;
   font-weight: bold;
+  box-sizing: content-box;
+  background-color: white;
 }
 
-.resource__description {
+.resource__description-text {
   display: inline-block;
+  font-size: 1.4rem;
 }
 
-.resource__add {
-  display: inline-block;
+.resource__add--plus {
+  background-color: #3e84a8;
+}
+
+.resource__add--checkmark {
+  background-color: #5ca83e;
 }
 
 .resource__icon {
@@ -176,9 +184,31 @@ a:link, a:hover, a:visited, a:active {
 .resource__icon--cross {
   width: 1.5rem;
   height: 1.5rem;
+  background-color: #a83535;
 }
 
 .resource__icon--plus {
-  width: 1.7rem;
-  height: 1.7rem;
+  width: 2rem;
+  height: 2rem;
+}
+
+.resource__details {
+  padding: .7rem;
+  padding-top: .9rem;
+  border-bottom: 1px solid #c9c9c9;
+  border-right: 1px solid #c9c9c9;
+  border-left: 1px solid #c9c9c9;
+  border-radius: 0 0 4px 4px;
+  transform: translateY(-2px);
+}
+
+.resource__rating {
+  display: inline-block;
+}
+
+.resource__rating-star {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #d1c43e;
+  transform: translateY(2px);
 }

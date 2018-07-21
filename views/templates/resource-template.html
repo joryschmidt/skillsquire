@@ -10,23 +10,23 @@
     <svg class="resource__icon"><use xlink:href="css/sprite.svg#icon-menu"></use></svg>
   </div>
   
-  <div class='resource__add' ng-if='userLoggedIn && !userHasResource(rsc)' id='{{ rsc.className }}Add' ng-click='addRsc(rsc._id)'>
+  <div class='resource__add resource__add--plus' ng-if='userLoggedIn && !userHasResource(rsc)' id='{{ rsc.className }}Add' ng-click='addRsc(rsc._id)'>
     <svg class="resource__icon resource__icon--plus"><use xlink:href="css/sprite.svg#icon-plus"></use></svg>
   </div>
   
-  <div class='resource__add' ng-if='userLoggedIn && userHasResource(rsc)' id='{{ rsc.className }}Added' ng-click='removeRsc(rsc._id)'>
+  <div class='resource__add resource__add--checkmark' ng-if='userLoggedIn && userHasResource(rsc)' id='{{ rsc.className }}Added' ng-click='removeRsc(rsc._id)'>
     <svg class="resource__icon resource__icon--checkmark"><use xlink:href="css/sprite.svg#icon-checkmark"></use></svg>
   </div>
   
-  <a class='resource__add' ng-if='!userLoggedIn' id='{{ rsc.className }}Add' href='#!/login'>
+  <a class='resource__add resource__add--plus' ng-if='!userLoggedIn' id='{{ rsc.className }}Add' href='#!/login'>
     <svg class="resource__icon resource__icon--plus"><use xlink:href="css/sprite.svg#icon-plus"></use></svg>
   </a>
 </div>
 
 <div class='resource__details slide' ng-show='expand'>
-  <div class='rs-rating'>
-    <span ng-if='rsc.rating'><span ng-repeat='i in [].constructor(roundRating(rsc.rating)) track by $index' class='glyphicon glyphicon-star' aria-hidden='true'></span> &ndash; </span>
+  <div class='resource__rating'>
+    <span ng-if='rsc.rating'><svg ng-repeat='i in [].constructor(roundRating(rsc.rating)) track by $index' class='resource__rating-star'><use xlink:href="css/sprite.svg#icon-star-full"></use></svg> &ndash; </span>
     <span ng-if='!rsc.rating'>Not yet rated &ndash; </span>
   </div>
-  <div class='rs-description'>{{ rsc.description }}</div>
+  <div class='resource__description-text'>{{ rsc.description }}</div>
 </div>

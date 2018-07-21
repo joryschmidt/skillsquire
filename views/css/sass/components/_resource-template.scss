@@ -3,7 +3,7 @@
   
   &__btn-group {
     width: 100%;
-    border: 1px solid black;
+    border: $default-border;
     border-radius: 4px;
     overflow: hidden;
     display: flex;
@@ -11,10 +11,11 @@
     justify-content: space-between;
     
     & > * {
-      &:not(:last-child) {
-        border-right: 1px solid black;
+      &:not(:first-child) {
+        border-left: $default-border;
       }
       
+      // adjust padding heighten or shorten resource element
       padding: 1rem;
       cursor: pointer;
     }
@@ -23,22 +24,33 @@
   &__link {
     width: 12%;
     height: 100%;
-    display: inline-block;
   }
   
   &__name {
     width: 65%;
-    display: inline-block;
     text-align: center;
     font-weight: bold;
+    box-sizing: content-box;
+    background-color: white;
   }
   
   &__description {
-    display: inline-block;
+    
+    &-text {
+      display: inline-block;
+      font-size: 1.4rem;
+    }
   }
   
   &__add {
-    display: inline-block;
+    
+    &--plus {
+      background-color: $blue;
+    }
+    
+    &--checkmark {
+      background-color: $green;
+    }
   }
   
   &__icon {
@@ -49,12 +61,36 @@
     &--cross {
       width: 1.5rem;
       height: 1.5rem;
+      background-color: $red;
       //transform: translate(5px, 2px);
     }
     
     &--plus {
-      width: 1.7rem;
-      height: 1.7rem;
+      width: 2rem;
+      height: 2rem;
+    }
+    
+    
+  }
+  
+  &__details {
+    padding: .7rem;
+    padding-top: .9rem;
+    border-bottom: $default-border;
+    border-right: $default-border;
+    border-left: $default-border;
+    border-radius: 0 0 4px 4px;
+    transform: translateY(-2px);
+  }
+  
+  &__rating {
+    display: inline-block;
+    
+    &-star {
+      width: 1.5rem;
+      height: 1.5rem;
+      fill: $color-star;
+      transform: translateY(2px);
     }
   }
 }
