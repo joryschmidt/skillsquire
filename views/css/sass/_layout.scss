@@ -1,16 +1,13 @@
 .container {
-  width: 120rem;
-  min-height: 100vh;
-  margin: 0 auto;
-  padding-bottom: 20rem;
-  background-color: $lighter-grey;
+  @include container;
+  background-color: $light-grey;
 }
 
 .nav {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  background-color: $dark-grey;
+  background-color: rgba($dark-grey, 0.9);
   
   &__item {
     list-style: none;

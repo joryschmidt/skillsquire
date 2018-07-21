@@ -1,5 +1,5 @@
-<div class="rsDelete">
-  <div class='rsDelete__resource' ng-repeat="rsc in resources">
-    <p><button class='btn btn-danger' ng-click='goodbye(rsc._id, rsc.name)'>Delete</button> {{ rsc.name }}</p>
+<div class="resource-delete">
+  <div class='resource-delete__resource' ng-repeat="rsc in resources">
+    <p><button class='btn btn--admin btn-danger' ng-click='goodbye(rsc._id, rsc.name)'>Delete</button> <span class="resource-delete__name">{{ rsc.name }}</span></p>
   </div>
 </div>

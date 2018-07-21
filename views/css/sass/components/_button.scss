@@ -1,0 +1,19 @@
+.btn {
+  padding: 1.5rem;
+  border: $default-border;
+  border-radius: 4px;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  
+  &--admin {
+    margin: 1rem;
+  }
+  
+  &-danger {
+    background-color: $red;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+  }
+}

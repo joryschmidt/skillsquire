@@ -3,5 +3,9 @@
 @import "mixins";
 @import "layout";
 
+@import "components/button";
 @import "components/banner";
-@import "components/resource-template"
+@import "components/resource-template";
+
+@import "admin/app";
+@import "cheatsheet/app";

@@ -12,7 +12,6 @@
 
     <title>SSQ Admin Panel</title>
     
-    <link rel='stylesheet' href='../bower_components/bootstrap/dist/css/bootstrap.min.css' />
     <link rel='stylesheet' href='../css/style.css' />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -23,27 +22,19 @@
   </head>
 
   <body ng-app='admin'>
+      <nav class="navbar">
+        <ul class="nav">
+          <a href="/">            <li class="nav__item">SSQ Home</li></a>
+          <a href="/syntax">      <li class="nav__item">Cheatsheet</li></a>
+          <a href="#">            <li class="nav__item">Admin Panel</li></a>
+        </ul>
+      </nav>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-          </button>
-          <a class="navbar-brand" href="/">SkillSquire</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="#">Admin Home</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
+      <h1 class="admin-heading">Admin Panel</h1>
+      
+      <div class="admin-container">
+        <div ng-view></div>
       </div>
-    </nav>
-
-    <div class="container">
-
-      <h1>Admin Panel</h1>
-      <div ng-view></div>
       
     </div><!-- /.container -->
 
@@ -51,7 +42,6 @@
     <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="../bower_components/angular-route/angular-route.min.js"></script>
     <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     
     <script type="text/javascript" src="admin.js"></script>
     <script type="text/javascript" src="controllers/home.controller.js"></script>

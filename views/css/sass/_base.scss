@@ -3,8 +3,10 @@ $lighter-grey: #f2f2f2;
 $light-grey: #c9c9c9;
 $grey: #919191;
 $dark-grey: #2d2d2d;
+$lighter-red: #f9dede;
 $red: #a83535;
 $green: #5ca83e;
+$lighter-blue: #bad1ff;
 $light-blue: #93d0ff;
 $blue: #3e84a8;
 
@@ -30,7 +32,9 @@ body {
   box-sizing: border-box;
   line-height: 1.7;
   
-  
+  // to hide stuff before angular figures out what should and shouldn't be on the page
+  visibility: hidden;
+  opacity: 0;
 }
 
 a:link, a:hover, a:visited, a:active {

@@ -1,33 +1,33 @@
+<!-- There's some weird indentation going on that I'm not a fan of, but since I can't nest forms this is 
+      how it's gotta be to look the way I want because I don't want to reconfigure the addCategory form -->
+      
 <h2>Edit Resource</h2>
-<div class='row'>
-  <form ng-submit='submit()'>
-    <div class='col-md-4'>
-      <input type='text' name='name' placeholder='Name' ng-model='resource.name' class='form-control' />
-      <br />
-      <input type='text' name='link' placeholder='Link' ng-model='resource.link' class='form-control' />
-      <br />
-      <input type='text' name='color' placeholder='Brand Color' ng-model='resource.color' class='form-control' />
-      <br />
-      <input type='text' name='logo' placeholder='Logo Link' ng-model='resource.logo' class='form-control' />
-      <br />
-      <input type='submit' value='Edit Resource' class='btn btn-success' />
+<div class='admin-row'>
+  <form class='resource__form' ng-submit='submit()'>
+    <div class='resource-metadata'>
+      <input type='text' name='name' placeholder='Name' ng-model='resource.name' class='resource-metadata__input resource-metadata--name' />
+      <input type='text' name='link' placeholder='Link' ng-model='resource.link' class='resource-metadata__input resource-metadata--link' />
+      <input type='text' name='color' placeholder='Brand Color' ng-model='resource.color' class='resource-metadata__input resource-metadata--color' />
+      <input type='text' name='logo' placeholder='Logo Link' ng-model='resource.logo' class='resource-metadata__input resource-metadata--logo' />
+      <input type='submit' value='Edit Resource' class='btn btn--admin btn-danger' />
     </div>
-    <div class='col-md-4'>
-      <textarea name='description' id='resource-description' placeholder='Description' rows='5' ng-model='resource.description' class='form-control'></textarea><br />
-      <textarea name='long_description' id='long-resource-description' placeholder='Detailed Description' rows='10' ng-model='resource.long_description' class='form-control'></textarea>
+    
+    <div class='resource-description'>
+      <textarea name='description' placeholder='Description' ng-model='resource.description' class='resource-description__text'></textarea><br />
+      <textarea name='long_description' placeholder='Detailed Description' ng-model='resource.long_description' class='resource-description__long-text'></textarea>
     </div>
-    <div class='col-md-4'>
-      <div class='rsc-category form-group' ng-repeat='(cat, selected) in categories'>
-        <label for='{{ cat }}'>
-          <input type='checkbox' value='cat' name='cat' ng-model='categories[cat]' /> {{ cat }} 
+    
+    <div class='resource-categories'>
+      <div class='resource-categories__category' ng-repeat='(cat, selected) in categories'>
+        <input type='checkbox' value='cat' name='cat' id='{{ cat }}' ng-model='categories[cat]' class='resource-categories__checkbox' /> 
+        <label for='{{ cat }}' class='resource-categories__label'>
+          <span class="resource-categories__label-text">{{ cat }}</span>
         </label>
       </div>
   </form>
-      <br /><br />
-      <form ng-submit='addNewCategory()'>
-        <input type='text' id='new-category' name='new-category' placeholder='Add New Category' ng-model='newCat' class='form-control' />
-        <br />
-        <input type='submit' value='Add Category' class='btn btn-primary' />
-      </form>
-    </div>
+  
+  <form ng-submit='addNewCategory()'>
+    <input type='text' name='new-category' placeholder='Add New Category' ng-model='newCat' class='resource-new-category' />
+    <input type='submit' value='Add Category' class='btn btn--admin' />
+  </form>
 </div>

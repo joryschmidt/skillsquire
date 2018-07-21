@@ -4,3 +4,16 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@mixin container {
+  width: 120rem;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding-bottom: 20rem;
+}
+
+@mixin form_style {
+  width: 75%;
+  padding: .7rem;
+  margin: .5rem;
+}
