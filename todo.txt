@@ -1,6 +1,5 @@
 Reorder profile resources by drag and drop
 CSRF security, implement with help from angular $http
-Auto scroll if description goes off screen
 Add pagination, probably with Angular maybe with Bootstrap?
 Work on mailer 
 
@@ -8,6 +7,7 @@ Make resource detail view viewable
 
 Add review model and associate to resources
 Make profile view to edit personal details
+Add link validation in create resource page, add 'http://' if regex doesn't find it
 
 Add testing. 
 
