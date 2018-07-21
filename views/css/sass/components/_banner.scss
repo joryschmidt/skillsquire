@@ -33,12 +33,13 @@
       background-color: black;
       border-radius: 50%;
       opacity: 0;
+      transition: opacity .2s;
       
       @include center_absolute;
     }
   }
   
-  &-input:checked + &-radio &-btn::after {
+  &-input:checked + &-label &-btn::after {
     opacity: 1;
   }
   

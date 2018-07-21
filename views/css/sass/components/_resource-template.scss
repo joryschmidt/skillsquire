@@ -1,0 +1,60 @@
+.resource {
+  margin: 1rem;
+  
+  &__btn-group {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    & > * {
+      &:not(:last-child) {
+        border-right: 1px solid black;
+      }
+      
+      padding: 1rem;
+      cursor: pointer;
+    }
+  }
+  
+  &__link {
+    width: 12%;
+    height: 100%;
+    display: inline-block;
+  }
+  
+  &__name {
+    width: 65%;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  &__description {
+    display: inline-block;
+  }
+  
+  &__add {
+    display: inline-block;
+  }
+  
+  &__icon {
+    width: 2rem;
+    height: 2rem;
+    transform: translateY(2px);
+    
+    &--cross {
+      width: 1.5rem;
+      height: 1.5rem;
+      //transform: translate(5px, 2px);
+    }
+    
+    &--plus {
+      width: 1.7rem;
+      height: 1.7rem;
+    }
+  }
+}

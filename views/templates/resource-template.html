@@ -1,12 +1,29 @@
-<div class='btn-group btn-block'>
-  <a class='rs-link btn btn-default' id='{{ rsc.className }}Color' ng-href='{{ rsc.link }}' style="background-color: {{ rsc.color }};" target='_blank' rel='noopener'> &nbsp; </a>
-  <a class='rs-name btn btn-default'  id='{{ rsc.className }}' ng-href='#!/detail/{{ rsc._id }}'>{{ rsc.name }}</a>
-  <div class='rs-desc btn btn-info'    ng-click='expand = !expand'><span class='glyphicon glyphicon-align-justify' aria-hidden='true'></span></div>
-  <div class='rs-add  btn btn-warning' ng-if='userLoggedIn && !userHasResource(rsc)' id='{{ rsc.className }}Add' ng-click='addRsc(rsc._id)'><span class='glyphicon glyphicon-plus' aria-hidden='true'></span></div>
-  <div class='rs-add  btn btn-success' ng-if='userLoggedIn && userHasResource(rsc)' id='{{ rsc.className }}Added' ng-click='removeRsc(rsc._id)'><span class='glyphicon glyphicon-ok' aria-hidden='true'></span></div>
-  <a   class='rs-add  btn btn-warning' ng-if='!userLoggedIn' id='{{ rsc.className }}Add' href='#!/login'><span class='glyphicon glyphicon-plus' aria-hidden='true'></span></a>
+<div class='resource__btn-group'>
+  <a class='resource__link' id='{{ rsc.className }}Color' ng-href='{{ rsc.link }}' style="background-color: {{ rsc.color }};" target='_blank' rel='noopener'>
+    <span class="resource__link-space">&nbsp;</span>
+  </a>
+  <a class='resource__name' id='{{ rsc.className }}' ng-href='#!/detail/{{ rsc._id }}'>
+    <span class="resource__name-text">{{ rsc.name }}</span>
+  </a>
+  
+  <div class='resource__description' ng-click='expand = !expand'>
+    <svg class="resource__icon"><use xlink:href="css/sprite.svg#icon-menu"></use></svg>
+  </div>
+  
+  <div class='resource__add' ng-if='userLoggedIn && !userHasResource(rsc)' id='{{ rsc.className }}Add' ng-click='addRsc(rsc._id)'>
+    <svg class="resource__icon resource__icon--plus"><use xlink:href="css/sprite.svg#icon-plus"></use></svg>
+  </div>
+  
+  <div class='resource__add' ng-if='userLoggedIn && userHasResource(rsc)' id='{{ rsc.className }}Added' ng-click='removeRsc(rsc._id)'>
+    <svg class="resource__icon resource__icon--checkmark"><use xlink:href="css/sprite.svg#icon-checkmark"></use></svg>
+  </div>
+  
+  <a class='resource__add' ng-if='!userLoggedIn' id='{{ rsc.className }}Add' href='#!/login'>
+    <svg class="resource__icon resource__icon--plus"><use xlink:href="css/sprite.svg#icon-plus"></use></svg>
+  </a>
 </div>
-<div class='rs-details slide' ng-show='expand'>
+
+<div class='resource__details slide' ng-show='expand'>
   <div class='rs-rating'>
     <span ng-if='rsc.rating'><span ng-repeat='i in [].constructor(roundRating(rsc.rating)) track by $index' class='glyphicon glyphicon-star' aria-hidden='true'></span> &ndash; </span>
     <span ng-if='!rsc.rating'>Not yet rated &ndash; </span>

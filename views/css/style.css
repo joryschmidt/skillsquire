@@ -18,6 +18,7 @@ body {
 a:link, a:hover, a:visited, a:active {
   color: black;
   text-decoration: none;
+  outline: none;
 }
 
 @font-face {
@@ -27,17 +28,24 @@ a:link, a:hover, a:visited, a:active {
 
 .heading-home {
   font-family: 'Fat Boy Slim';
-  font-size: 4rem;
+  font-size: 6rem;
+}
+
+.home-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  fill: white;
 }
 
 .container {
-  width: 100rem;
+  width: 120rem;
   margin: 0 auto;
 }
 
 .nav {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   background-color: black;
 }
 
@@ -49,6 +57,21 @@ a:link, a:hover, a:visited, a:active {
 
 .nav__item:hover {
   background-color: #2d2d2d;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.row-category {
+  grid-template-columns: 1fr;
+}
+
+.category {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
 }
 
 .banner {
@@ -81,13 +104,14 @@ a:link, a:hover, a:visited, a:active {
   background-color: black;
   border-radius: 50%;
   opacity: 0;
+  transition: opacity .2s;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.radio-input:checked + .radio-radio .radio-btn::after {
+.radio-input:checked + .radio-label .radio-btn::after {
   opacity: 1;
 }
 
@@ -97,4 +121,64 @@ a:link, a:hover, a:visited, a:active {
 
 .organization {
   margin-top: 1rem;
+}
+
+.resource {
+  margin: 1rem;
+}
+
+.resource__btn-group {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.resource__btn-group > * {
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.resource__btn-group > *:not(:last-child) {
+  border-right: 1px solid black;
+}
+
+.resource__link {
+  width: 12%;
+  height: 100%;
+  display: inline-block;
+}
+
+.resource__name {
+  width: 65%;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+}
+
+.resource__description {
+  display: inline-block;
+}
+
+.resource__add {
+  display: inline-block;
+}
+
+.resource__icon {
+  width: 2rem;
+  height: 2rem;
+  transform: translateY(2px);
+}
+
+.resource__icon--cross {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.resource__icon--plus {
+  width: 1.7rem;
+  height: 1.7rem;
 }
