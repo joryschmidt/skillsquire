@@ -96,6 +96,13 @@
 	    templateUrl: 'templates/resource-template.html'
 	  };
   });
+  
+  app.directive('resourceTemplateUser', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'templates/resource-template-user.html'
+    };
+  });
 
   // Angular doesn't like autofocus attribute, this fix
   app.directive('autofocus', ['$timeout', function($timeout) {

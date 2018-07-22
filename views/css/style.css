@@ -43,7 +43,7 @@ a:link, a:hover, a:visited, a:active {
   width: 120rem;
   min-height: 100vh;
   margin: 0 auto;
-  padding-bottom: 20rem;
+  padding-bottom: 30rem;
   background-color: #c9c9c9;
 }
 
@@ -82,7 +82,7 @@ a:link, a:hover, a:visited, a:active {
 
 .btn {
   padding: 1.5rem;
-  border: 1px solid #c9c9c9;
+  border: 1px solid #919191;
   border-radius: 4px;
   display: inline-block;
   cursor: pointer;
@@ -157,7 +157,7 @@ a:link, a:hover, a:visited, a:active {
 
 .resource__btn-group {
   width: 100%;
-  border: 1px solid #c9c9c9;
+  border: 1px solid #919191;
   border-radius: 4px;
   overflow: hidden;
   display: flex;
@@ -171,7 +171,7 @@ a:link, a:hover, a:visited, a:active {
 }
 
 .resource__btn-group > *:not(:first-child) {
-  border-left: 1px solid #c9c9c9;
+  border-left: 1px solid #919191;
 }
 
 .resource__link {
@@ -221,9 +221,9 @@ a:link, a:hover, a:visited, a:active {
 .resource__details {
   padding: .7rem;
   padding-top: .9rem;
-  border-bottom: 1px solid #c9c9c9;
-  border-right: 1px solid #c9c9c9;
-  border-left: 1px solid #c9c9c9;
+  border-bottom: 1px solid #919191;
+  border-right: 1px solid #919191;
+  border-left: 1px solid #919191;
   border-radius: 0 0 4px 4px;
   transform: translateY(-2px);
   background-color: white;
@@ -240,6 +240,40 @@ a:link, a:hover, a:visited, a:active {
   transform: translateY(2px);
 }
 
+.dashboard {
+  padding-top: 2rem;
+  display: grid;
+  grid-template-columns: 25rem repeat(2, 1fr);
+}
+
+.dashboard__heading {
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.dashboard__user-info {
+  justify-self: center;
+}
+
+.dashboard__resource {
+  display: inline-block;
+  width: 100%;
+}
+
+.dashboard__resources {
+  padding: 2rem;
+}
+
+.dashboard__custom-form__btn {
+  margin: 1rem;
+}
+
+.dashboard__custom__input {
+  width: 75%;
+  padding: .7rem;
+  margin: .5rem;
+}
+
 .admin-heading {
   padding: 3rem;
 }
@@ -248,7 +282,7 @@ a:link, a:hover, a:visited, a:active {
   width: 120rem;
   min-height: 100vh;
   margin: 0 auto;
-  padding-bottom: 20rem;
+  padding-bottom: 30rem;
 }
 
 .admin-home {
@@ -321,7 +355,7 @@ a:link, a:hover, a:visited, a:active {
   width: 120rem;
   min-height: 100vh;
   margin: 0 auto;
-  padding-bottom: 20rem;
+  padding-bottom: 30rem;
 }
 
 .csheet-row {

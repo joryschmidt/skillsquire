@@ -8,6 +8,7 @@ Make resource detail view viewable
 Add review model and associate to resources
 Make profile view to edit personal details
 Add link validation in create resource page, add 'http://' if regex doesn't find it
+Figure out data binding situation for removing custom vs ssq resources on dashboard
 
 Add testing. 
 
