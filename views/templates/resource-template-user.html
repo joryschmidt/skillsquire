@@ -10,13 +10,7 @@
     <svg class="resource__icon"><use xlink:href="css/sprite.svg#icon-menu"></use></svg>
   </div>
   
-  <div ng-if='!custom' class='resource__remove' id='{{ rsc.className }}Remove' ng-click='removeRsc(rsc._id)'>
-    <svg class="resource__icon">
-      <use xlink:href='css/sprite.svg#icon-cross'></use>
-    </svg>
-  </div>
-  
-  <div ng-if='custom' class='resource__remove' id='{{ rsc.className }}Remove' ng-click='removeCustomRsc(rsc._id)'>
+  <div class='resource__remove' id='{{ rsc.className }}Remove' ng-click='removeRsc(rsc._id)'>
     <svg class="resource__icon">
       <use xlink:href='css/sprite.svg#icon-cross'></use>
     </svg>

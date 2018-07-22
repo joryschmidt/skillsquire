@@ -97,14 +97,14 @@
 	  };
   });
   
+  // the scope attribute creates its own isolated scope for each directive, 
+  // so i pass removeCustomRsc to removeRsc with the custom resources
   app.directive('resourceTemplateUser', function() {
     return {
       restrict: 'E',
       scope: {
-        custom: '@',
         rsc: '=',
-        removeRsc: '=',
-        removeCustomRsc: '='
+        removeRsc: '='
       },
       templateUrl: 'templates/resource-template-user.html'
     };
