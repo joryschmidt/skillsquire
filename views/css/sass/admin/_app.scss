@@ -95,6 +95,10 @@
     
     &__resource {
       
+      &--item {
+        display: flex;
+        align-items: center;
+      }
     }
     
     &__name {

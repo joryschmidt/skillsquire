@@ -13,6 +13,18 @@
   
   &__user-info {
     justify-self: center;
+    
+    &:last-child {
+      margin-top: 1rem;
+    }
+    
+    &__data {
+      padding: 0 .5rem;
+    }
+  }
+  
+  #user-info-email {
+    margin-bottom: 2rem;
   }
   
   &__resource {
@@ -31,13 +43,18 @@
   &__custom {
     
     &-add {
+      margin-top: 2rem;
       
+      &-text {
+        letter-spacing: 1px;
+      }
     }
     
     &-form {
       
       &__btn {
         margin: 1rem;
+        color: black;
       }
     }
     

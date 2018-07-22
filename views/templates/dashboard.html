@@ -1,7 +1,7 @@
 <div class='dashboard'>
   <div class='dashboard__user-info'>
-    <h2>{{ user.username }}</h2>
-    <h3>{{ user.email }}</h3>
+    <h2 class='dashboard__user-info__data'>{{ user.username }}</h2>
+    <h3 id='user-info-email' class='dashboard__user-info__data'>{{ user.email }}</h3>
     <span class='btn btn-danger' ng-click='deleteAccount()'>Delete Account</span>
   </div>
   
@@ -9,7 +9,7 @@
     <h2 class='dashboard__heading'>Resources</h2>
     <div class='dashboard__resource-list'>
       <div class='dashboard__resource' ng-repeat="rsc in resources">
-        <resource-template-user></resource-template-user>
+        <resource-template-user rsc='rsc' remove-rsc='removeRsc'></resource-template-user>
       </div>
     </div>
   </div>
@@ -18,12 +18,12 @@
     <h2 class='dashboard__heading'>My Resources</h2>
     <div class='dashboard__resource-list'>
       <div class='dashboard__resource' ng-repeat="rsc in custom_resources">
-        <resource-template-user></resource-template-user>
+        <resource-template-user custom=true rsc='rsc' remove-custom-rsc='removeCustomRsc'></resource-template-user>
       </div>
     </div>
     
     <div class='dashboard__custom-add'>
-      <h4>Favorite resource not here? Add it to your own dashboard!</h4>
+      <span class='dashboard__custom-add-text'>Favorite resource not here? Add it to your own dashboard!</span>
       <form id='dashboard__custom-form' ng-submit='submit()'>
         <input type='text' ng-model='customResource.name' name='name' placeholder='Name' class='dashboard__custom__input' />
         <input type='text' ng-model='customResource.link' name='link' placeholder='Link' class='dashboard__custom__input' />

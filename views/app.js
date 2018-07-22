@@ -100,6 +100,12 @@
   app.directive('resourceTemplateUser', function() {
     return {
       restrict: 'E',
+      scope: {
+        custom: '@',
+        rsc: '=',
+        removeRsc: '=',
+        removeCustomRsc: '='
+      },
       templateUrl: 'templates/resource-template-user.html'
     };
   });

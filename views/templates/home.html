@@ -1,5 +1,5 @@
 <div class="banner">
-  <a href='/'><span class="heading-home">SkillSquire</span></a>
+  <a href='/'><span class="heading-home"><span class="heading-home--main">SkillSquire</span><span class="heading-home--sub">A coding resources hub</span></span></a>
   
   <div class='organization' ng-init='homeRadio="all"'>
     <div class="radio-group">
@@ -42,7 +42,7 @@
 
 <div class='row row-category' ng-if='homeRadio == "cat"'>
   <div class='category-header' ng-repeat="category in categories">
-    <h3>{{ category }}</h3>
+    <h3 class='category-heading'>{{ category }}</h3>
     <hr />
     <div class="category">
       <div class='row__column row-category__column'>

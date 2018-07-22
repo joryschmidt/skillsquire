@@ -16,4 +16,9 @@
   width: 75%;
   padding: .7rem;
   margin: .5rem;
+  transition: background-color 0.1s;
+  
+  &:focus {
+    background-color: $light-grey;
+  }
 }
