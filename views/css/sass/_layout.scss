@@ -21,13 +21,10 @@
   }
 }
 
-.row {
+.content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  
-  &__column {
-    
-  }
+  padding: 0 2rem;
   
   &-category {
     grid-template-columns: 1fr;

@@ -16,7 +16,7 @@
       }
       
       // adjust padding heighten or shorten resource element
-      padding: 1rem;
+      padding: .8rem;
       cursor: pointer;
     }
   }
@@ -63,12 +63,12 @@
       width: 1.5rem;
       height: 1.5rem;
       background-color: $red;
-      //transform: translate(5px, 2px);
     }
     
     &--plus {
       width: 2rem;
       height: 2rem;
+      transform: scale(.87) translateY(3px);
     }
   }
   

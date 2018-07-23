@@ -23,9 +23,10 @@ a:link, a:hover, a:visited, a:active {
   outline: none;
 }
 
-@font-face {
-  font-family: 'Fat Boy Slim';
-  src: url("./fbsbltc2.ttf");
+.heading {
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 2px;
 }
 
 .heading-home--main {
@@ -82,12 +83,13 @@ a:link, a:hover, a:visited, a:active {
   background-color: #919191;
 }
 
-.row {
+.content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  padding: 0 2rem;
 }
 
-.row-category {
+.content-category {
   grid-template-columns: 1fr;
 }
 
@@ -193,7 +195,7 @@ a:link, a:hover, a:visited, a:active {
 }
 
 .resource__btn-group > * {
-  padding: 1rem;
+  padding: .8rem;
   cursor: pointer;
 }
 
@@ -243,6 +245,7 @@ a:link, a:hover, a:visited, a:active {
 .resource__icon--plus {
   width: 2rem;
   height: 2rem;
+  transform: scale(0.87) translateY(3px);
 }
 
 .resource__details {
@@ -297,6 +300,10 @@ a:link, a:hover, a:visited, a:active {
 .dashboard__resource {
   display: inline-block;
   width: 100%;
+}
+
+.dashboard__resource .resource__btn-group > * {
+  padding: 1rem;
 }
 
 .dashboard__resources {
@@ -401,6 +408,68 @@ a:link, a:hover, a:visited, a:active {
 
 .signup__btn--login {
   background-color: #93d0ff;
+}
+
+.about__heading {
+  padding-left: 3rem;
+}
+
+.about__content {
+  display: flex;
+  padding: 2rem;
+}
+
+.about__copy {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.about__example {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.about__example .resource__btn-group > * {
+  padding: 2.5rem;
+}
+
+.about__descriptor {
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.about__descriptor-section {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  padding: 1rem;
+}
+
+.about__descriptor-section .svgs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.about__descriptor-section-large {
+  width: 50%;
+}
+
+.about__descriptor-section:last-child {
+  align-items: flex-end;
+  width: 20%;
+}
+
+.about__descriptor-text {
+  font-size: 1.2rem;
+}
+
+.about__icon {
+  height: 4rem;
+  width: 4rem;
 }
 
 .admin-heading {

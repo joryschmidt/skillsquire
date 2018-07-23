@@ -30,6 +30,12 @@
   &__resource {
     display: inline-block;
     width: 100%;
+    
+    .resource__btn-group {
+      & > * {
+        padding: 1rem;
+      }
+    }
   }
   
   &__resources {
