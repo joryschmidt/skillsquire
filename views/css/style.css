@@ -61,7 +61,7 @@ a:link, a:hover, a:visited, a:active {
 }
 
 .container {
-  width: 120rem;
+  display: block;
   min-height: 100vh;
   margin: 0 auto;
   padding-bottom: 30rem;
@@ -192,37 +192,46 @@ a:link, a:hover, a:visited, a:active {
   border: 1px solid #919191;
   border-radius: 4px;
   overflow: hidden;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr 1fr;
+  justify-items: center;
   align-items: center;
-  justify-content: space-between;
 }
 
 .resource__btn-group > * {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   padding: .8rem;
   cursor: pointer;
 }
 
-.resource__btn-group > *:not(:first-child) {
-  border-left: 1px solid #919191;
-}
-
 .resource__link {
-  width: 12%;
-  height: 100%;
+  width: 100%;
 }
 
 .resource__name {
-  width: 65%;
+  width: 100%;
   text-align: center;
   font-weight: bold;
   box-sizing: content-box;
   background-color: white;
 }
 
+.resource__description {
+  width: 100%;
+  border-left: 1px solid #919191;
+}
+
 .resource__description-text {
   display: inline-block;
   font-size: 1.4rem;
   background-color: white;
+}
+
+.resource__add {
+  width: 100%;
 }
 
 .resource__add--plus {
@@ -234,24 +243,27 @@ a:link, a:hover, a:visited, a:active {
 }
 
 .resource__remove {
+  width: 100%;
+  height: 100%;
   background-color: #a83535;
+  transform: scale(1.05);
+  overflow: hidden;
 }
 
 .resource__icon {
   width: 2rem;
   height: 2rem;
-  transform: translateY(2px);
 }
 
 .resource__icon--cross {
   fill: #f2f2f2;
-  transform: scale(0.8) translateY(4px);
+  transform: scale(0.8);
 }
 
 .resource__icon--plus {
   width: 2rem;
   height: 2rem;
-  transform: scale(0.87) translateY(3px);
+  transform: scale(0.87) translateY(1px);
 }
 
 .resource__details {
@@ -308,8 +320,8 @@ a:link, a:hover, a:visited, a:active {
   width: 100%;
 }
 
-.dashboard__resource .resource__btn-group > * {
-  padding: 1rem;
+.dashboard__resource .resource__btn-group {
+  margin: .5rem;
 }
 
 .dashboard__resources {
@@ -498,7 +510,7 @@ a:link, a:hover, a:visited, a:active {
 }
 
 .admin-container {
-  width: 120rem;
+  display: block;
   min-height: 100vh;
   margin: 0 auto;
   padding-bottom: 30rem;
@@ -598,7 +610,7 @@ a:link, a:hover, a:visited, a:active {
 }
 
 .csheet-container {
-  width: 120rem;
+  display: block;
   min-height: 100vh;
   margin: 0 auto;
   padding-bottom: 30rem;

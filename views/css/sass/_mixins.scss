@@ -6,7 +6,7 @@
 }
 
 @mixin container {
-  width: 120rem;
+  display: block;
   min-height: 100vh;
   margin: 0 auto;
   padding-bottom: 30rem;

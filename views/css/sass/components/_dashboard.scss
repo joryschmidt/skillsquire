@@ -32,8 +32,11 @@
     width: 100%;
     
     .resource__btn-group {
+      margin: .5rem;
+      
       & > * {
-        padding: 1rem;
+        // change this padding to adjust size of dashboard resources
+        //padding: 1rem;
       }
     }
   }
