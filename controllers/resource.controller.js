@@ -7,11 +7,14 @@ exports.create = function(req, res) {
   
   var className = req.body.name.replace(/[ .]/g, '');
   
+  var link = req.body.link;
+  if (link.search(/^http/) == -1) link = 'http://' + link;
+  
   var newResource = new Resource();
   newResource.name = req.body.name;
   newResource.description = req.body.description;
   newResource.long_description = req.body.long_description;
-  newResource.link = req.body.link;
+  newResource.link = link;
   newResource.color = req.body.color;
   newResource.logo = req.body.logo;
   if (req.body.rating) newResource.rating = Number(req.body.rating);
@@ -58,18 +61,6 @@ exports.queue = function(req, res) {
       });
     }
   });
-  
-  // OLD queue method
-  
-  // newQueue.save(function(err, q) {
-  //   if (err) { 
-  //     console.log(err);
-  //     res.status(500);
-  //   } else {
-  //     console.log(q);
-  //     res.json(q);
-  //   }
-  // });
 };
 
 // Get the queue of proposed resources -- Admin function
