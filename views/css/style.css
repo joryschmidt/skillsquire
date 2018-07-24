@@ -29,9 +29,12 @@ a:link, a:hover, a:visited, a:active {
   letter-spacing: 2px;
 }
 
+.heading-letter {
+  transition: color 3s;
+}
+
 .heading-home--main {
   font-size: 6rem;
-  letter-spacing: 5px;
 }
 
 .heading-home--main::after {
@@ -62,7 +65,7 @@ a:link, a:hover, a:visited, a:active {
   min-height: 100vh;
   margin: 0 auto;
   padding-bottom: 30rem;
-  background-color: #f2f2f2;
+  background-color: #fbfbfb;
 }
 
 .nav {
@@ -412,10 +415,13 @@ a:link, a:hover, a:visited, a:active {
 
 .about__heading {
   padding-left: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 5rem;
 }
 
 .about__content {
   display: flex;
+  justify-content: space-evenly;
   padding: 2rem;
 }
 
@@ -423,6 +429,13 @@ a:link, a:hover, a:visited, a:active {
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  width: 35%;
+}
+
+.about__copy-text {
+  margin-bottom: 3rem;
+  text-align: justify;
+  font-size: 1.8rem;
 }
 
 .about__example {
@@ -557,6 +570,10 @@ a:link, a:hover, a:visited, a:active {
 
 .resource-new-category:focus {
   background-color: #c9c9c9;
+}
+
+.resource-queue__resource--btn {
+  background-color: #93d0ff;
 }
 
 .resource-delete {

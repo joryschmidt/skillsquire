@@ -2,13 +2,17 @@
   text-transform: uppercase;
   font-weight: 300;
   letter-spacing: 2px;
+  
+  &-letter {
+    transition: color 3s;
+  }
 }
 
 .heading-home {
   
   &--main {
   font-size: 6rem;
-  letter-spacing: 5px;
+  //letter-spacing: 5px;
   
     &::after {
       content: '';

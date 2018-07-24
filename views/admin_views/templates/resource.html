@@ -37,6 +37,6 @@
 <div class='admin-queue' ng-repeat="q in queue"> 
   <div class='admin-queue__resource'>
     <span>{{ q.name }}&nbsp <a class='admin-queue__resource--link' target="_blank" rel='noopener' href='{{ q.link }}'>{{ q.link }}</a> &nbsp{{ q.user }}&nbsp</span>
-    <div class='admin-queue__resource--btn btn btn-danger' ng-click='removeQItem(q._id)'>OK</div>
+    <div class='admin-queue__resource--btn btn' ng-click='removeQItem(q._id)'>OK</div>
   </div>
 </div>

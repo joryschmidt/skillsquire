@@ -88,6 +88,16 @@
     @include form_style;
   }
   
+  &-queue {
+    
+    &__resource {
+      
+      &--btn {
+        background-color: $light-blue;
+      }
+    }
+  }
+  
   // Delete resource page
   &-delete {
     display: grid;
