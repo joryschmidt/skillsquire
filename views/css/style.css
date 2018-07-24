@@ -233,6 +233,10 @@ a:link, a:hover, a:visited, a:active {
   background-color: #5ca83e;
 }
 
+.resource__remove {
+  background-color: #a83535;
+}
+
 .resource__icon {
   width: 2rem;
   height: 2rem;
@@ -240,9 +244,8 @@ a:link, a:hover, a:visited, a:active {
 }
 
 .resource__icon--cross {
-  width: 1.5rem;
-  height: 1.5rem;
-  background-color: #a83535;
+  fill: #f2f2f2;
+  transform: scale(0.8) translateY(4px);
 }
 
 .resource__icon--plus {

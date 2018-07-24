@@ -54,15 +54,18 @@
     }
   }
   
+  &__remove {
+    background-color: $red;
+  }
+  
   &__icon {
     width: 2rem;
     height: 2rem;
     transform: translateY(2px);
     
     &--cross {
-      width: 1.5rem;
-      height: 1.5rem;
-      background-color: $red;
+      fill: $lighter-grey;
+      transform: scale(.8) translateY(4px);
     }
     
     &--plus {
