@@ -18,6 +18,17 @@
     
   }
   
+  // the queue
+  &-queue {
+    
+    &__resource {
+      
+      &--btn {
+        background-color: $light-blue;
+      }
+    }
+  }
+  
   // Create new admin page
   &-create {
     display: flex;
@@ -88,15 +99,6 @@
     @include form_style;
   }
   
-  &-queue {
-    
-    &__resource {
-      
-      &--btn {
-        background-color: $light-blue;
-      }
-    }
-  }
   
   // Delete resource page
   &-delete {

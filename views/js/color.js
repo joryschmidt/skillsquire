@@ -14,6 +14,7 @@ function getColor() {
   return str;
 }
 
+
 setTimeout(function() {
   $('.heading-letter').each(function(index, element) {
     this.style.color = getColor();

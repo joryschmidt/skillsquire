@@ -505,6 +505,10 @@ a:link, a:hover, a:visited, a:active {
   align-items: flex-start;
 }
 
+.admin-queue__resource--btn {
+  background-color: #93d0ff;
+}
+
 .admin-create {
   display: flex;
   flex-direction: column;
@@ -573,10 +577,6 @@ a:link, a:hover, a:visited, a:active {
 
 .resource-new-category:focus {
   background-color: #c9c9c9;
-}
-
-.resource-queue__resource--btn {
-  background-color: #93d0ff;
 }
 
 .resource-delete {
