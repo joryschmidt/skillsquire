@@ -1,6 +1,10 @@
 .resource {
   margin: 1rem;
   
+  &__template {
+    
+  }
+  
   &__btn-group {
     width: 100%;
     border: $default-border;

@@ -61,7 +61,7 @@ a:link, a:hover, a:visited, a:active {
 }
 
 .container {
-  display: block;
+  width: 120rem;
   min-height: 100vh;
   margin: 0 auto;
   padding-bottom: 30rem;
@@ -321,7 +321,11 @@ a:link, a:hover, a:visited, a:active {
 }
 
 .dashboard__resource .resource__btn-group {
-  margin: .5rem;
+  margin: .5rem 0;
+}
+
+.dashboard__resource .resource__details {
+  transform: translateY(-5px);
 }
 
 .dashboard__resources {
@@ -510,7 +514,7 @@ a:link, a:hover, a:visited, a:active {
 }
 
 .admin-container {
-  display: block;
+  width: 120rem;
   min-height: 100vh;
   margin: 0 auto;
   padding-bottom: 30rem;
@@ -610,7 +614,7 @@ a:link, a:hover, a:visited, a:active {
 }
 
 .csheet-container {
-  display: block;
+  width: 120rem;
   min-height: 100vh;
   margin: 0 auto;
   padding-bottom: 30rem;
