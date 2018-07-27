@@ -43,7 +43,8 @@ var ResourceSchema = new Schema({
     lowercase: true, 
     unique: true
   },
-  categories: [String]
+  categories: [String],
+  reviews: [{ type: Schema.ObjectId, ref: 'Review' }]
 });
 
 module.exports = mongoose.model('Resource', ResourceSchema);

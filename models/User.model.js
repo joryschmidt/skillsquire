@@ -34,7 +34,8 @@ var UserSchema = new Schema({
   },
   resourceList: [{ type: Schema.ObjectId, ref: 'Resource' }],
   customResourceList: [QueueSchema],
-  ratings: {}
+  ratings: {},
+  reviews: [{ type: Schema.ObjectId, ref: 'Review' }]
 });
 
 module.exports = mongoose.model('User', UserSchema);
