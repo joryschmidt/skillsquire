@@ -193,7 +193,7 @@ a:link, a:hover, a:visited, a:active {
   border-radius: 4px;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr 1fr;
+  grid-template-columns: 1fr 4.5fr 1fr 1fr;
   justify-items: center;
   align-items: center;
 }
@@ -232,6 +232,8 @@ a:link, a:hover, a:visited, a:active {
 
 .resource__add {
   width: 100%;
+  transform: scale(1.05);
+  overflow: hidden;
 }
 
 .resource__add--plus {

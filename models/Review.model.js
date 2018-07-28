@@ -6,7 +6,6 @@ var ReviewSchema = new Schema({
     type: Schema.ObjectId, 
     ref: 'User',
     required: true
-    
   },
   resource: { 
     type: Schema.ObjectId, 
@@ -16,13 +15,14 @@ var ReviewSchema = new Schema({
   text: {
     type: String,
     required: true
-  }
+  },
   created: {
     type: Date,
     default: Date.now
   },
   rating: {
-    type: Number
+    type: Number,
+    required: true
   }
 });
 

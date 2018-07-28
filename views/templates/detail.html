@@ -1,38 +1,41 @@
-<div class='banner' style='background-color: {{ resource.color }};'></div>
-
-<div class='detail-view'>
-  <div class='content'>
-    <div class='col-md-4'>
+<div class="detail">
+  <div class='detail__banner' style='background-color: {{ resource.color }};'></div>
+  
+  <div class='detail__content'>
+    <div class='detail__info'>
       <a href='{{ resource.link }}'><img class='rs-logo' ng-src='{{ resource.logo }}' /></a>
-      <div class='rating-form text-center'>
-        <h3>Leave a Rating!</h3>
-        <div class='content'>
-          <form ng-submit='submit()'>
-            <div class='col-md-4 col-md-offset-2'>
-              <select class='form-control' name='rating' id='rating' ng-model='data.rating'>
-                <option value='1'>1 Star</option>
-                <option value='2'>2 Stars</option>
-                <option value='3'>3 Stars</option>
-                <option value='4'>4 Stars</option>
-                <option value='5'>5 Stars</option>
-              </select>
-            </div>
-            <div class='col-md-4'>
-              <input type='submit' value='Submit Rating' class='btn btn-primary' />
-            </div>
-          </form>
-        </div>
-        <div ng-show="{{ data.rating }}">Your rating is {{ data.rating }}</div><br />
         <div id='rateAlert'></div>
-        <span id='add_button' class='btn btn-success' ng-click='addToProfile()'>Add to my dashboard</span>
-        <span id='edit_resource' class='btn btn-danger' ng-if='userIsAdmin' ng-click='editResource()'>Edit Resource</span>
       </div>
+      <span class='detail__info--name'><a href="{{ resource.link }}">{{ resource.name }}</a></span>
+      <div id='detail__info--av-rating'><span ng-repeat="i in [].constructor(data.database_rating) track by $index" class='glyphicon glyphicon-star'></span></div>
+      <span class="detail__info--description">
+        {{ resource.long_description }}
+      </span>
     </div>
     
-    <div class='col-md-7 rs-detail-view-details'>
-      <h2><a href="{{ resource.link }}">{{ resource.name }}</a></h2>
-      <div id='database_rating'><span ng-repeat="i in [].constructor(data.database_rating) track by $index" class='glyphicon glyphicon-star'></span></div>
-      {{ resource.long_description }}
+    
+    <span class='detail__form-heading'>Leave a Rating!</span>
+    <div class='detail__rating-form'>
+      <form ng-submit='submit()'>
+        <div class=''>
+          <select class='form-control' name='rating' id='rating' ng-model='data.rating'>
+            <option value='1'>1 Star</option>
+            <option value='2'>2 Stars</option>
+            <option value='3'>3 Stars</option>
+            <option value='4'>4 Stars</option>
+            <option value='5'>5 Stars</option>
+          </select>
+        </div>
+        <input type='submit' value='Submit Rating' class='btn btn-primary' />
+      </form>
+      </div>
     </div>
+    <div ng-show="{{ data.rating }}">Your rating is {{ data.rating }}</div><br />
   </div>
+  
+  <!--edit resource button for admins-->
+  <span class='detail__button detail__button--edit-resource btn' ng-if='userIsAdmin' ng-click='editResource()'>Edit Resource</span>
+  
+  <!--add to dashboard button for users-->
+  <span class='detail__button detail__button--dashboard btn' ng-if='rootUser' ng-click='addToDashboard()'>Add to my dashboard</span>
 </div>

@@ -1,6 +1,7 @@
 var Resource = require('../models/Resource.model');
 var Queue = require('../models/Queue.model');
 var User = require('../models/User.model');
+var Review = require('../models/Review.model');
 
 // Create a new resource -- Admin function
 exports.create = function(req, res) {
@@ -164,3 +165,33 @@ exports.removeCategory = function(req, res) {
   });
 };
 
+// Create a new review
+exports.writeReview = function(req, res) {
+  var review = new Review();
+  review.user = req.body.user;
+  review.resource = req.body.resource;
+  review.text = req.body.text;
+  review.rating = Number(req.body.rating);
+  
+  review.save(function(err, review) {
+    if (err) {
+      console.log(err);
+      res.status(500).send("Error writing review");
+    } else {
+      console.log(review);
+      res.json(review);
+    }
+  });
+};
+
+exports.getReviews = function(req, res) {
+  Review.find({ resource: req.params.id }).sort({ created: -1 }).exec(function(err, reviews) {
+    if (err) {
+      console.log(err);
+      res.status(500).send("Error retrieving reviews");
+    } else {
+      console.log(reviews);
+      res.json(reviews);
+    }
+  });
+};

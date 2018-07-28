@@ -2,6 +2,7 @@ angular.module('ssq')
 
 .controller('detailCtrl', ['$http', '$scope', '$routeParams', '$rootScope', '$location', function($http, $scope, $routeParams, $rootScope, $location) {
   $scope.data = {};
+  $scope.newReview = {};
   
   var button = document.createElement('span');
   button.innerText = 'Added!';
@@ -23,12 +24,23 @@ angular.module('ssq')
         }
       });
     }
+    
+    $http.get('/resource/reviews/' + id).then(function(query) {
+      $scope.reviews = query.data;
+    });
   });
   
+  $scope.writeReview = function() {
+    $http.post('/resource/review', $scope.newReview).then(function(response) {
+      console.log(response);
+    });
+  }
   
-  $scope.addToProfile = function() {
+  $scope.addToDashboard = function() {
     if (user) {
       $http.put('/user/add_resource', { id: id });
+      
+      // this could use some sprucing up
       var adder = document.getElementById('add_button');
       adder.parentNode.replaceChild(button, adder);
       $rootScope.rootUser.resourceList.push(id);
