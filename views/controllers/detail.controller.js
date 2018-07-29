@@ -20,7 +20,7 @@ angular.module('ssq')
       if ($rootScope.rootUser.ratings) $scope.data.rating = $rootScope.rootUser.ratings[$scope.resource.className];
       user.resourceList.forEach(function(res_id, index) {
         if (res_id == id) {
-          document.getElementById('add_button').remove();
+          // document.getElementById('add_button').remove();
         }
       });
     }

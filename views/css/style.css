@@ -511,6 +511,36 @@ a:link, a:hover, a:visited, a:active {
   width: 4rem;
 }
 
+.detail {
+  position: relative;
+}
+
+.detail__logo {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  height: 12vh;
+  z-index: 1;
+}
+
+.detail__info--name {
+  font-size: 4rem;
+  text-align: right;
+}
+
+.detail__info--description {
+  font-size: 1.5rem;
+}
+
+.detail__banner {
+  width: 100%;
+  height: 10vh;
+  background-image: linear-gradient(190deg, transparent 0%, #fbfbfb 90%);
+  float: left;
+  z-index: 0;
+  margin-bottom: 8vh;
+}
+
 .admin-heading {
   padding: 3rem;
 }

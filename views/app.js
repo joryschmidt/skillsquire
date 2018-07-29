@@ -106,7 +106,10 @@
         rsc: '=',
         removeRsc: '='
       },
-      templateUrl: 'templates/resource-template-user.html'
+      templateUrl: 'templates/resource-template-user.html',
+      controller: function($scope) {
+        $scope.roundRating = function(rating) { return Math.round(rating) };
+      }
     };
   });
 

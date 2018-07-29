@@ -3,11 +3,10 @@
   
   <div class='detail__content'>
     <div class='detail__info'>
-      <a href='{{ resource.link }}'><img class='rs-logo' ng-src='{{ resource.logo }}' /></a>
-        <div id='rateAlert'></div>
-      </div>
-      <span class='detail__info--name'><a href="{{ resource.link }}">{{ resource.name }}</a></span>
-      <div id='detail__info--av-rating'><span ng-repeat="i in [].constructor(data.database_rating) track by $index" class='glyphicon glyphicon-star'></span></div>
+      <a href='{{ resource.link }}'><img class='detail__logo' ng-src='{{ resource.logo }}' /></a>
+      <div id='rateAlert'></div>
+      <span class='detail__info--name heading'><a href="{{ resource.link }}">{{ resource.name }}</a></span>
+      <div id='detail__info--av-rating'><span ng-repeat="i in [].constructor(data.database_rating) track by $index" class='detail__stars'><svg class='detail__star resource__icon'><use xlink:href='css/sprite.svg#icon-star-full'></use></svg></span></div>
       <span class="detail__info--description">
         {{ resource.long_description }}
       </span>
@@ -15,10 +14,10 @@
     
     
     <span class='detail__form-heading'>Leave a Rating!</span>
-    <div class='detail__rating-form'>
+    <div class='detail__form'>
       <form ng-submit='submit()'>
         <div class=''>
-          <select class='form-control' name='rating' id='rating' ng-model='data.rating'>
+          <select class='detail__form-stars' name='rating' id='rating' ng-model='data.rating'>
             <option value='1'>1 Star</option>
             <option value='2'>2 Stars</option>
             <option value='3'>3 Stars</option>
@@ -26,11 +25,10 @@
             <option value='5'>5 Stars</option>
           </select>
         </div>
-        <input type='submit' value='Submit Rating' class='btn btn-primary' />
+        <input type='submit' value='Submit Rating' class='detail__button detail__button--form btn' />
       </form>
-      </div>
     </div>
-    <div ng-show="{{ data.rating }}">Your rating is {{ data.rating }}</div><br />
+    <div detail__form-rating ng-show="{{ data.rating }}">Your rating is {{ data.rating }}</div>
   </div>
   
   <!--edit resource button for admins-->
