@@ -2,7 +2,6 @@ angular.module('ssq')
 
 .controller('detailCtrl', ['$http', '$scope', '$routeParams', '$rootScope', '$location', function($http, $scope, $routeParams, $rootScope, $location) {
   $scope.data = {};
-  $scope.newReview = {};
   
   var button = document.createElement('span');
   button.innerText = 'Added!';
@@ -11,6 +10,12 @@ angular.module('ssq')
   
   var id = $routeParams.id;
   var user = $rootScope.rootUser;
+  
+  $scope.newReview = {
+    resource: id,
+    user: user._id
+  };
+  
   
   $http.get('/resource/' + id).then(function(query) {
     $scope.resource = query.data;
@@ -30,7 +35,7 @@ angular.module('ssq')
     });
   });
   
-  $scope.writeReview = function() {
+  $scope.submit = function() {
     $http.post('/resource/review', $scope.newReview).then(function(response) {
       console.log(response);
     });
@@ -54,15 +59,14 @@ angular.module('ssq')
   }
   
   
-  $scope.submit = function() {
-    if (user) {
-      $http.post('/user/rate', $scope.data).then(function(response) {
-        document.getElementById('rateAlert').innerText = 'Rating successful';
-        $rootScope.rootUser.ratings[$scope.data.name] = $scope.data.rating;
-      });
-    }
-    else {
-      window.location.href = '/#!/login';
-    }
-  };
+  // $scope.submit = function() {
+  //   if (user) {
+  //     $http.post('/user/rate', $scope.data).then(function(response) {
+  //       $rootScope.rootUser.ratings[$scope.data.name] = $scope.data.rating;
+  //     });
+  //   }
+  //   else {
+  //     window.location.href = '/#!/login';
+  //   }
+  // };
 }]);

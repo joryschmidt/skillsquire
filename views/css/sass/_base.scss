@@ -44,3 +44,8 @@ a:link, a:hover, a:visited, a:active {
   text-decoration: none;
   outline: none;
 }
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}

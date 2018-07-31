@@ -23,6 +23,11 @@ a:link, a:hover, a:visited, a:active {
   outline: none;
 }
 
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
 .heading {
   text-transform: uppercase;
   font-weight: 300;
@@ -515,6 +520,13 @@ a:link, a:hover, a:visited, a:active {
   position: relative;
 }
 
+.detail__content {
+  display: flex;
+  position: absolute;
+  top: 20vh;
+  left: 0;
+}
+
 .detail__logo {
   position: absolute;
   top: 2rem;
@@ -532,6 +544,36 @@ a:link, a:hover, a:visited, a:active {
   font-size: 1.5rem;
 }
 
+.detail__form {
+  display: flex;
+  flex-direction: column;
+  width: 40rem;
+  margin: 2rem;
+}
+
+.detail__form__select {
+  align-self: flex-start;
+  width: 10rem;
+  text-align: center;
+  appearance: none;
+  padding: 1rem;
+}
+
+.detail__form__textarea {
+  height: 20rem;
+}
+
+.detail__form-format-div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.detail__form-container {
+  margin: 2rem;
+  margin-right: 4rem;
+}
+
 .detail__banner {
   width: 100%;
   height: 10vh;
@@ -539,6 +581,10 @@ a:link, a:hover, a:visited, a:active {
   float: left;
   z-index: 0;
   margin-bottom: 8vh;
+}
+
+.detail__button--form {
+  align-self: flex-start;
 }
 
 .admin-heading {

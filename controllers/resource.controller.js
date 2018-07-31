@@ -190,7 +190,7 @@ exports.getReviews = function(req, res) {
       console.log(err);
       res.status(500).send("Error retrieving reviews");
     } else {
-      console.log(reviews);
+      console.log('Reviews: ' + reviews);
       res.json(reviews);
     }
   });
