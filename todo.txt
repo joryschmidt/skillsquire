@@ -10,6 +10,7 @@ Make profile view to edit personal details
 move heading styles into own class
 angular slide is a bit wonky. perhaps make it happen with css
 ratings should be included only in review data model
+resource details slide could be link to reviews page
 
 
 Maybes
