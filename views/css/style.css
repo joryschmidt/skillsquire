@@ -34,12 +34,9 @@ input, textarea, select {
   letter-spacing: 2px;
 }
 
-.heading-letter {
-  transition: color 5s;
-}
-
 .heading-home--main {
   font-size: 6rem;
+  letter-spacing: 6px;
 }
 
 .heading-home--main::after {

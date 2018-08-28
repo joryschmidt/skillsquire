@@ -27,14 +27,7 @@
       })
       .when('/profile', {
         templateUrl: 'templates/profile.html',
-        controller: 'profileCtrl',
-        resolve: {
-          check: function(hasRootUser) {
-            if (!hasRootUser.check) {
-              window.location.href = '/';
-            }
-          }
-        }
+        controller: 'profileCtrl'
       })
       .when('/about', {
         templateUrl: 'templates/about.html',
