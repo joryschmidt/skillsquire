@@ -40,6 +40,12 @@
     font-weight: bold;
     box-sizing: content-box;
     background-color: white;
+    
+    &-text {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
   
   &__description {

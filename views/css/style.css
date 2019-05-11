@@ -221,6 +221,12 @@ input, textarea, select {
   background-color: white;
 }
 
+.resource__name-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .resource__description {
   width: 100%;
   border-left: 1px solid #919191;

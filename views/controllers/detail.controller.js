@@ -12,9 +12,10 @@ angular.module('ssq')
   var user = $rootScope.rootUser;
   
   $scope.newReview = {
-    resource: id,
-    user: user._id
+    resource: id
   };
+  
+  if (user) $scope.newReview.user = user._id;
   
   
   $http.get('/resource/' + id).then(function(query) {
