@@ -1,6 +1,6 @@
 var User = require('../models/User.model');
 var Resource = require('../models/Resource.model');
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcryptjs');
 
 // Register a new user
 exports.register = function(req, res, next) {

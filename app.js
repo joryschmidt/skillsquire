@@ -6,16 +6,22 @@ var bodyParser = require('body-parser');
 var bluebird = require('bluebird');
 var sass = require('node-sass-middleware');
 var sessions = require('client-sessions');
+require('dotenv').config();
 
 var main = require('./routes/main');
 var admin = require('./routes/admin');
 var resource = require('./routes/resource');
 var user = require('./routes/user');
 
-var db = 'mongodb://' + process.env.IP + '/ssq';
+var host = process.env.IP || '0.0.0.0';
+var db = 'mongodb://' + host + '/ssq';
+var mongoose_options = { 
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+};
 
 mongoose.Promise = bluebird;
-mongoose.connect(process.env.MONGODB_URI || db);
+mongoose.connect(process.env.MONGODB_URI || db, mongoose_options);
 
 var app = express();
 
